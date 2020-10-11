@@ -1,60 +1,26 @@
-from PIL import Image
-import matplotlib.pyplot as plot
 import numpy as np
+import recurrence_plot as rp
+import csv
 
-# Constant
-r = 0.1
-counter = 0
-counterSimilar = 0
+csvData=[]
 
-# Data arrays
-yi = []
-similarities = []
-similaritiesX = []
-similaritiesY = []
-
-time = np.arange(0, 360 , 0.3)
+time = np.arange(0, 180 , 0.3)
 amplitude = np.round(np.sin(time), 5)
 
-# Arrange data values into pairs
-for i in range(0, len(amplitude)-1):
-    yi.append([amplitude[i], amplitude[i+1]])
+with open("dow-jones.csv") as csvfile:
+    # change contents to floats
+    reader = csv.reader(csvfile)
+    for row in reader:  # each row is a list
+        csvData.append(float(row[4]))
+        if (len(csvData)>1000):
+            break
 
-# Iterate to find similar pairs
-for i in range(0, len(yi)-1):
-    for j in range(0, len(yi)-1):
-        # if (i < j):
-        idata1 = yi[i][0]
-        jdata1 = yi[j][0]
-        idata2 = yi[i][1]
-        jdata2 = yi[j][1]
+print(max(csvData))
+print(min(csvData))
 
-        isFirstSimilar = abs(idata1 - jdata1) <= r
-        isSecondSimilar = abs(idata2 - jdata2) <= r
+# print(max(csvData) - min(csvData))
+r = (max(amplitude) - min(amplitude))*0.15
 
-        if(isFirstSimilar and isSecondSimilar):
-            similarities.append([i, j])
-            similaritiesX.append(i)
-            similaritiesY.append(j)
-
-            counterSimilar+=1
-        counter+=1
-        j+=1
-    i+=1
-
-print("Number of data entries:\t" + str(len(amplitude)))
-print("Number of data pairs:\t" + str(len(yi)))
-print("Number of iterations:\t" + str(counter))
-print("Number of matches:\t" + str(counterSimilar))
-print("\nSimilar pairs:\t" + str(similarities))
-# print("\nSimilarty pisitions X:\t" + str(similaritiesX))
-# print("\nSimilarty pisitions Y:\t" + str(similaritiesY))
-
-
-img = Image.new('RGB', (len(yi), len(yi)), "white")  # Create a new black image
-pixels = img.load()  # Create the pixel map
-
-for i in similarities:
-    pixels[i[0],i[1]] = (0,0,0)
-
-img.show()
+print(r)
+# rp.generate_recurrence_diagram(2, 1, r, csvData)
+rp.generate_recurrence_diagram(3, 2, 0.55, amplitude)
