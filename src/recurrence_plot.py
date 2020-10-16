@@ -1,8 +1,18 @@
 from PIL import Image
 import matplotlib.pyplot as plot
 import numpy as np
+from scipy import signal
 
-def generate_recurrence_diagram(D: int, d: int, r: float, data: list) -> list:
+def do_downsample(data: list, target: int = 720) -> list:
+    if(len(data) <= target):
+        return data
+    else:
+        return list(signal.resample(data, target))
+
+def generate_recurrence_plot(D:int, d:int, r:float, data:list, downSample:bool=False, downSampleTarget:int=720) -> list:
+    if (downSample):
+        data=do_downsample(data)
+    
     N = len(data)
     M = N-(D-1)*d
     sygnalStates = []
@@ -30,6 +40,6 @@ def generate_recurrence_diagram(D: int, d: int, r: float, data: list) -> list:
     pixels = img.load()  # Create the pixel map
 
     for i in similarities:
-        pixels[i[0], i[1]] = (0, 0, 0)
+        pixels[(i[0]), M-1-i[1]] = (0, 0, 0)
 
     img.show()
