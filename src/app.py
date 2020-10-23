@@ -1,5 +1,5 @@
 import numpy as np
-import recurrence_plot as rp
+from recurrence_plot import RecurrencePlot as rp
 import csv
 
 csvData=[]
@@ -15,12 +15,16 @@ with open("dow-jones.csv") as csvfile:
 
 r = (max(csvData) - min(csvData))*0.20
 
-rp.generate_recurrence_plot(3, 1, r, csvData, False)
+dow = rp(4 , 1, csvData)
+
+dow.get_pixel_percentage()
+dow.draw_diagram()
+
 # rp.generate_recurrence_diagram(3, 2, 0.55, amplitude)
 
+# print(plotdata)
 """
     TODO: 
         1. r calibration
         2. Performance improvement (Use Maximum formula)
-
 """
