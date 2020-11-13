@@ -12,20 +12,26 @@ class RecurrencePlot:
         self.target = target
         self.downSample = downSample
         self.downSampleTarget = downSampleTarget
+        self.allowed_r_deviation = 0.0005
         self.N = len(data)
         self.M = self.N-(D-1)*d
-        self.r = (max(data) - min(data))*target/100
-        self.r = max(data)
-        # self.find_r()
-        self.calculate_recurrences()
+        self.r = self.percentage = 0
 
+        self.calibrate_r()
 
-    def find_r(self):
-        # r_max = (max(self.data) - min(self.data))*self.target/100
+    def calibrate_r(self):
+        r_last = (max(self.data) - min(self.data))*np.sqrt(self.D)
+        percentage_last=100
 
-
-        return 0
-
+        counter = 0
+        while (abs(self.percentage-self.target) > self.allowed_r_deviation):
+            self.r = (self.r+r_last)/(self.percentage+percentage_last)*self.target
+            self.calculate_recurrences()
+            percentage_last = self.percentage
+            r_last = self.r
+            
+            print("R", counter, "=", self.r, "\tNow %", counter, "=", self.percentage)
+            counter +=1
 
     def calculate_recurrences(self):
         similarities = []
@@ -53,19 +59,15 @@ class RecurrencePlot:
                     similarities.append([i, j])
 
         self.similarities = similarities
-
+        self.get_pixel_percentage()
 
     def draw_diagram(self):
         drawArray = self.similarities
 
         # Fill in the missing data triangle
-        print(len(self.similarities))
-        print(len(self.similarities)*2)
-
         for i in range(0, len(self.similarities)):
             drawArray.append([drawArray[i][1], drawArray[i][0]])
 
-        print(len(drawArray))
         # Create a black image
         img = Image.new('RGB', (self.M, self.M), "white")
         pixels = img.load()
@@ -75,14 +77,8 @@ class RecurrencePlot:
             pixels[i[0], self.M-i[1]-1] = (0, 0, 0)
         img.show()
 
-
     def get_pixel_percentage(self):
-        # Calculate percentage of similarities
-        percentage = (len(self.similarities)-self.M)/((self.M)*(self.M)-self.M)*200
-        print("N:\t", self.N, "\nM:\t", self.M, "\nD:\t", self.D, "\nd:\t", self.d, "\nr:\t", self.M,)
-        print("Percentage:\t", percentage)
-        return percentage
-
+        self.percentage = (len(self.similarities)-self.M)/((self.M)*(self.M)-self.M)*200
 
     def do_downsample(data: list, target: int = 720) -> list:
         if(len(data) <= target):
