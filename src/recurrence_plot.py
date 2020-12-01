@@ -49,12 +49,12 @@ class RecurrencePlot:
         similarities = []
         sygnalStates = []
 
-        # Generate data pairs, tripplets, quadruplets ... D - uplets
+        # Generate data pairs, tripplets, quadruplets... D - plets
         for i in range(0, self.M):
             state = []
 
             for j in range(0, self.D):
-                state.append(self.data[i+(j*self.d)])
+                state.append(self.data[i+j*self.d])
 
             sygnalStates.append(state)
 

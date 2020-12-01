@@ -15,4 +15,5 @@ with open(path + "/assets/dow-jones.csv") as csvfile:
         if (len(csvData)>=1000): break
 
 dow = rp(10 , 3, csvData, 1)
-# dow.draw_diagram()
+
+dow.draw_diagram()
