@@ -43,8 +43,33 @@
 
 
 
- %the main part
+%the main part
 \newpage
+
+\section{Recurrence diagram}
+\label{sec:motivation}
+
+\subsection{Signals and signal processing}
+
+\begin{lstlisting}
+  sygnalStates = []
+
+  # Generate data pairs, tripplets, quadruplets... D - plets
+  for i in range(0, self.M):
+      state = []
+
+      for j in range(0, self.D):
+          state.append(self.data[i+(j*self.d)])
+
+      sygnalStates.append(state)
+\end{lstlisting}
+% 1. Rekurencine diagrama
+% 1.1. Signalu analize
+% 1.2. 
+%
+%
+
+
 \section{Pirmasis skyrius}
 \label{sec:motivation}
 \subsection{Pirmojo skyriaus poskyris}
