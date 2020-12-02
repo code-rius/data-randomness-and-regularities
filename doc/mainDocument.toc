@@ -3,8 +3,8 @@
 \contentsline {section}{Abstract}{4}{section*.3}
 \contentsline {section}{Santrauka}{5}{section*.4}
 \contentsline {section}{\nameref {sec:intro}}{6}{section*.5}
-\contentsline {section}{\numberline {1}Recurrence diagram}{7}{section.1}
-\contentsline {subsection}{\numberline {1.1}Signals and signal processing}{7}{subsection.1.1}
+\contentsline {section}{\numberline {1}Signal processing and Recurrence diagram}{7}{section.1}
+\contentsline {subsection}{\numberline {1.1}Recurrence diagram}{7}{subsection.1.1}
 \contentsline {section}{\numberline {2}Pirmasis skyrius}{7}{section.2}
 \contentsline {subsection}{\numberline {2.1}Pirmojo skyriaus poskyris}{7}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}Pirmojo skyriaus pirmo poskyrio poskyris}{7}{subsubsection.2.1.1}
