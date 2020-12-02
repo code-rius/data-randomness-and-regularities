@@ -11,3 +11,6 @@ Implementation of application for visualization of regularities and randomness i
 ```
 pip install numpy matplotlib spicy
 ```
+
+### Writing a bachelors thesis references
+https://mif.vu.lt/lt3/studijos/bakalaurams#ra%C5%A1to-darbai-5
