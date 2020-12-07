@@ -1,9 +1,15 @@
 \begin{thebibliography}{1}
 
-\bibitem{KTZ}
-Valentina Dagienė, Gintautas Grigas, and Tatjana Jevsikova.
-\newblock Anglų–lietuvių kalbų kom\-piuterijos žodynas.
-\newblock Vilniaus universitetas. Matematikos ir informatikos institutas, 2012.
-\newblock \newline \url{http://ims.mii.lt/ALK\%C5\%BD/}.
+\bibitem{lyons2004understanding}
+R.G. Lyons.
+\newblock {\em Understanding Digital Signal Processing}.
+\newblock Prentice Hall professional technical reference. Prentice Hall/PTR,
+  2004.
+
+\bibitem{priemer1990introductory}
+R.~Priemer.
+\newblock {\em Introductory Signal Processing}.
+\newblock Advanced Series In Electrical And Computer Engineering. World
+  Scientific Publishing Company, 1990.
 
 \end{thebibliography}
