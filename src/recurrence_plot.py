@@ -108,7 +108,7 @@ class RecurrencePlot:
     def get_pixel_percentage(self):
         self.percentage = (len(self.similarities)-self.M)/((self.M)*(self.M)-self.M)*200
 
-    def do_downsample(data: list, target: int = 720) -> list:
+    def do_downsample(self, data: list, target: int = 720) -> list:
         if(len(data) <= target):
             return data
         else:
