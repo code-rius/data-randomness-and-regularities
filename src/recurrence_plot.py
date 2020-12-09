@@ -19,7 +19,6 @@ class RecurrencePlot:
         self.N = len(data)
         self.M = self.N-(D-1)*d
         self.r = self.percentage = 0
-
         self.calibrate_r()
 
     def calibrate_r(self):

@@ -2,6 +2,7 @@ import numpy as np
 from recurrence_plot import RecurrencePlot as rp
 import csv
 import os
+import json
 csvData=[]
 
 time = np.arange(0, 180 , 0.3)
