@@ -1,16 +1,17 @@
 \babel@toc {english}{}
-\contentsline {section}{\nameref {sec:keywords}}{3}{section*.2}
-\contentsline {section}{Abstract}{4}{section*.3}
-\contentsline {section}{Santrauka}{5}{section*.4}
-\contentsline {section}{\nameref {sec:intro}}{6}{section*.5}
-\contentsline {section}{\numberline {1}Signal processing and Recurrence diagram}{7}{section.1}
-\contentsline {subsection}{\numberline {1.1}Signal processing}{7}{subsection.1.1}
-\contentsline {section}{\numberline {2}Pirmasis skyrius}{7}{section.2}
-\contentsline {subsection}{\numberline {2.1}Pirmojo skyriaus poskyris}{7}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Pirmojo skyriaus pirmo poskyrio poskyris}{7}{subsubsection.2.1.1}
-\contentsline {section}{\nameref {sec:conclu}}{8}{section*.7}
-\contentsline {section}{\nameref {sec:future}}{9}{section*.8}
-\contentsline {section}{References}{10}{section*.9}
-\contentsline {section}{Appendices}{11}{section*.11}
-\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{12}{Appendix.1.A}
-\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{13}{Appendix.1.B}
+\contentsline {section}{\nameref {sec:keywords}}{3}{section*.2}%
+\contentsline {section}{Abstract}{4}{section*.3}%
+\contentsline {section}{Santrauka}{5}{section*.4}%
+\contentsline {section}{\nameref {sec:intro}}{6}{section*.5}%
+\contentsline {section}{\numberline {1}Signal processing and Recurrence plot}{7}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Signal processing}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Signal property categories}{7}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Pirmasis skyrius}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Pirmojo skyriaus poskyris}{8}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Pirmojo skyriaus pirmo poskyrio poskyris}{8}{subsubsection.2.1.1}%
+\contentsline {section}{\nameref {sec:conclu}}{9}{section*.7}%
+\contentsline {section}{\nameref {sec:future}}{10}{section*.8}%
+\contentsline {section}{References}{11}{section*.9}%
+\contentsline {section}{Appendices}{12}{section*.11}%
+\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{13}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{14}{appendix.1.B}%

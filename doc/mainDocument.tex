@@ -20,10 +20,10 @@
 \input{macros}
 
 \begin{document}
-  % #1 -report type, #2 - title, #3-7 students, #8 - supervisor
-  \depttitlepage{Bachelors Thesis}{Implementation of application for visualization of regularities and randomness in data}{Audrius Baranauskas} 
-  {}{}{}{}% students 2-5
-  {dr. Tadas Meškauskas}
+% #1 -report type, #2 - title, #3-7 students, #8 - supervisor
+\depttitlepage{Bachelors Thesis}{Implementation of application for visualization of regularities and randomness in data}{Audrius Baranauskas}
+{}{}{}{}% students 2-5
+{dr. Tadas Meškauskas}
 
 \tableofcontents
 
@@ -31,30 +31,79 @@
 %keywords and notations if needed
 \sectionWithoutNumber{Keywords}{keywords}{Pateikiamas terminų sąrašas (jei reikia)}
 
- %both abstracts
+%both abstracts
 \bothabstracts{\input{abstract}}%tex-file of abstract in original language
 {Darbo pavadinimas kita kalba} %if work is in LT this title should be in English
 {\input{abstractEN}}%tex-file of abstract in other language
 
 
- %Introduction section: label is sec:intro
+%Introduction section: label is sec:intro
 \sectionWithoutNumber{\keyWordIntroduction}{intro}
 \input{introduction.tex}
 
 
+%=============================================================
+%========================The main part========================
+%=============================================================
 
-%the main part
 \newpage
 
-\section{Signal processing and Recurrence diagram}
+\section{Signal processing and Recurrence plot}
 \label{sec:motivation}
 \subsection{Signal processing}
+
 A signal is a function that conveys information about the behaviour of a system
 or attributes of some phenomenon \cite{priemer1990introductory}.
+For example, measuring the time taken between a weight-driven
+pendulum clock's ticks produces signal.
+In turn, for the scope of this paper, we defined the term signal processing as
+\textit{the science of analyzing time-varying processes} 
+\cite{lyons2004understanding}.
+By processing a signal we analyzed the non-triviality of a given signal.
+Analyzing a signal reveals that some signals 
+have properties that can be categorized.
 
-Some signals are inherently simple such as the time taken 
-between a weight-driven pendulum clock's ticks, the speed of
-a falling object or 
+\subsection{Signal property categories}
+
+
+We have considered the following categories:
+\begin{enumerate}
+  \item Stationary and non stationary signals
+  \item 
+\end{enumerate}
+
+
+Signals have varying properties. Some consist of simple repetitions while others
+have no apparent patterns.
+For example, measuring the time taken between a weight-driven
+pendulum clock's ticks produces a relatively simple (trivial) signal.
+
+
+% For the scope of this paper, we defined the term signal 
+% processing as \textit{the science of analyzing time-varying 
+% processes} \cite{lyons2004understanding}.
+
+
+
+
+% \subsection{Signal classification}
+% Signals have several classes. For the scope of this paper we considered
+% the classes \cite{lathi1998signal}:
+% \begin{enumerate}
+%   \item Stationary and non-stationary signals
+%   \item 
+%   \item Periodic, quasi periodic and aperiodic signals 
+
+
+% \end{enumerate}
+
+
+
+
+
+
+% Some signals are inherently simple such as the time taken
+% a falling object or
 
 % \begin{lstlisting}
 %   sygnalStates = []
@@ -68,12 +117,9 @@ a falling object or
 
 %       sygnalStates.append(state)
 % \end{lstlisting}
-% 1. Rekurencine diagrama
-% 1.1. Signalu analize
-% 1.2. 
-%
-%
 
+
+\newpage
 
 \section{Pirmasis skyrius}
 \label{sec:motivation}
@@ -86,16 +132,16 @@ Pateikiamas \ref{sec:example} poskyrio tekstas. Vienas iš šaltinių~\cite{KTZ}
 Pateikiamas trečio lygio poskyrio tekstas.
 
 \begin{equation}
-x = \sum_{i=1}^N m_i
+  x = \sum_{i=1}^N m_i
 \end{equation}
 
 \begin{table}[!ht]\centering
-\caption{Lentelė ... }
-\label{tabl:table}
-\begin{tabular}{l|r|}
-test&test\\ \hline
-test&test\\
-\end{tabular}
+  \caption{Lentelė ... }
+  \label{tabl:table}
+  \begin{tabular}{l|r|}
+    test & test \\ \hline
+    test & test \\
+  \end{tabular}
 \end{table}
 
 Sprendimas pristatomas \ref{alg:1} algoritme, o įgyvendinimas -- \ref{abc} išeities kode.
@@ -103,10 +149,10 @@ Sprendimas pristatomas \ref{alg:1} algoritme, o įgyvendinimas -- \ref{abc} iše
 \begin{algorithm}\caption{Algoritmas uždavinio sprendimui}
   \label{alg:1}
   \begin{algorithmic}
-    \REQUIRE 
-    \ENSURE 
-\STATE a \AND b
-\end{algorithmic}
+    \REQUIRE
+    \ENSURE
+    \STATE a \AND b
+  \end{algorithmic}
 
 
 \end{algorithm}
@@ -118,7 +164,7 @@ public static void main(String args[]){
 }
 \end{lstlisting}
 
- %Conclusions section
+%Conclusions section
 \sectionWithoutNumber{\keyWordConclusions}{conclu}
 \input{conclusions.tex}
 
@@ -126,7 +172,7 @@ public static void main(String args[]){
 \sectionWithoutNumber{Ateities tyrimų planas}{future}{Pristatomi ateities darbai ir/ar jų planas, gairės tolimesniems darbams....}
 
 
- %file literatureSources.bib
+%file literatureSources.bib
 \referenceSources{literatureSources}
 
 
@@ -134,15 +180,15 @@ public static void main(String args[]){
 %% this part is optional
 \newpage
 \begin{appendices}
-Dokumentą sudaro du priedai: \ref{app:a} priede  ....
-\newpage
-\section{Pirmojo priedo pavadinimas}
-\label{app:a}
-Pirmojo priedo tekstas ...
+  Dokumentą sudaro du priedai: \ref{app:a} priede  ....
+  \newpage
+  \section{Pirmojo priedo pavadinimas}
+  \label{app:a}
+  Pirmojo priedo tekstas ...
 
-\newpage
-\section{Antrojo priedo pavadinimas}
-Antrojo priedo tekstas ...
+  \newpage
+  \section{Antrojo priedo pavadinimas}
+  Antrojo priedo tekstas ...
 
 \end{appendices}
 
