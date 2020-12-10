@@ -1,11 +1,17 @@
 import flask
+import numpy as np
+import os
+
 from flask import request
 from recurrence_plot import RecurrencePlot as rp
-import numpy as np
+from tinydb import TinyDB, Query
+
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+app.config['DEBUG'] = True
 
+path = os.path.dirname(os.path.realpath(__file__))
+db = TinyDB(path + '/assets/plot-data.json')
 
 class get_current_user():
     username = 'Audrius'
@@ -13,39 +19,44 @@ class get_current_user():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return "Testing my web server"
+    return 'Testing my web server'
 
 
-@app.route("/recurrence_plot/<data>", methods=['POST'])
+@app.route('/recurrence_plot/<data>', methods=['POST'])
 def me_api(data):
     user = get_current_user()
-    print("=======Request data coming in=======")
+    print('=======Request data coming in=======')
     print(request.form)
-    print("=======end of request data =======")
+    print('=======end of request data =======')
     uploaded_file = request.files['csvdata']
     if uploaded_file.filename != '':
         uploaded_file.save(uploaded_file.filename)
         print(uploaded_file.filename)
     return {
-        "data": data,
-        "theme": user.theme,
-        "username": user.username
+        'data': data,
+        'theme': user.theme,
+        'username': user.username
     }
 
+@app.route('/get_plot_data', methods=['GET'])
+def get_plot_data():
+  path = os.path.dirname(os.path.realpath(__file__))
+  print(os.listdir(path + '/assets/'))
+  return {'Hello':'Hellooo'}
 
-@app.route("/plot_json/", methods=['POST'])
+@app.route('/plot_json/', methods=['POST'])
 def plot_json():
-    data_strings = request.json["data"]
-    params = request.json["params"]
+    data_strings = request.json['data']
+    params = request.json['params']
     data_floats = [float(i) for i in data_strings]
 
-    M, N, compareMode = params["M"], params["N"], params["compareMode"]
+    M, N, compareMode = params['M'], params['N'], params['compareMode']
 
     rec_plot = rp(M, N, data_floats, compareMode)
     # rec_plot.draw_diagram()
 
     return {
-        "plot_data": rec_plot.similarities
+        'plot_data': rec_plot.similarities
     }
 
-app.run()
+app.run(ssl_context='adhoc')
