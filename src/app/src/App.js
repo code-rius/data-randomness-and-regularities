@@ -1,11 +1,23 @@
-import './App.css';
+import './App.scss';
 import TodoList from './TodoList';
+import Selector from './Selector.js';
+import Header from './Header.js';
+
 import { useState, useRef, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+
+const fetch = require('node-fetch');
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
 const App = () => {
+  const [plotData, setPlotData] = useState([])
+
+  useEffect(() => {
+    fetch( )
+  }, [])
+
+
   const [todos, setTodos] = useState([])
 
   const todoNameRef = useRef()
@@ -42,15 +54,29 @@ const App = () => {
   } 
 
   return (
-    <div className="App">
-      {/* <TodoList todos={todos} toggleTodo={toggleTodo}/>
-      <input ref={todoNameRef} type="text"/>
-      <button onClick={handleAddTodo}>Add data</button>
-      <button onClick={handleClearTodos}>Clear stuff</button>
-      <div>{todos.filter(todo => !todo.complete).length} left to do</div> */}
-
-      
-    </div>
+    <>
+      <Header />
+      <div className="app">
+        <div className="wrapper">
+          <div>
+            <Selector />
+          </div>
+          <div>
+            <h3>
+              Recurrence plot
+            </h3>
+          </div>
+          <div>
+            <h1>Viewer</h1>
+            <TodoList todos={todos} toggleTodo={toggleTodo}/>
+            <input ref={todoNameRef} type="text"/>
+            <button onClick={handleAddTodo}>Add data</button>
+            <button onClick={handleClearTodos}>Clear stuff</button>
+            <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
