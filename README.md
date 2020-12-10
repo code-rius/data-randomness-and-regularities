@@ -10,7 +10,7 @@ Implementation of application for visualization of regularities and randomness i
 
 ### Install python dependencies
 ```
-pip install numpy matplotlib spicy flash
+pip install numpy matplotlib spicy flask pyopenssl tinydb
 ```
 
 ### Writing a bachelors thesis references
