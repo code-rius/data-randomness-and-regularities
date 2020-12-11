@@ -1,6 +1,5 @@
-import flask
+import flask, os, uuid
 import numpy as np
-import os
 
 from flask import request
 from recurrence_plot import RecurrencePlot as rp
@@ -10,16 +9,20 @@ from tinydb import TinyDB, Query
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
 
+
 path = os.path.dirname(os.path.realpath(__file__))
 db = TinyDB(path + '/assets/plot-data.json')
+
 
 class get_current_user():
     username = 'Audrius'
     theme = 'Dark'
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return 'Testing my web server'
+    print(uuid.uuid4())
+    return {'Reponse': 'success'}
 
 
 @app.route('/recurrence_plot/<data>', methods=['POST'])
@@ -38,11 +41,13 @@ def me_api(data):
         'username': user.username
     }
 
+
 @app.route('/get_plot_data', methods=['GET'])
 def get_plot_data():
-  path = os.path.dirname(os.path.realpath(__file__))
-  print(os.listdir(path + '/assets/'))
-  return {'Hello':'Hellooo'}
+    path = os.path.dirname(os.path.realpath(__file__))
+    print(os.listdir(path + '/assets/'))
+    return {'Hello': 'Hellooo'}
+
 
 @app.route('/plot_json/', methods=['POST'])
 def plot_json():
@@ -59,4 +64,5 @@ def plot_json():
         'plot_data': rec_plot.similarities
     }
 
-app.run(ssl_context='adhoc')
+
+app.run()

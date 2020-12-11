@@ -14,7 +14,7 @@ const App = () => {
   const [plotData, setPlotData] = useState([])
 
   useEffect(() => {
-    fetch( )
+    // fetch( )
   }, [])
 
 
