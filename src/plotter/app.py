@@ -16,6 +16,6 @@ with open(path + "/assets/DJI.csv") as csvfile:
         csvData.append(float(row[4]))
         # if (len(csvData)>=1150): break
 
-dow = rp(3 , 1, csvData, 1)
+dow = rp(3 , 2, csvData, 0)
 
 dow.draw_diagram()

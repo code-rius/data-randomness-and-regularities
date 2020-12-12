@@ -65,4 +65,4 @@ def plot_json():
     }
 
 
-app.run()
+app.run(port=5000)
