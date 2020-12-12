@@ -1,7 +1,7 @@
 import flask, os, uuid
 import numpy as np
 
-from flask import request
+from flask import request, send_file
 from recurrence_plot import RecurrencePlot as rp
 from tinydb import TinyDB, Query
 
@@ -58,11 +58,25 @@ def plot_json():
     M, N, compareMode = params['M'], params['N'], params['compareMode']
 
     rec_plot = rp(M, N, data_floats, compareMode)
-    # rec_plot.draw_diagram()
+    rec_plot.draw_diagram()
 
     return {
         'plot_data': rec_plot.similarities
     }
+
+
+@app.route('/plot_image/', methods=['POST'])
+def plot_image():
+    data_strings = request.json['data']
+    params = request.json['params']
+    data_floats = [float(i) for i in data_strings]
+
+    M, N, compareMode = params['M'], params['N'], params['compareMode']
+
+    rec_plot = rp(M, N, data_floats, compareMode)
+    diagram = rec_plot.draw_diagram()
+    # print(type(diagram))
+    return send_file("diagram", attachment_filename='plotpic.png', mimetype='image/gif')
 
 
 app.run(port=5000)
