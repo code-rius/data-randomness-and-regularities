@@ -25,3 +25,11 @@ Start mongodb
 
 Stop mongodb
 `sudo service mongod stop`
+
+
+Server (Node) libraries:
+ - Mongoose
+ - dotenv
+ - fetch
+ - express
+ - bodyParser
