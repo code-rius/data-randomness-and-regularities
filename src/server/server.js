@@ -1,14 +1,32 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch');
+const PlotData = require('./models/plotdata')
+
+const jsonParser = bodyParser.json()
 const app = express()
 
 require('dotenv').config()
+require('./db/mongoose')
 
-const jsonParser = bodyParser.json()
-
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('Hello World')
+})
+
+app.post('/plot_data', jsonParser, (req, res) => {
+  console.log("We have a request")
+  if (!req.body) {
+    console.log('Bad request')
+    res.status(400).send('Must provide a JSON body')
+  }
+
+  console.log("Good request")
+  const plotdata = new PlotData(req.body)
+  plotdata.save().then( () => {
+    res.send(plotdata)
+  }).catch( e => {
+    res.status(400).send(e)
+  })
 })
 
 app.post('/generate_plot/', jsonParser, (req, res) => {
