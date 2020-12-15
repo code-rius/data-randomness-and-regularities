@@ -103,7 +103,7 @@ class RecurrencePlot:
             pixels[i[0], self.M-i[1]-1] = (0, 0, 0)
         # img.show()
         img.save('plotpic.png')
-        return img.tobytes()
+        return 'plotpic.png'
 
     def get_pixel_percentage(self):
         self.percentage = (len(self.similarities)-self.M)/((self.M)*(self.M)-self.M)*200

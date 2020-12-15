@@ -1,16 +1,18 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const fetch = require('node-fetch');
+const fetch = require('node-fetch')
 const PlotData = require('./models/plotdata')
-const ObjectId = require('mongoose').Types.ObjectId;
-const { ObjectID } = require('mongodb');
-const { response } = require('express');
+const ObjectId = require('mongoose').Types.ObjectId
+const { ObjectID } = require('mongodb')
+const fs = require('fs')
 
 const jsonParser = bodyParser.json()
 const app = express()
 
 require('dotenv').config()
 require('./db/mongoose')
+
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   res.send('Hello World')
@@ -79,7 +81,7 @@ app.patch('/plot_data/:id', jsonParser, async (req, res) => {
 
 app.post('/plot_data', jsonParser, (req, res) => {
   if (!req.body) {
-    res.status(400).send('Must provide a JSON body')
+    res.status(400).send('Request must have a body')
   }
 
   const plotdata = new PlotData(req.body)
@@ -91,31 +93,66 @@ app.post('/plot_data', jsonParser, (req, res) => {
   })
 })
 
-app.post('/generate_plot/', jsonParser, (req, res) => {
-  if (!req.body){
-    console.log('Bad request')
-    res.status(400).send('Bad request')
+app.get('/plot_json/:id', jsonParser, (req, res) => {
+  const _id = req.params.id
+
+  if (!ObjectID.isValid(_id)) {
+    res.status(400).send({ error: process.env.ERROR_BAD_OBJECT_ID })
   }
 
-  fetch(process.env.RECURRENCE_PLOT_ENDPOINT_URL, {
-    method: 'post',
-    body: JSON.stringify({
-      'params': req.body.params,
-      'data': req.body.data
-    }),
-    headers: { 'Content-Type': 'application/json' }
+  PlotData.findById(_id).then(plotdata => {
+    if (!plotdata) {
+      return res.status(404).send()
+    }
+
+    fetch(process.env.RECURRENCE_PLOT_JSON_ENDPOINT_URL, {
+      method: 'post',
+      body: JSON.stringify(plotdata),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(resp => {
+      return resp.json()
+    }).then(json => {
+      res.type('application/json')
+      .status(200)
+      .send(json)
+    }).catch(e => {
+      res.status(500).send()
+    })
+  }).catch(e => {
+    res.status(500).send(e)
   })
-  .then(resp => {
-    return resp.json()
+})
+
+app.get('/plot_image/:id', (req, res) => {
+  const _id = req.params.id
+  if (!ObjectID.isValid(_id)) {
+    res.status(400).send({ error: process.env.ERROR_BAD_OBJECT_ID })
+  }
+
+  PlotData.findById(_id).then(plotdata => {
+    if (!plotdata) {
+      return res.status(404).send()
+    }
+
+    fetch(process.env.RECURRENCE_PLOT_IMAGE_ENDPOINT_URL, {
+      method: 'post',
+      body: JSON.stringify(plotdata),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(resp => {
+      return resp.buffer()
+    }).then(buff => {
+      fs.writeFile('./public/' + process.env.PLOT_IMAGE_NAME, buff, () =>{
+        res.type('application/json');
+        res.status(200)
+        .send( {'file_url' : process.env.PLOT_IMAGE_NAME} )
+      })
+    }).catch(e => {
+      res.status(500).send()
+    })
+  }).catch(e => {
+    res.status(500).send(e)
   })
-  .then(json => {
-    res.type('application/json')
-    res.status(200).send(json)
-  })
-  .catch(e => {
-    console.log(e)
-    res.status(500).send('Error 500!')
-  })
+
 })
 
 app.listen(4000)

@@ -25,6 +25,18 @@ const PlotData = mongoose.model('PlotData', {
     type: Number,
     default: 1
   },
+  downSample: {
+    type: Boolean,
+    default: false
+  },
+  downSampleTarget: {
+    type: Number,
+    default: 720
+  },
+  compareMode: {
+    type: Number,
+    default: 1
+  },
   data: {
     type: Array,
     required: true
