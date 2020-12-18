@@ -34,7 +34,7 @@ const Selector = ({updatePlot}) => {
   }
 
   const handleSubmit = () => {
-    console.log("Clicked")
+    console.log('Clicked')
 
     fetch(process.env.REACT_APP_GET_PLOT_IMAGE_URL + dataSelect).then( res => {
       console.log('Success?')
@@ -47,7 +47,7 @@ const Selector = ({updatePlot}) => {
         console.log(url)
         updatePlot(url)
       } else {
-        console.log("No plot data image received.")
+        console.log('No plot data image received.')
       }
     })
     // console.log(M)
@@ -70,8 +70,8 @@ const Selector = ({updatePlot}) => {
   }, [])
 
   return (
-    <div className="selector">
-      <div className="field">
+    <div className='selector'>
+      <div className='field'>
         <h3>Data</h3>
         <select value={dataSelect} onChange={e => {setDataSelect(e.target.value)}}>
           {plotDatas.map((option) => (
@@ -80,54 +80,54 @@ const Selector = ({updatePlot}) => {
           ))}
         </select>
       </div>
-      <div className="field">
+      <div className='field'>
         <h3>Compare mode</h3>
-        <div className="radio-split">
-          <div className="radio-column">
+        <div className='radio-split'>
+          <div className='radio-column'>
             <label>Maximum</label><br />
-            <input type="radio"
-              checked={compareMode === "1"}
-              value="1"
+            <input type='radio'
+              checked={compareMode === '1'}
+              value='1'
               onChange={e => { setCompareMode(e.target.value) }} />
           </div>
-          <div className="radio-column">
+          <div className='radio-column'>
             <label>Euclidien</label><br />
-            <input type="radio"
-              checked={compareMode === "0"}
-              value="0"
+            <input type='radio'
+              checked={compareMode === '0'}
+              value='0'
               onChange={e => { setCompareMode(e.target.value) }} />
           </div>
         </div>
       </div>
-      <div className="field multi--data">
-        <div className="column">
+      <div className='field multi--data'>
+        <div className='column'>
           <h3>M</h3>
           <input
-            type="text" 
-            className="input--mini" placeholder="3"
+            type='text' 
+            className='input--mini' placeholder='3'
             onChange={handleM}
           />
         </div>
-        <div className="column">
+        <div className='column'>
           <h3>N</h3>
           <input
-            type="text"
-            className="input--mini" placeholder="2"
+            type='text'
+            className='input--mini' placeholder='2'
             onChange={handleN}
           />
         </div>
-        <div className="column">
+        <div className='column'>
           <h3>Deviation</h3>
           
           <input 
-            type="text" 
-            className="input--mini" placeholder="1"
+            type='text' 
+            className='input--mini' placeholder='1'
             onChange={handleDeviation}
           />
         </div>
       </div>
-      <div className="field">
-        <button className="button-submit" onClick={handleSubmit}>
+      <div className='field'>
+        <button className='button-submit' onClick={handleSubmit}>
           Plot!
         </button>
       </div>
