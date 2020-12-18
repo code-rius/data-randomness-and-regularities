@@ -136,6 +136,12 @@ app.get('/plot_image/:id', (req, res) => {
       return res.status(404).send()
     }
 
+    // Assigning Query Parameters if any
+    plotdata.M = (req.query.M === undefined) ? plotdata.M : req.query.M
+    plotdata.N = (req.query.N === undefined) ? plotdata.N : req.query.N
+    plotdata.compareMode = (req.query.compareMode === undefined) ? plotdata.compareMode : req.query.compareMode
+    plotdata.deviation = (req.query.deviation === undefined) ? plotdata.deviation : req.query.deviation
+
     fetch(process.env.RECURRENCE_PLOT_IMAGE_ENDPOINT_URL, {
       method: 'post',
       body: JSON.stringify(plotdata),

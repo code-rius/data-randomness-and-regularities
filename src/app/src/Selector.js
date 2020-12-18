@@ -2,11 +2,12 @@ import { React, useState, useEffect } from 'react'
 import './Selector.scss'
 
 const fetch = require('node-fetch')
+const querystring = require('querystring');
 const { URLSearchParams } = require('url')
 
 const Selector = ({updatePlot}) => {
   const [plotDatas, setPlotDatas] = useState([])
-  const [dataSelect, setDataSelect] = useState({_id:''})
+  const [selectedID, setSelectedID] = useState({_id:''})
   const [compareMode, setCompareMode] = useState('1')
   const [M, setM] = useState('3')
   const [N, setN] = useState('2')
@@ -34,15 +35,13 @@ const Selector = ({updatePlot}) => {
   }
 
   const handleSubmit = () => {
-    console.log('Clicked')
+    const query = "?" + querystring.stringify({ M, N, compareMode, deviation })
 
-    fetch(process.env.REACT_APP_GET_PLOT_IMAGE_URL + dataSelect).then( res => {
-      console.log('Success?')
+    console.log(process.env.REACT_APP_GET_PLOT_IMAGE_URL + selectedID + query)
+    fetch(process.env.REACT_APP_GET_PLOT_IMAGE_URL + selectedID + query).then( res => {
       return res.json()
     }).then(json =>{
-      console.log('Success2?')
       if (json.fileUrl){
-        console.log('Success3?')
         const url = process.env.REACT_APP_GET_PLOT_BASE_URL + json.fileUrl
         console.log(url)
         updatePlot(url)
@@ -50,11 +49,6 @@ const Selector = ({updatePlot}) => {
         console.log('No plot data image received.')
       }
     })
-    // console.log(M)
-    // console.log(N)
-    // console.log(compareMode)
-    // console.log(deviation)
-    // console.log(dataSelect)
   }
 
   useEffect(() => {
@@ -63,7 +57,7 @@ const Selector = ({updatePlot}) => {
         return res.json()
       }).then(json => {
         setPlotDatas(json)
-        setDataSelect(json[0]._id)
+        setSelectedID(json[0]._id)
       }).catch(e => {
         console.log(e)
       })
@@ -73,7 +67,7 @@ const Selector = ({updatePlot}) => {
     <div className='selector'>
       <div className='field'>
         <h3>Data</h3>
-        <select value={dataSelect} onChange={e => {setDataSelect(e.target.value)}}>
+        <select value={selectedID} onChange={e => { setSelectedID(e.target.value)}}>
           {plotDatas.map((option) => (
             <option key={option._id} value={option._id}
             >{option.name}</option>
