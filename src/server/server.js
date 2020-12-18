@@ -5,6 +5,7 @@ const PlotData = require('./models/plotdata')
 const ObjectId = require('mongoose').Types.ObjectId
 const { ObjectID } = require('mongodb')
 const fs = require('fs')
+const cors = require('cors')
 
 const jsonParser = bodyParser.json()
 const app = express()
@@ -13,6 +14,7 @@ require('dotenv').config()
 require('./db/mongoose')
 
 app.use(express.static('public'))
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('Hello World')
@@ -20,7 +22,7 @@ app.get('/', (req, res) => {
 
 app.get('/plot_data', jsonParser, (req, res) => {
   PlotData.find({}).then( plot_datas => {
-    res.send(plot_datas)
+    res.json(plot_datas)
   }).catch( e => {
     res.status(500).send(e)
   })
@@ -144,7 +146,7 @@ app.get('/plot_image/:id', (req, res) => {
       fs.writeFile('./public/' + process.env.PLOT_IMAGE_NAME, buff, () =>{
         res.type('application/json');
         res.status(200)
-        .send( {'file_url' : process.env.PLOT_IMAGE_NAME} )
+        .send( {'fileUrl' : process.env.PLOT_IMAGE_NAME} )
       })
     }).catch(e => {
       res.status(500).send()

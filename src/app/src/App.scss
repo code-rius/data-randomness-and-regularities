@@ -8,6 +8,10 @@
   // grid-template-columns:1fr 2fr;
   grid-gap:1em;
   grid-auto-rows: minmax(200px, auto);
+
+  .plot-image{
+    width: 100%
+  }
 }
 
 .nested{
