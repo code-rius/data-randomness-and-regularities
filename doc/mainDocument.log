@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.6)  8 DEC 2020 13:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.6)  19 DEC 2020 18:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -671,7 +671,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<jb_VU_zenklas.pdf, id=68, 501.875pt x 550.055pt>
+<jb_VU_zenklas.pdf, id=72, 501.875pt x 550.055pt>
 File: jb_VU_zenklas.pdf Graphic file (type pdf)
 <use jb_VU_zenklas.pdf>
 Package pdftex.def Info: jb_VU_zenklas.pdf  used on input line 26.
@@ -689,26 +689,26 @@ File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 \tf@toc=\write4
 \openout4 = `mainDocument.toc'.
 
- [2] [3] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/abstract.tex) [4] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/abstractEN.tex) [5] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/introduction.tex) [6] [7]
+ [2] [3] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/abstract.tex) [4] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/abstractEN.tex) [5] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/introduction.tex) [6] [7] [8]
 
-LaTeX Warning: Citation `KTZ' on page 8 undefined on input line 128.
+LaTeX Warning: Citation `KTZ' on page 9 undefined on input line 134.
 
 
-LaTeX Warning: Citation `KTV' on page 8 undefined on input line 128.
+LaTeX Warning: Citation `KTV' on page 9 undefined on input line 134.
 
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 149.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 162.
-[8] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/conclusions.tex) [9] [10] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.bbl) [11
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 155.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 168.
+[9] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/conclusions.tex) [10] [11] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.bbl) [12
 
-] [12] [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
- [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
+] [13] [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 202.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 202.
  (/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 202.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 202.
 Package rerunfilecheck Info: File `mainDocument.out' has not changed.
-(rerunfilecheck)             Checksum: 1408551AE831B0B08C4ED9F02459A887;2460.
+(rerunfilecheck)             Checksum: F7AD2025F6BB6F2DEDF5440966A40661;2645.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -719,21 +719,21 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 202.
  ) 
 Here is how much of TeX's memory you used:
- 20725 strings out of 481239
- 341728 string characters out of 5920377
- 636518 words of memory out of 5000000
- 35621 multiletter control sequences out of 15000+600000
+ 20728 strings out of 481239
+ 341755 string characters out of 5920377
+ 636519 words of memory out of 5000000
+ 35622 multiletter control sequences out of 15000+600000
  557059 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,10n,80p,1111b,1144s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/lithuanian/latin7x.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf (14 pages, 161490 bytes).
+Output written on /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf (15 pages, 162124 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 44 named destinations out of 1000 (max. 500000)
- 4742 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 243 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 4750 words of extra memory for PDF output out of 10000 (max. 10000000)
 

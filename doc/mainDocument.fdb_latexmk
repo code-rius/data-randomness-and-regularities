@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex mainDocument"] 1607426109 "mainDocument.aux" "mainDocument.bbl" "mainDocument" 1607426227
+["bibtex mainDocument"] 1608395333 "mainDocument.aux" "mainDocument.bbl" "mainDocument" 1608396022
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "literatureSources.bib" 1607365384 1073 c9d178c1b0daaacf0dcb67b520330cc0 ""
-  "mainDocument.aux" 1607426227 4200 94ecfe8910dbea2deda4aa1c9438b1be "pdflatex"
+  "mainDocument.aux" 1608395334 4326 d674925237d3ac9e1fed545a5b2528f9 "pdflatex"
   (generated)
   "mainDocument.bbl"
   "mainDocument.blg"
-["pdflatex"] 1607426226 "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.tex" "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf" "mainDocument" 1607426227
+["pdflatex"] 1608395333 "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.tex" "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf" "mainDocument" 1608396022
   "/etc/texmf/web2c/texmf.cnf" 1607264769 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.aux" 1607426227 4200 94ecfe8910dbea2deda4aa1c9438b1be ""
-  "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.tex" 1607426226 5185 6315646c41f93fa2396356687538b068 ""
+  "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.aux" 1608395334 4326 d674925237d3ac9e1fed545a5b2528f9 ""
+  "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.tex" 1608396021 5236 b90fbf5f73b46e21a954251b7f6d11b5 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/lithuanian/latin7x.enc" 1225827646 2382 7df5fb9776519fcb608b3c1f59ad799b ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -158,16 +158,16 @@
   "introduction.tex" 1607349696 1041 9c9ae35723f70b483ada7704e58d35a0 ""
   "jb_VU_zenklas.pdf" 1607165274 69873 e1a5b2aadd7aba2c50bffcb71138a56e ""
   "macros.tex" 1607165274 5912 7c87862fdf7a8ed76b4009442e5b6cb5 ""
-  "mainDocument.aux" 1607426227 4200 94ecfe8910dbea2deda4aa1c9438b1be "pdflatex"
-  "mainDocument.bbl" 1607426109 444 fe97326fb41e5f081f7449e9bb6d376b "bibtex mainDocument"
-  "mainDocument.out" 1607426227 2460 1408551ae831b0b08c4ed9f02459a887 "pdflatex"
-  "mainDocument.tex" 1607426226 5185 6315646c41f93fa2396356687538b068 ""
-  "mainDocument.toc" 1607426227 1204 f0aad6b2e93ea7c8784056518bd5ad9b "pdflatex"
+  "mainDocument.aux" 1608395334 4326 d674925237d3ac9e1fed545a5b2528f9 "pdflatex"
+  "mainDocument.bbl" 1608396021 444 fe97326fb41e5f081f7449e9bb6d376b "bibtex mainDocument"
+  "mainDocument.out" 1608395334 2645 f7ad2025f6bb6f2dedf5440966a40661 "pdflatex"
+  "mainDocument.tex" 1608396021 5236 b90fbf5f73b46e21a954251b7f6d11b5 ""
+  "mainDocument.toc" 1608395334 1288 cb09b073c5915ea00fb9e81f10a2cb30 "pdflatex"
   (generated)
   "mainDocument.out"
-  "mainDocument.pdf"
-  "mainDocument.toc"
   "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.log"
   "mainDocument.aux"
   "mainDocument.log"
   "/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf"
+  "mainDocument.toc"
+  "mainDocument.pdf"
