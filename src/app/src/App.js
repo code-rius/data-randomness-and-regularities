@@ -5,7 +5,7 @@ import Header from './Header.js';
 import { useState, useRef } from 'react'
 
 const App = () => {
-  const [plotUrl, setPlotUrl] = useState('https://i.pinimg.com/736x/1e/8d/df/1e8ddf7c50b4b55a60a9a10976c4b0a2.jpg')
+  const [plotUrl, setPlotUrl] = useState('')
 
   const imageRef = useRef()
   
@@ -30,7 +30,7 @@ const App = () => {
                 ref={imageRef}
                 key={Date.now()} 
                 src={plotUrl} 
-                alt='Recurrence plot' 
+                alt='' 
                 className='plot-image'/>
             </div>
           </div>

@@ -42,8 +42,7 @@ const Selector = ({updatePlot}) => {
       return res.json()
     }).then(json =>{
       if (json.fileUrl){
-        const url = process.env.REACT_APP_GET_PLOT_BASE_URL + json.fileUrl
-        console.log(url)
+        const url = process.env.REACT_APP_GET_PLOT_BASE_URL + json.fileUrl + '?' + Date.now()
         updatePlot(url)
       } else {
         console.log('No plot data image received.')
