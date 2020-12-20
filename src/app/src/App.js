@@ -1,38 +1,37 @@
 import './App.scss';
-import Selector from './Selector.js';
-import Header from './Header.js';
+import Selector from './components/Selector.js';
+import Loader from './components/Loader.js'
+import Header from './components/Header.js';
+import Image from './components/Image.js';
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const App = () => {
   const [plotUrl, setPlotUrl] = useState('')
-
+  const [loading, setLoading] = useState(false)
   const imageRef = useRef()
   
   const updatePlot = (url) => {
     setPlotUrl(url)
   }
 
+  useEffect(() => {
+    const current = loading
+    setLoading(!current)
+    console.log("Loading state:\t", loading)
+  }, [plotUrl]);
+
   return (
     <>
       <Header />
       <div className='app'>
         <div className='wrapper'>
-          <div>
+          <div className="box">
             <Selector updatePlot={updatePlot} />
           </div>
-          <div>
-            <h3>
-              Recurrence plot
-            </h3>
-            <div>
-              <img 
-                ref={imageRef}
-                key={Date.now()} 
-                src={plotUrl} 
-                alt='' 
-                className='plot-image'/>
-            </div>
+          <div className="box">
+            <h3>Recurrence plot</h3>
+            {loading ? <Loader /> : <Image imageRef={imageRef} plotUrl={plotUrl} />}
           </div>
         </div>
       </div>

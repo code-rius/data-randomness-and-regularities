@@ -3,9 +3,8 @@ import './Selector.scss'
 
 const fetch = require('node-fetch')
 const querystring = require('querystring');
-const { URLSearchParams } = require('url')
 
-const Selector = ({updatePlot}) => {
+const Selector = ({ updatePlot}) => {
   const [plotDatas, setPlotDatas] = useState([])
   const [selectedID, setSelectedID] = useState({_id:''})
   const [compareMode, setCompareMode] = useState('1')
@@ -34,7 +33,8 @@ const Selector = ({updatePlot}) => {
     setDeviation(event.target.value)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    updatePlot('')
     const query = "?" + querystring.stringify({ M, N, compareMode, deviation })
 
     console.log(process.env.REACT_APP_GET_PLOT_IMAGE_URL + selectedID + query)
