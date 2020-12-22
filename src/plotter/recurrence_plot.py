@@ -7,7 +7,7 @@ from PIL import Image
 
 class RecurrencePlot:
 
-    def __init__(self, D: int, d: int, data: list, compareMode:int = 0, target: float = 15,downSample: bool = False, downSampleTarget: int = 720):
+    def __init__(self, D: int, d: int, data: list, compareMode:int = 0, target: float = 17.5, deviation: float = 3, downSample: bool = False, downSampleTarget: int = 720):
         self.downSampleTarget = downSampleTarget
         self.compareMode = compareMode
         self.downSample = downSample
@@ -15,7 +15,7 @@ class RecurrencePlot:
         self.data = data
         self.D = D
         self.d = d
-        self.allowed_r_deviation = 1
+        self.deviation = deviation
         self.N = len(data)
         self.M = self.N-(D-1)*d
         self.r = self.percentage = 0
@@ -30,7 +30,7 @@ class RecurrencePlot:
         self.percentage = percentage_last = 100
 
         # Repeat until R is calibrated
-        while (abs(self.percentage-self.target) > self.allowed_r_deviation):
+        while (abs(self.percentage-self.target) > self.deviation):
             t_start = timeit.default_timer()
 
             self.r = (self.r+r_last)/(self.percentage+percentage_last)*self.target
@@ -101,7 +101,7 @@ class RecurrencePlot:
         # Fill in whites for where similarities where found
         for i in drawArray:
             pixels[i[0], self.M-i[1]-1] = (0, 0, 0)
-        # img.show()
+        img.show()
         img.save('plotpic.png')
         return 'plotpic.png'
 
