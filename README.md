@@ -10,7 +10,7 @@ Implementation of application for visualization of regularities and randomness i
 
 ### Install python dependencies
 ```
-pip install numpy matplotlib spicy flask pyopenssl tinydb
+pip install numpy matplotlib spicy flask pyopenssl SciPy NumPy  keras
 ```
 
 ### Writing a bachelors thesis references
@@ -33,3 +33,12 @@ Server (Node) libraries:
  - fetch
  - express
  - bodyParser
+
+
+### Tensorflow and Keras
+
+To activate virutal environment
+`source tensorflow-dev/bin/activate`
+
+To deactivate virutal environment
+`deactivate`
