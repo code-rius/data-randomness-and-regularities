@@ -14,7 +14,7 @@ with open(path + "/assets/DJI.csv") as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
         csvData.append(float(row[4]))
-        if (len(csvData)>=500): break
+        if (len(csvData)>=720): break
 
 dow = rp(3 , 2, csvData, 1)
 

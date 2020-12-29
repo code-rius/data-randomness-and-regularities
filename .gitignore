@@ -6,3 +6,5 @@ __pycache__/
 .eslintcache
 mongodb/
 dogs-vs-cats/
+recurrence-plot/
+rp-data/
