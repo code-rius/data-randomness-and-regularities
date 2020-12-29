@@ -29,8 +29,10 @@ class RecurrencePlot:
 
         self.percentage = percentage_last = 100
 
+        counter = 0
         # Repeat until R is calibrated
         while (abs(self.percentage-self.target) > self.deviation):
+            counter += 1
             t_start = timeit.default_timer()
 
             self.r = (self.r+r_last)/(self.percentage+percentage_last)*self.target
@@ -43,6 +45,10 @@ class RecurrencePlot:
 
             print("R=", self.r, "\tNow %=", self.percentage,
                   "\tTime taken: ", t_end - t_start)
+
+            if (counter > 3):
+                print('No R exists to reach requested pixel percentage.')
+                break
 
     def calculate_recurrences(self):
         similarities, sygnalStates = [], []
@@ -101,7 +107,7 @@ class RecurrencePlot:
         # Fill in whites for where similarities where found
         for i in drawArray:
             pixels[i[0], self.M-i[1]-1] = (0, 0, 0)
-        img.show()
+        # img.show()
         img.save('plotpic.png')
         return 'plotpic.png'
 
