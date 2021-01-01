@@ -66,11 +66,11 @@ def generate_data_with_trend(lower_bound, upper_bound, \
 
 
 def generate_trend_assets(N):
-    graph_dir = 'ml-data/trend/'
+    graph_dir = 'jupyter/rp-data/trend/'
     lower_bound = 0
     upper_bound = 60
-    batch_number = 36
-    batch_size = 20
+    batch_number = 33
+    batch_size = 22
     rate_up = 5
     exponent = 1.01
     exponent_increment = round((exponent - 1)/N*2, 10)
@@ -83,11 +83,13 @@ def generate_trend_assets(N):
                                         t_rate_up, exponent)
 
         graph_fileName = 'trend_graph_' + str(i) + '.png'
-        generate_and_save_graph(data[0], data[1], graph_fileName, graph_dir)
+        generate_and_save_graph(
+            data[0], data[1], graph_fileName, graph_dir)
 
-        dow=rp(3,2,data[1] , 1 , 17.5 ,3)
+        dow=rp(4,2,data[1] , 1 , 17.5 ,3)
         dow.draw_diagram()
-        create_new_file('plotpic.png', 'rp_graph_' + str(i) + '.png', 'ml-data/trend/')
+        create_new_file('plotpic.png', 'rp_graph_' +
+                        str(i) + '.png', graph_dir)
 
         exponent -= exponent_increment
 
@@ -145,19 +147,17 @@ def generate_periodic_assets(N):
         dow1 = rp(D, d, signal1, 1, 17.5, 2.5)
         dow1.draw_diagram()
         create_new_file('plotpic.png', 'rp_graph_' +
-                        str(i*3) + '.png', 'ml-data/periodic/')
+                        str(i*3) + '.png', graph_dir)
 
         dow2 = rp(D, d, signal2, 1, 17.5, 2.5)
         dow2.draw_diagram()
         create_new_file('plotpic.png', 'rp_graph_' +
-                        str(i*3+1) + '.png', 'ml-data/periodic/')
+                        str(i*3+1) + '.png', graph_dir)
         dow3 = rp(D, d, signal3, 1, 17.5, 2.5)
         dow3.draw_diagram()
         create_new_file('plotpic.png', 'rp_graph_' +
-                        str(i*3+2) + '.png', 'ml-data/periodic/')
+                        str(i*3+2) + '.png', graph_dir)
 
-# generate_trend_assets(1000)
-# generate_periodic_assets(334)
 
 def generate_chaotic_assets(N):
     graph_dir = 'ml-data/chaotic/'
@@ -181,84 +181,8 @@ def generate_chaotic_assets(N):
         dow1 = rp(D, d, data, 1, 17.5, 2.5)
         dow1.draw_diagram()
         create_new_file('plotpic.png', 'rp_graph_' +
-                        str(i) + '.png', 'ml-data/chaotic/')
+                        str(i) + '.png', graph_dir)
 
-
+generate_trend_assets(1000)
+# generate_periodic_assets(334)
 # generate_chaotic_assets(1000)
-# plt.show()
-
-# for i in range(72):
-#     data = data + interval
-
-# for _ in range(18):
-#     t_data = []
-#     for i in range(1, 21):
-#         t_data.append(i)
-#     data = data + t_data
-#     t_data.reverse()
-#     data = data + t_data
-
-# print(data)
-# dow = rp(3, 2, data, 1, 17.5, 3)
-# dow.draw_diagram()
-# dataObject = generate_data_with_trend(0, 30, 144, 5, 30, 1.01)
-
-# print(dataObject[1])
-# dow = rp(3, 2, data, 1, 20, 0.3)
-# dow.draw_diagram()
-
-# Plot data
-# fig, ax = plt.subplots()  # Create a figure containing a single axes.
-# ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m')) # Use "2020-01-01" instead of "2020"
-# ax.plot(dataObject[1], dataObject[0])  # Plot data on the axes.
-# # fig.autofmt_xdate()
-# ax.set_title("Dow Jones Induastrial Average adjusted for infaltion\n(1990-09-01 to 2020-08-30)")
-# ax.set_xlabel("Date")
-# ax.set_ylabel("Price (USD)")
-# ax.grid()
-
-# plt.savefig('ml-data/trend/Trend-graph.png')
-# plt.show()
-
-
-# time = np.arange(0, 20, 0.03)
-# amplitude = np.round(np.sin(time), 5)
-# print(amplitude)
-
-
-# exponent_rate_up = random.uniform(0,50)
-# exponent_rate_down = random.uniform(0, 49)
-
-
-# dow=rp(3,2,amplitude,1,75,0.3)
-# dow.draw_diagram()
-
-# create_new_file('plotpic.png', 'periodic.png', 'ml-data/')
-
-# dowData = []
-# dowLabels = []
-
-# path = os.path.dirname(os.path.realpath(__file__))
-
-# with open(path + "/assets/DJI1990.csv") as csvfile:
-#     csvfile.readline()   # skip the first line of headers
-#     reader = csv.reader(csvfile)
-#     for row in reader:
-#         dowData.append(float(row[5]))
-#         dowLabels.append(pd.to_datetime(row[0]))
-# if (len(dowData) >= 30):
-#     break
-
-# afont = {'family':'monospace'}
-
-
-# fig, ax = plt.subplots()  # Create a figure containing a single axes.
-# ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m')) # Use "2020-01-01" instead of "2020"
-# ax.plot(dowLabels, dowData)  # Plot data on the axes.
-# fig.autofmt_xdate()
-# ax.set_title("Dow Jones Induastrial Average adjusted for infaltion\n(1990-09-01 to 2020-08-30)")
-# ax.set_xlabel("Date")
-# ax.set_ylabel("Price (USD)")
-# ax.grid()
-
-# plt.show()

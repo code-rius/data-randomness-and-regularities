@@ -8,3 +8,5 @@ mongodb/
 dogs-vs-cats/
 recurrence-plot/
 rp-data/
+train_labels.csv
+train_samples.csv
