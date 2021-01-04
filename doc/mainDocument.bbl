@@ -1,10 +1,36 @@
 \begin{thebibliography}{1}
 
+\bibitem{react_home}
+Facebook Inc.
+\newblock React is a javascript library for building user interfaces.
+\newblock \newline{}https://github.com/facebook/react, 2020.
+\newblock [Online; accessed 2-Jan-2021].
+
+\bibitem{krause2015microservices}
+L.~Krause.
+\newblock {\em Microservices: Patterns and Applications: Designing Fine-Grained
+  Services by Applying Patterns}.
+\newblock Lucas Krause, 2015.
+
+\bibitem{javascript_vs_python_ml}
+Miśtal Krzysztof.
+\newblock Performance comparison: Javascript vs. python for machine learning.
+\newblock
+  \newline{}https://dlabs.ai/blog/performance-comparison-javascript-vs-python-for-machine-learning/,
+  2020.
+\newblock [Online; accessed 2-Jan-2021].
+
 \bibitem{lyons2004understanding}
 R.G. Lyons.
 \newblock {\em Understanding Digital Signal Processing}.
 \newblock Prentice Hall professional technical reference. Prentice Hall/PTR,
   2004.
+
+\bibitem{recurrence_plot_tk}
+Norbert Marwan.
+\newblock Recurrence plots and cross recurrence plots.
+\newblock \newline{}http://recurrence-plot.tk/online/index.php.
+\newblock [Online; accessed 2-Jan-2021].
 
 \bibitem{priemer1990introductory}
 R.~Priemer.

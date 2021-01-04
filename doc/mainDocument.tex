@@ -81,12 +81,88 @@ pendulum clock's ticks produces a relatively simple (trivial) signal.
 
 \newpage
 \section{Web application development}
-This project is aimed at creating a web application allowing one to 
-interact with the recurrence plot algorithm in a user friendly manner.
-This is an effort to further spread the popularity of this algorithm 
-and help users intuitively grasp how it behaves.
+This project is aimed at creating a web application allowing one to interact with the recurrence plot algorithm in a user friendly manner.
+The project offers a feature of classifying data based on the generated plot using convolutional neural networks.
+This is an effort to further spread the popularity of this algorithm and help users intuitively grasp how it behaves.
 
-\subsection{Market research}
+
+\subsection{Analysis of analogous tools}
+As of the date of publishing, only one tool was located capable 
+of generating a recurrence plot online \cite{recurrence_plot_tk}. 
+There are multiple implementations of the recurrence plot in Python as well as other
+languages, but none offer the ability to classify data based on the generated image.
+
+It is noteworthy, that the aforementioned implementations require at least a minimal undertanding of software programming, a computing machine and specific software to compile and run the code. 
+This is laborious and is not likely to attract new users to experiment with algorithm.
+Based on these factors, a decision was made to create a web based application that requires
+as little user knowledge to get started with the algorithm as possible.
+
+
+\subsection{Architecture}
+This project uses the microservices. 
+Microservices are small autonomous services deployed independently, with a single and clearly defined purpose \cite{krause2015microservices}. This design approach was chosen due to the flexibility and scalability associated with the architecture. %%%% %%Probably useless sentence
+The nature of microservices allows one to easily test, modify or out right replace each one of the components giving more freedom to the developer.
+The project ecosystem consists of the following microservices:
+\begin{enumerate}
+	\item Front end web application
+	\item Back end for the web application
+	\item Python web server for plotting operations
+\end{enumerate}
+
+Communication between microservices is performed via HTTP requests. In general, a query with JSON body is sent to a service and a JSON response along side an image attachment is returned.
+Figure~\ref{fig:architecture_diagram} illustrates the microservice architecture of the project and data flow within each service.
+
+\subsection{Project structure}
+The project is structured so that each microservice resides in an independent directory:
+\begin{itemize}
+  \item app/
+  \begin{itemize}
+    \item src/
+    \begin{itemize}
+      \item components/
+    \end{itemize}
+    \item public/
+  \end{itemize}
+  \item server/
+  \begin{itemize}
+    \item db/
+    \item public/
+    \item utils/
+  \end{itemize}
+  \item plotter/
+  \begin{itemize}
+    \item jupyter/
+  \end{itemize} 
+\end{itemize}
+As listed above the structure may be confusing, therefore we will now go more in depth into each one of the services.
+\begin{figure}[h]
+  \centering
+  {\includegraphics[height=8cm]{assets/architecture_diagram.png}}
+  \caption{Microservice architecture structure}
+  \label{fig:architecture_diagram}
+\end{figure}
+
+\subsection{Microservices}
+The tools used for microservice development were largely open-sourced and relatively modern. 
+Front end and Back end services were written in javascript  
+based environments - React JS and Node JS respectively.
+These choises were made due to the widespread use of javascript in modern web application development providing a large pool of open-sourced libraries and tools.
+
+On the other hand python was the tool used to develop the plotting service. It is known to perform better on data handling and machine learning than javascript alternatives. \cite{javascript_vs_python_ml}
+Both Python and Node JS have certain strengths and thus have appropriate community driven libraries and modules to reinforce their leverages in appropriate operations.
+
+\subsubsection{Front end service}
+The front end service is developed using React - A JavaScript library for building user interfaces. \cite{react_home}
+Following the best practices of React development, the app is into reuseable components. Each component returns a JSX object
+
+
+
+\subsubsection{Back end service}
+\subsubsection{Plotter service}
+
+
+%We will go more in depth about each microservice in later sections.
+
 
 % For the scope of this paper, we defined the term signal 
 % processing as \textit{the science of analyzing time-varying 
@@ -133,6 +209,7 @@ and help users intuitively grasp how it behaves.
 \section{Pirmasis skyrius}
 \label{sec:motivation}
 
+asa \cite{recurrence-plot}
 
 
 

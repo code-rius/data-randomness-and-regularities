@@ -270,6 +270,14 @@ INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/introduc
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lithuanian/l7x-utmri.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lithuanian/l7x-utmr.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lithuanian/l7x-utmb.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/times/ts1utm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/times/ts1utm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/urw35vf/times/utmr8c.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/urw35vf/times/utmr8c.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/urw35vf/times/utmr8r.tfm
+INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/architecture_diagram.png
+INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/architecture_diagram.png
+INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/architecture_diagram.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lithuanian/l7x-utmr.tfm
 INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/conclusions.tex
 INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/conclusions.tex
@@ -280,6 +288,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lithuanian/l7x-utmb.tfm
 INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.aux
 INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.out
 INPUT /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.out
+INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/lithuanian/latin7x.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb

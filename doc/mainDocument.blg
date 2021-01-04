@@ -3,47 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: mainDocument.aux
 The style file: plain.bst
 Database file #1: literatureSources.bib
+Warning--I didn't find a database entry for "recurrence-plot"
 Warning--I didn't find a database entry for "KTZ"
 Warning--I didn't find a database entry for "KTV"
-You've used 2 entries,
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            513 strings with 4322 characters,
-and the built_in function-call counts, 474 in all, are:
-= -- 46
-> -- 14
+            534 strings with 5182 characters,
+and the built_in function-call counts, 1336 in all, are:
+= -- 130
+> -- 42
 < -- 0
-+ -- 6
-- -- 4
-* -- 20
-:= -- 91
-add.period$ -- 8
-call.type$ -- 2
-change.case$ -- 6
++ -- 18
+- -- 12
+* -- 45
+:= -- 239
+add.period$ -- 23
+call.type$ -- 6
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 24
-empty$ -- 45
-format.name$ -- 4
-if$ -- 101
+cite$ -- 6
+duplicate$ -- 57
+empty$ -- 133
+format.name$ -- 12
+if$ -- 290
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 4
-newline$ -- 13
-num.names$ -- 4
-pop$ -- 12
+int.to.str$ -- 6
+missing$ -- 6
+newline$ -- 36
+num.names$ -- 12
+pop$ -- 46
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 18
 quote$ -- 0
-skip$ -- 12
+skip$ -- 35
 stack$ -- 0
-substring$ -- 10
-swap$ -- 2
+substring$ -- 30
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
+type$ -- 18
 warning$ -- 0
-while$ -- 4
-width$ -- 3
-write$ -- 24
-(There were 2 warnings)
+while$ -- 12
+width$ -- 7
+write$ -- 69
+(There were 3 warnings)

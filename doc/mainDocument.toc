@@ -7,12 +7,19 @@
 \contentsline {subsection}{\numberline {1.1}Signal processing}{7}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Signal property categories}{7}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Web application development}{8}{section.2}%
-\contentsline {section}{\numberline {3}Pirmasis skyrius}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Pirmojo skyriaus poskyris}{9}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Pirmojo skyriaus pirmo poskyrio poskyris}{9}{subsubsection.3.1.1}%
-\contentsline {section}{\nameref {sec:conclu}}{10}{section*.7}%
-\contentsline {section}{\nameref {sec:future}}{11}{section*.8}%
-\contentsline {section}{References}{12}{section*.9}%
-\contentsline {section}{Appendices}{13}{section*.11}%
-\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{14}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{15}{appendix.1.B}%
+\contentsline {subsection}{\numberline {2.1}Analysis of analogous tools}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Architecture}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Project structure}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Microservices}{9}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Front end service}{9}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Back end service}{10}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Plotter service}{10}{subsubsection.2.4.3}%
+\contentsline {section}{\numberline {3}Pirmasis skyrius}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Pirmojo skyriaus poskyris}{11}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Pirmojo skyriaus pirmo poskyrio poskyris}{11}{subsubsection.3.1.1}%
+\contentsline {section}{\nameref {sec:conclu}}{12}{section*.8}%
+\contentsline {section}{\nameref {sec:future}}{13}{section*.9}%
+\contentsline {section}{References}{14}{section*.10}%
+\contentsline {section}{Appendices}{15}{section*.12}%
+\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{16}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{17}{appendix.1.B}%
