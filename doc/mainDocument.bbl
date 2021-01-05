@@ -1,4 +1,58 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{express}
+Expressjs - nodejs web application frameowrk.
+\newblock \newline{}https://github.com/expressjs/expressjs.com, 2021.
+\newblock [Online; accessed 2-Jan-2021].
+
+\bibitem{flask}
+Flask - python web application framework.
+\newblock \newline{}https://flask.palletsprojects.com/en/1.1.x/, 2021.
+\newblock [Online; accessed 2-Jan-2021].
+
+\bibitem{matplotlib}
+Matplotlib - a comprehensive library for creating static, animated, and
+  interactive visualizations in python.
+\newblock \newline{}https://github.com/matplotlib/matplotlib, 2021.
+\newblock [Online; accessed 3-Jan-2021].
+
+\bibitem{mongoose}
+Mongoose - a mongodb object modeling tool designed to work in an asynchronous
+  environment.
+\newblock \newline{}https://github.com/Automattic/mongoose, 2021.
+\newblock [Online; accessed 3-Jan-2021].
+
+\bibitem{node-fetch}
+Node fetch - a module that brings window.fetch to node.js.
+\newblock \newline{}https://github.com/node-fetch/node-fetch, 2021.
+\newblock [Online; accessed 2-Jan-2021].
+
+\bibitem{npm}
+Npm - node package manager.
+\newblock \newline{}https://github.com/npm/, 2021.
+\newblock [Online; accessed 2-Jan-2021].
+
+\bibitem{numpy}
+Numpy - the fundamental package needed for scientific computing with python.
+\newblock \newline{}https://github.com/numpy/numpy, 2021.
+\newblock [Online; accessed 3-Jan-2021].
+
+\bibitem{query-string}
+Query-string - an http query string building module.
+\newblock \newline{}https://github.com/sindresorhus/query-string, 2021.
+\newblock [Online; accessed 3-Jan-2021].
+
+\bibitem{sass}
+Sass - a preprocessor scripting language that is interpreted or compiled into
+  cascading style sheets.
+\newblock \newline{}https://github.com/sass, 2021.
+\newblock [Online; accessed 3-Jan-2021].
+
+\bibitem{scipy}
+Scipy (pronounced "sigh pie") is open-source software for mathematics, science,
+  and engineering.
+\newblock \newline{}https://github.com/scipy/scipy, 2021.
+\newblock [Online; accessed 3-Jan-2021].
 
 \bibitem{react_home}
 Facebook Inc.

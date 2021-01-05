@@ -9,17 +9,19 @@
 \contentsline {section}{\numberline {2}Web application development}{8}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Analysis of analogous tools}{8}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Architecture}{8}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Project structure}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Microservices}{9}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Front end service}{9}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Back end service}{10}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Plotter service}{10}{subsubsection.2.4.3}%
-\contentsline {section}{\numberline {3}Pirmasis skyrius}{11}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Pirmojo skyriaus poskyris}{11}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Pirmojo skyriaus pirmo poskyrio poskyris}{11}{subsubsection.3.1.1}%
-\contentsline {section}{\nameref {sec:conclu}}{12}{section*.8}%
-\contentsline {section}{\nameref {sec:future}}{13}{section*.9}%
-\contentsline {section}{References}{14}{section*.10}%
-\contentsline {section}{Appendices}{15}{section*.12}%
-\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{16}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{17}{appendix.1.B}%
+\contentsline {subsubsection}{\numberline {2.2.1}Project structure}{8}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Project workflow}{9}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Microservices}{9}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Front end microservice}{10}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Back end microservice}{11}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Plotter microservice}{11}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Recurrence plot module}{11}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Data classification model}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Training data}{11}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Choosing classification features}{12}{subsubsection.3.1.1}%
+\contentsline {section}{\nameref {sec:conclu}}{13}{section*.8}%
+\contentsline {section}{\nameref {sec:future}}{14}{section*.9}%
+\contentsline {section}{References}{15}{section*.10}%
+\contentsline {section}{Appendices}{17}{section*.12}%
+\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{18}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{19}{appendix.1.B}%

@@ -54,10 +54,10 @@ class RecurrencePlot:
         similarities, sygnalStates = [], []
 
         # Generate data pairs, tripplets, quadruplets... D - plets
-        for i in range(0, self.M):
+        for i in range(self.M):
             state = []
 
-            for j in range(0, self.D):
+            for j in range(self.D):
                 state.append(self.data[i+j*self.d])
 
             sygnalStates.append(state)
@@ -107,12 +107,25 @@ class RecurrencePlot:
         # Fill in whites for where similarities where found
         for i in drawArray:
             pixels[i[0], self.M-i[1]-1] = (0, 0, 0)
-        # img.show()
+
+        # Save the image
         img.save('plotpic.png')
+        
         return 'plotpic.png'
 
     def get_pixel_percentage(self):
-        self.percentage = (len(self.similarities)-self.M)/((self.M)*(self.M)-self.M)*200
+        # We must first remove a single row of of data from both sides (self.M)
+        # to account for the middle diagonal line which is always present.
+        # 
+        # We then divide the number of similarity by the number of total pixels
+        # the final image.
+        #
+        # Then, we multiply everything by 2 to account for the fact that
+        # self.similarities only contains one half of the image.
+        #
+        # Finally we multiply everything by 100 to get the percentage value of
+        # the ratio.
+        self.percentage = (len(self.similarities)-self.M)/((self.M)*(self.M)-self.M)*2*100
 
     def do_downsample(self, data: list, target: int = 720) -> list:
         if(len(data) <= target):

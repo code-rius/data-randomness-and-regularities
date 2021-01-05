@@ -80,6 +80,8 @@ pendulum clock's ticks produces a relatively simple (trivial) signal.
 
 
 \newpage
+
+
 \section{Web application development}
 This project is aimed at creating a web application allowing one to interact with the recurrence plot algorithm in a user friendly manner.
 The project offers a feature of classifying data based on the generated plot using convolutional neural networks.
@@ -110,9 +112,17 @@ The project ecosystem consists of the following microservices:
 \end{enumerate}
 
 Communication between microservices is performed via HTTP requests. In general, a query with JSON body is sent to a service and a JSON response along side an image attachment is returned.
-Figure~\ref{fig:architecture_diagram} illustrates the microservice architecture of the project and data flow within each service.
+Figure~\ref{fig:architecture_diagram} illustrates the microservice architecture of the project and data flow among services.
 
-\subsection{Project structure}
+\begin{figure}[h]
+  \centering
+  {\includegraphics[height=8cm]{assets/architecture_diagram.png}}
+  \caption{Microservice architecture structure}
+  \label{fig:architecture_diagram}
+\end{figure}
+
+
+\subsubsection{Project structure}
 The project is structured so that each microservice resides in an independent directory:
 \begin{itemize}
   \item app/
@@ -134,13 +144,23 @@ The project is structured so that each microservice resides in an independent di
     \item jupyter/
   \end{itemize} 
 \end{itemize}
-As listed above the structure may be confusing, therefore we will now go more in depth into each one of the services.
-\begin{figure}[h]
-  \centering
-  {\includegraphics[height=8cm]{assets/architecture_diagram.png}}
-  \caption{Microservice architecture structure}
-  \label{fig:architecture_diagram}
-\end{figure}
+
+As the name suggests - \code{/app/} directory contains the front end ReactJS application.
+The NodeJS express\cite{express} server resides inside the \code{/server/} directory.
+Meanwhile, \code{/plotter/} contains all of the Python source code. That includes the flask \cite{flask} web server, the recurrence plot module, jupyter notebooks for convolutional neural network model development and scripts for model training data generation.
+
+
+\subsubsection{Project workflow}
+We will now cover an example workflow of the application as per figure~\ref{fig:architecture_diagram}.
+
+When first opening the app, a request is sent to the back end to fetch a list of existing plot data. 
+The user selects an entry from the list and fills in remaining parameters for generating a recurrence plot.
+A request with select data ID is sent to the back end microservice.
+The back end service fetches data from the database and forwards it to the plotting service.
+The plotting service generates an image, then runs the image through a convolutional neural network to get classification data.
+Finally, the plotting service send the image along with classification data back to the back end service, which in turn forwards it to the front end service.
+The front end service displayes the image and classification data.
+
 
 \subsection{Microservices}
 The tools used for microservice development were largely open-sourced and relatively modern. 
@@ -148,19 +168,106 @@ Front end and Back end services were written in javascript
 based environments - React JS and Node JS respectively.
 These choises were made due to the widespread use of javascript in modern web application development providing a large pool of open-sourced libraries and tools.
 
-On the other hand python was the tool used to develop the plotting service. It is known to perform better on data handling and machine learning than javascript alternatives. \cite{javascript_vs_python_ml}
+On the other hand python was the tool used to develop the plotting service. It is known to perform better on data handling and machine learning than javascript alternatives \cite{javascript_vs_python_ml}.
 Both Python and Node JS have certain strengths and thus have appropriate community driven libraries and modules to reinforce their leverages in appropriate operations.
 
-\subsubsection{Front end service}
-The front end service is developed using React - A JavaScript library for building user interfaces. \cite{react_home}
-Following the best practices of React development, the app is into reuseable components. Each component returns a JSX object
+
+\subsubsection{Front end microservice}
+The front end service is developed using React - A JavaScript library for building user interfaces \cite{react_home}.
+SASS is used for styling the apllication due to the intuitive syntax it provides \cite{sass}.
+The microservice utilizes the Node Package Manager \cite{npm}.
+From the NPM registry, two open sourced libraries are used:
+\begin{itemize}
+  \item node-fetch - A module that brings window.fetch to Node.js \cite{node-fetch}.
+  \item query-string - a tool for building HTTP query string \cite{query-string}.
+\end{itemize}
+These libraries were used to facilitate communication via HTTP requests with the back end server.
+
+Following the best practices of React development, the app is broken down into reuseable components. 
+Figure~\ref{fig:react_component_structure} indicates the application structure denoting components with the standard JSX component notation 
+\code{<component />}. We will be using this notation to refeter to JSX components.
+\begin{figure}[h]
+  \centering
+  {\includegraphics[height=6cm]{assets/react_component_structure.png}}
+  \caption{React app component structure}
+  \label{fig:react_component_structure}
+\end{figure}
+
+Figure~\ref{fig:react_component_structure} indicates that a root \code{<App />} component wraps the whole application.
+Initially, only the \code{<Header />}, \code{<Selector />} and \code{<Loader />} components are visible to the user.
+The \code{<Selector />} component sends an HTTP GET request to the backend service to retrieve a list of available plot data.
+This list is displayed inside the \code{<Selector />} for the user to pick from.
+A user must select a data entry and may add optional plotting parameters.
+Submitting the \code{<Selector />} form sends an HTTP GET request to the back end service.
+The backend service returns a JSON with the location of the generated recurrence plot image and additional parameters.
+After handling the server response - the \code{<Loader />} component is replaced by the \code{<Image />}.
+During any further plot requests, the \code{<Image />} is briefly replaced by the \code{<Loader />} component to indicate that a request is being processed.
 
 
+\subsubsection{Back end microservice}
+The backend microservice also utilizes libraries provided by the Node Package Manager. 
+The service runs on an Node JS express server \cite{express}.
+The server handles all requests from the front end service.
+Server endpoints cover the following operations:
+\begin{itemize}
+  \item CRUD operations for plot data stored inside the MongoDB database
+  \item Requests to generate a recurrence plot using the plotting service
+\end{itemize}
+The express server communicates with the database server by making use of an open sourced MongoDB object modeling library - mongoose \cite{mongoose}.
+The service itself does not generate any plot data, but merely acts as an intermediary between the front end service, the MongoDB database and the plotting service.
 
-\subsubsection{Back end service}
-\subsubsection{Plotter service}
+
+\subsubsection{Plotter microservice}
+The plotter microservice handles requests to generate and classify recurrence plots.
+The service consists of 3 main parts:
+\begin{enumerate}
+  \item Flask - a python web framework
+  \item Recurrence plot module
+  \item Data classification model
+\end{enumerate}
+The flask service handles HTTP requests with JSON data as input.
+The service processes the input and generates an image using the recurrence plot module.
+Image is passed through the convolutional neural network to get the image classification.
+An HTTP response is then sent containing the classification data and the generated image as an attachment.
+
+The innerworkings of recurrence plot module and a convolutional neural network are covered in detail in sections to come.
 
 
+\subsection{Recurrence plot module}
+The recurrence plot module is a Python implementation of the algorithm used to generate a recurrence plot.
+The module utilizes the numpy\cite{numpy}, scipy\cite{scipy} and matplotlib\cite{matplotlib} open sourced libraries.
+
+
+\section{Data classification model}
+A recurrence plot reveals certain information about the singal.
+After some practice a human can identify whether a given signal exhibits signs of periodity and / or stationarity, has a trend or seems to be random in nature.
+The goal of this model is to determine some the aforementioned characteristics of a signal by analyzing the reucrrence plot generated by it.
+
+
+\subsection{Training data}
+It is common knowledge that one requires data to train a convolutional neural network.
+The accuracy of a data model heavily weighs on the quality of training data and labeling.
+After a brief search for publicly available, labeled and categorized data suitable for training a recurrence plot model, decision was made for this data to be generated synthetically.
+
+
+\subsubsection{Choosing classification features}
+Before generating the data it is important to recognize what the convolutional neural network is expected to learn from it.
+
+% Identify what are the attributes 
+
+% An ideal training dataset would have a sizeable amount CNN
+% In order for a 
+
+A choise was made to classify plot images into one of the three groups:
+\begin{itemize}
+  \item Whether the data is stationary
+  \item Whether the data has a trend
+  \item Whether the data has is periodic
+\end{itemize}
+This decision was based purely on the ability to generate data that is labeled accordingly.
+
+
+% \subsection{Model limitations}
 %We will go more in depth about each microservice in later sections.
 
 
@@ -205,54 +312,54 @@ Following the best practices of React development, the app is into reuseable com
 
 
 
-\newpage
-\section{Pirmasis skyrius}
-\label{sec:motivation}
+% \newpage
+% \section{Pirmasis skyrius}
+% \label{sec:motivation}
 
-asa \cite{recurrence-plot}
-
-
-
-\subsection{Pirmojo skyriaus poskyris}
-\label{sec:example}
-Pateikiamas \ref{sec:example} poskyrio tekstas. Vienas iš šaltinių~\cite{KTZ}. Visas ~\cite{KTV} turinys priklauso \ref{sec:motivation} skyriui.
-
-\subsubsection{Pirmojo skyriaus pirmo poskyrio poskyris}
-\label{sec:data}
-Pateikiamas trečio lygio poskyrio tekstas.
-
-\begin{equation}
-  x = \sum_{i=1}^N m_i
-\end{equation}
-
-\begin{table}[!ht]\centering
-  \caption{Lentelė ... }
-  \label{tabl:table}
-  \begin{tabular}{l|r|}
-    test & test \\ \hline
-    test & test \\
-  \end{tabular}
-\end{table}
-
-Sprendimas pristatomas \ref{alg:1} algoritme, o įgyvendinimas -- \ref{abc} išeities kode.
-
-\begin{algorithm}\caption{Algoritmas uždavinio sprendimui}
-  \label{alg:1}
-  \begin{algorithmic}
-    \REQUIRE
-    \ENSURE
-    \STATE a \AND b
-  \end{algorithmic}
-
-
-\end{algorithm}
+% asa \cite{recurrence-plot}
 
 
 
-\begin{lstlisting}[caption={Pagrindinio metodo žingsniai},label={abc}]
-public static void main(String args[]){
-}
-\end{lstlisting}
+% \subsection{Pirmojo skyriaus poskyris}
+% \label{sec:example}
+% Pateikiamas \ref{sec:example} poskyrio tekstas. Vienas iš šaltinių~\cite{KTZ}. Visas ~\cite{KTV} turinys priklauso \ref{sec:motivation} skyriui.
+
+% \subsubsection{Pirmojo skyriaus pirmo poskyrio poskyris}
+% \label{sec:data}
+% Pateikiamas trečio lygio poskyrio tekstas.
+
+% \begin{equation}
+%   x = \sum_{i=1}^N m_i
+% \end{equation}
+
+% \begin{table}[!ht]\centering
+%   \caption{Lentelė ... }
+%   \label{tabl:table}
+%   \begin{tabular}{l|r|}
+%     test & test \\ \hline
+%     test & test \\
+%   \end{tabular}
+% \end{table}
+
+% Sprendimas pristatomas \ref{alg:1} algoritme, o įgyvendinimas -- \ref{abc} išeities kode.
+
+% \begin{algorithm}\caption{Algoritmas uždavinio sprendimui}
+%   \label{alg:1}
+%   \begin{algorithmic}
+%     \REQUIRE
+%     \ENSURE
+%     \STATE a \AND b
+%   \end{algorithmic}
+
+
+% \end{algorithm}
+
+
+
+% \begin{lstlisting}[caption={Pagrindinio metodo žingsniai},label={abc}]
+% public static void main(String args[]){
+% }
+% \end{lstlisting}
 
 %Conclusions section
 \sectionWithoutNumber{\keyWordConclusions}{conclu}

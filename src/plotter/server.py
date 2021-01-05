@@ -1,4 +1,4 @@
-import flask, os, uuid
+import flask, os
 import numpy as np
 
 from flask import request, send_file

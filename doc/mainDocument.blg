@@ -3,48 +3,55 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: mainDocument.aux
 The style file: plain.bst
 Database file #1: literatureSources.bib
-Warning--I didn't find a database entry for "recurrence-plot"
-Warning--I didn't find a database entry for "KTZ"
-Warning--I didn't find a database entry for "KTV"
-You've used 6 entries,
+Warning--to sort, need author or key in express
+Warning--to sort, need author or key in flask
+Warning--to sort, need author or key in sass
+Warning--to sort, need author or key in npm
+Warning--to sort, need author or key in node-fetch
+Warning--to sort, need author or key in query-string
+Warning--to sort, need author or key in mongoose
+Warning--to sort, need author or key in numpy
+Warning--to sort, need author or key in scipy
+Warning--to sort, need author or key in matplotlib
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            534 strings with 5182 characters,
-and the built_in function-call counts, 1336 in all, are:
-= -- 130
-> -- 42
+            561 strings with 6396 characters,
+and the built_in function-call counts, 3058 in all, are:
+= -- 310
+> -- 52
 < -- 0
-+ -- 18
++ -- 28
 - -- 12
-* -- 45
-:= -- 239
-add.period$ -- 23
-call.type$ -- 6
-change.case$ -- 21
+* -- 105
+:= -- 441
+add.period$ -- 53
+call.type$ -- 16
+change.case$ -- 51
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 57
-empty$ -- 133
+cite$ -- 26
+duplicate$ -- 127
+empty$ -- 363
 format.name$ -- 12
-if$ -- 290
+if$ -- 720
 int.to.chr$ -- 0
-int.to.str$ -- 6
+int.to.str$ -- 16
 missing$ -- 6
-newline$ -- 36
+newline$ -- 86
 num.names$ -- 12
-pop$ -- 46
+pop$ -- 126
 preamble$ -- 1
-purify$ -- 18
+purify$ -- 38
 quote$ -- 0
-skip$ -- 35
+skip$ -- 94
 stack$ -- 0
-substring$ -- 30
-swap$ -- 6
+substring$ -- 80
+swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 18
-warning$ -- 0
+type$ -- 58
+warning$ -- 10
 while$ -- 12
-width$ -- 7
-write$ -- 69
-(There were 3 warnings)
+width$ -- 18
+write$ -- 169
+(There were 10 warnings)
