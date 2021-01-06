@@ -15,6 +15,17 @@ Keras - an api designed for human beings, not machines.
 \newblock \newline{}https://github.com/keras-team/keras, 2021.
 \newblock [Online; accessed 4-Jan-2021].
 
+\bibitem{dropout}
+Keras dropout layer - applies dropout to the input.
+\newblock
+  \newline{}https://keras.io/api/layers/regularization\_layers/dropout/, 2021.
+\newblock [Online; accessed 4-Jan-2021].
+
+\bibitem{sequential}
+Keras sequential groups a linear stack of layers into a tf.keras.model.
+\newblock \newline{}https://keras.io/api/models/sequential/, 2021.
+\newblock [Online; accessed 4-Jan-2021].
+
 \bibitem{matplotlib}
 Matplotlib - a comprehensive library for creating static, animated, and
   interactive visualizations in python.
@@ -70,6 +81,18 @@ Tensorflow - an end-to-end open source platform for machine learning.
 \newblock \newline{}https://github.com/tensorflow/, 2021.
 \newblock [Online; accessed 4-Jan-2021].
 
+\bibitem{understanding_cnn}
+S.~{Albawi}, T.~A. {Mohammed}, and S.~{Al-Zawi}.
+\newblock Understanding of a convolutional neural network.
+\newblock In {\em 2017 International Conference on Engineering and Technology
+  (ICET)}, pages 1--6, 2017.
+
+\bibitem{recent_advances_in_cnn}
+Jiuxiang Gu, Zhenhua Wang, Jason Kuen, Lianyang Ma, Amir Shahroudy, Bing Shuai,
+  Ting Liu, Xingxing Wang, Gang Wang, Jianfei Cai, and Tsuhan Chen.
+\newblock Recent advances in convolutional neural networks.
+\newblock {\em Pattern Recognition}, 77:354 -- 377, 2018.
+
 \bibitem{react_home}
 Facebook Inc.
 \newblock React is a javascript library for building user interfaces.
@@ -112,5 +135,10 @@ R.~Priemer.
 Karen Simonyan and Andrew Zisserman.
 \newblock {Very deep convolutional networks for large-scale image recognition}.
 \newblock {\em arXiv preprint arXiv:1409.1556}, 2014.
+
+\bibitem{overfitting}
+Xue Ying.
+\newblock An overview of overfitting and its solutions.
+\newblock {\em Journal of Physics: Conference Series}, 1168:022022, feb 2019.
 
 \end{thebibliography}

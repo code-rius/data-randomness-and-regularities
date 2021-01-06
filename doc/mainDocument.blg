@@ -16,45 +16,47 @@ Warning--to sort, need author or key in matplotlib
 Warning--to sort, need author or key in tensorflow
 Warning--to sort, need author or key in keras
 Warning--to sort, need author or key in scikit-learn
-You've used 20 entries,
+Warning--to sort, need author or key in dropout
+Warning--to sort, need author or key in sequential
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            576 strings with 7003 characters,
-and the built_in function-call counts, 3814 in all, are:
-= -- 387
-> -- 68
-< -- 0
-+ -- 36
-- -- 16
-* -- 135
-:= -- 546
-add.period$ -- 65
-call.type$ -- 20
-change.case$ -- 65
+            603 strings with 7849 characters,
+and the built_in function-call counts, 5443 in all, are:
+= -- 538
+> -- 153
+< -- 1
++ -- 72
+- -- 46
+* -- 251
+:= -- 803
+add.period$ -- 80
+call.type$ -- 25
+change.case$ -- 95
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 158
-empty$ -- 449
-format.name$ -- 16
-if$ -- 897
+cite$ -- 40
+duplicate$ -- 213
+empty$ -- 583
+format.name$ -- 46
+if$ -- 1246
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 7
-newline$ -- 106
-num.names$ -- 14
-pop$ -- 155
+int.to.str$ -- 25
+missing$ -- 10
+newline$ -- 131
+num.names$ -- 20
+pop$ -- 194
 preamble$ -- 1
-purify$ -- 48
+purify$ -- 73
 quote$ -- 0
-skip$ -- 120
+skip$ -- 160
 stack$ -- 0
-substring$ -- 100
-swap$ -- 20
-text.length$ -- 0
+substring$ -- 183
+swap$ -- 31
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
-warning$ -- 13
-while$ -- 14
-width$ -- 22
-write$ -- 209
-(There were 13 warnings)
+type$ -- 94
+warning$ -- 15
+while$ -- 24
+width$ -- 27
+write$ -- 262
+(There were 15 warnings)
