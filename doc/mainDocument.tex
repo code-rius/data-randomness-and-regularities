@@ -23,7 +23,7 @@
 % #1 -report type, #2 - title, #3-7 students, #8 - supervisor
 \depttitlepage{Bachelors Thesis}{Implementation of application for visualization of regularities and randomness in data}{Audrius Baranauskas}
 {}{}{}{}% students 2-5
-{dr. Tadas Meškauskas}
+{Ph. D. Tadas Meškauskas}
 
 \tableofcontents
 
@@ -33,7 +33,7 @@
 
 %both abstracts
 \bothabstracts{\input{abstract}}%tex-file of abstract in original language
-{Darbo pavadinimas kita kalba} %if work is in LT this title should be in English
+{Aplikacijos kūrimas dėsningumų ir atsitiktinumų duomenyse vizualizavimui} %if work is in LT this title should be in English
 {\input{abstractEN}}%tex-file of abstract in other language
 
 
@@ -41,42 +41,76 @@
 \sectionWithoutNumber{\keyWordIntroduction}{intro}
 \input{introduction.tex}
 
-
+\newpage
 %=============================================================
 %========================The main part========================
 %=============================================================
 
-\newpage
 
-\section{Signal processing and Recurrence plot}
-\label{sec:motivation}
-\subsection{Signal processing}
-
-A signal is a function that conveys information about the behaviour of a system
-or attributes of some phenomenon \cite{priemer1990introductory}.
-For example, measuring the time taken between a weight-driven
-pendulum clock's ticks produces signal.
-In turn, for the scope of this paper, we defined the term signal processing as
-\textit{the science of analyzing time-varying processes} 
-\cite{lyons2004understanding}.
-By processing a signal we analyzed the non-triviality of a given signal.
-Analyzing a signal reveals that some signals 
-have properties that can be categorized.
-
-\subsection{Signal property categories}
+%=================================Data randomness and regularities
+\section{Data randomness and regularities}
+This section covers what is the expected input and output of data analysis. 
+It will explore a method for identifying data characteristics and its limitations.
+Finally it will dive deeper into innerworkings of the given tool used for this task.
 
 
-We have considered the following categories:
-\begin{enumerate}
-  \item Stationary and non stationary signals
-  \item 
-\end{enumerate}
+%=================================Data randomness and regularities
+\subsection{Problem task}
+ 
 
 
-Signals have varying properties. Some consist of simple repetitions while others
-have no apparent patterns.
-For example, measuring the time taken between a weight-driven
-pendulum clock's ticks produces a relatively simple (trivial) signal.
+% Signals can be observer all around us. 
+% For example, measuring the time taken between a weight-driven
+% pendulum clock's ticks produces a signal. It does not require 
+% a great deal of effor to image how such a signal behaves.
+% We would expect the clock's pendulum to swing back and forth,
+% each time travelling a minutely shorter distance until the pendulum
+% stops completely. Analysis of even a part of such a signal can help 
+% us determine the pendulum's position far into future.
+
+
+% Now consider a more complex siganl: the rates of a stock market.
+% People have been analyzing this data for decades, grasping to 
+% predict its future state.
+% For the scope of this paper, we defined the term signal processing as
+% \textit{the science of analyzing time-varying processes} \cite{lyons2004understanding}.
+
+
+% In this thesis we analyzed the non-triviality of digital sygnals.
+% Certain signals can be classified as simple (relatively trivial),
+% like the aforementioned clock's pendulum.
+% A more complex (non-trivial) signal would be the rates of a stock exchange.
+
+
+% \section{Signal processing and Recurrence plot}
+% \label{sec:motivation}
+% \subsection{Signal processing}
+
+% A signal is a function that conveys information about the behaviour of a system
+% or attributes of some phenomenon \cite{priemer1990introductory}.
+% For example, measuring the time taken between a weight-driven
+% pendulum clock's ticks produces signal.
+% In turn, for the scope of this paper, we defined the term signal processing as
+% \textit{the science of analyzing time-varying processes} 
+% \cite{lyons2004understanding}.
+% By processing a signal we analyzed the non-triviality of a given signal.
+% Analyzing a signal reveals that some signals 
+% have properties that can be categorized.
+
+% \subsection{Signal property categories}
+
+
+% We have considered the following categories:
+% \begin{enumerate}
+%   \item Stationary and non stationary signals
+%   \item 
+% \end{enumerate}
+
+
+% Signals have varying properties. Some consist of simple repetitions while others
+% have no apparent patterns.
+% For example, measuring the time taken between a weight-driven
+% pendulum clock's ticks produces a relatively simple (trivial) signal.
 
 
 \newpage
@@ -102,7 +136,7 @@ as little user knowledge to get started with the algorithm as possible.
 
 %=================================Architecture
 \subsection{Architecture}
-This project uses the microservices. 
+This project consists of three microservices. 
 Microservices are small autonomous services deployed independently, with a single and clearly defined purpose \cite{krause2015microservices}. This design approach was chosen due to the flexibility and scalability associated with the architecture. %%%% %%Probably useless sentence
 The nature of microservices allows one to easily test, modify or out right replace each one of the components giving more freedom to the developer.
 The project ecosystem consists of the following microservices:
@@ -161,7 +195,7 @@ The user selects an entry from the list and fills in remaining parameters for ge
 A request with select data ID is sent to the back end microservice.
 The back end service fetches data from the database and forwards it to the plotting service.
 The plotting service generates an image, then runs the image through a convolutional neural network to get classification data.
-Finally, the plotting service send the image along with classification data back to the back end service, which in turn forwards it to the front end service.
+Finally, the plotting service sends the image along with classification data back to the back end service, which in turn forwards it to the front end service.
 The front end service displays the image and classification data.
 
 
@@ -170,7 +204,7 @@ The front end service displays the image and classification data.
 The tools used for microservice development were largely open-sourced and relatively modern. 
 Front end and Back end services were written in javascript  
 based environments - React JS and Node JS respectively.
-These choises were made due to the widespread use of javascript in modern web application development providing a large pool of open-sourced libraries and tools.
+These choices were made due to the widespread use of javascript in modern web application development providing a large pool of open-sourced libraries and tools.
 
 On the other hand python was the tool used to develop the plotting service. It is known to perform better on data handling and machine learning than javascript alternatives \cite{javascript_vs_python_ml}.
 Both Python and Node JS have certain strengths and thus have appropriate community driven libraries and modules to reinforce their leverages in appropriate operations.
@@ -283,14 +317,14 @@ The GPU device used: GTX 1070 Ti with 8 Gigabytes of on-board memory.
 \subsection{Generating training data}
 It is common knowledge that one requires data to train a convolutional neural network.
 The accuracy of a data model heavily weighs on the quality of training data and labeling.
-After a brief search for publicly available, labeled and categorized data suitable for training a recurrence plot model, a decision was made for this data to be generated synthetically.
+After a brief search for publicly available, labeled and categorized data that is suitable for training a recurrence plot categorising model, a decision was made for this data to be generated synthetically.
 
 
 %=================================Training data methodologies
 \subsubsection{Training data methodologies}
 All of the following signals and their graphs are generated by utilizing
 the aforementioned libraries and the recurrence plot module.
-For every signal a complementary graph image is generated to help visualise the data which resulted in the recurrence plot.
+For every signal a complementary graph image is generated to help visualize the data which is depicted in a given recurrence plot.
 Due to the module flexibility every chaotic and periodic asset had randomised values for D - Dimension and d - delay.
 In addition, most aspects of each graph had a randomised flaoting point number be added or subtracter.
 This aided in generating a more diverse set of training assets.
@@ -303,7 +337,7 @@ The source code for generating assets and associated graphs is inside the \code{
 \subsubsection{Choosing classification features}
 Before generating the data it is important to recognize what the convolutional neural network is expected to learn from it.
 The \emph{what can it learn?} aspect of a CNN is mostly limited by the labeled data we can provide.
-A choise was made to classify plot images into one of the three groups:
+A choice was made to classify plot images into one of the three groups:
 \begin{itemize}
   \item Plotted signal is chaotic
   \item Plotted signal has a trend
@@ -480,7 +514,7 @@ A fully connected layer with the softmax activation acts as the output layer.
 \end{figure}
 
 The Keras Sequential model is trained by compiling it and invoking the fit function.
-The model was compiled using the following parameters: Adam - optimizer function of choise, learning rate - 0.001, objective function - crossentropy objective, metrics - accuracy.
+The model was compiled using the following parameters: Adam - optimizer function of choice, learning rate - 0.001, objective function - crossentropy objective, metrics - accuracy.
 
 Model was trained in 10 epochs, each taking about 27 seconds to train, running on the aforementioned GPU accellerated hardware~\ref{sec:hardware}.
 

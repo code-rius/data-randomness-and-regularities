@@ -13,6 +13,11 @@ app = flask.Flask(__name__)
 app.config['DEBUG'] = True
 
 path = os.path.dirname(os.path.realpath(__file__))
+def enable_gpu():
+    # Optional - enable GPU accelleration
+    physical_devices = tf.config.experimental.list_physical_devices('GPU')
+    print("Num GPUs Available: ", len(physical_devices))
+    tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 def get_model():
     global model
@@ -29,6 +34,8 @@ def preprocess_image(image, target_size):
 
     return image
 
+
+enable_gpu()
 get_model()
 
 @app.route('/', methods=['GET', 'POST'])
@@ -42,9 +49,9 @@ def index():
 
     response = {
         'prediction':{
-            'chaotic':prediction[0][0],
-            'periodic':prediction[0][1],
-            'trend':prediction[0][2]
+            'periodic': prediction[0][0],
+            'trend':prediction[0][1],
+            'chaotic': prediction[0][2]
         }
     }
 

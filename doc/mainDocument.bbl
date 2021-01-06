@@ -99,6 +99,12 @@ Facebook Inc.
 \newblock \newline{}https://github.com/facebook/react, 2020.
 \newblock [Online; accessed 2-Jan-2021].
 
+\bibitem{venn-diagram}
+Hans~A. Kestler, André Müller, Thomas~M. Gress, and Malte Buchholz.
+\newblock {Generalized Venn diagrams: a new method of visualizing complex
+  genetic set relations}.
+\newblock {\em Bioinformatics}, 21(8):1592--1595, 11 2004.
+
 \bibitem{krause2015microservices}
 L.~Krause.
 \newblock {\em Microservices: Patterns and Applications: Designing Fine-Grained
@@ -113,23 +119,11 @@ Miśtal Krzysztof.
   2020.
 \newblock [Online; accessed 2-Jan-2021].
 
-\bibitem{lyons2004understanding}
-R.G. Lyons.
-\newblock {\em Understanding Digital Signal Processing}.
-\newblock Prentice Hall professional technical reference. Prentice Hall/PTR,
-  2004.
-
 \bibitem{recurrence_plot_tk}
 Norbert Marwan.
 \newblock Recurrence plots and cross recurrence plots.
 \newblock \newline{}http://recurrence-plot.tk/online/index.php.
 \newblock [Online; accessed 2-Jan-2021].
-
-\bibitem{priemer1990introductory}
-R.~Priemer.
-\newblock {\em Introductory Signal Processing}.
-\newblock Advanced Series In Electrical And Computer Engineering. World
-  Scientific Publishing Company, 1990.
 
 \bibitem{brusilovsky:simonyan2014very}
 Karen Simonyan and Andrew Zisserman.

@@ -5,6 +5,7 @@ import csv
 import os
 import shutil
 import random
+from scipy import signal as sg
 from recurrence_plot import RecurrencePlot as rp
 
 plt.rcParams.update({'font.size': 12})
@@ -172,6 +173,6 @@ def generate_chaotic_assets(N):
         create_new_file('plotpic.png', 'rp_graph_' +
                         str(i) + '.png', rp_dir)
 
-generate_trend_assets(1000)
-generate_periodic_assets(334) # This is multiplied by 3 as each iteration 3 graphs are created
-generate_chaotic_assets(1000)
+# generate_trend_assets(1000)
+generate_periodic_assets(1) # This is multiplied by 3 as each iteration 3 graphs are created
+# generate_chaotic_assets(1000)

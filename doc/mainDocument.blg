@@ -18,45 +18,45 @@ Warning--to sort, need author or key in keras
 Warning--to sort, need author or key in scikit-learn
 Warning--to sort, need author or key in dropout
 Warning--to sort, need author or key in sequential
-You've used 25 entries,
+You've used 24 entries,
             2118 wiz_defined-function locations,
-            603 strings with 7849 characters,
-and the built_in function-call counts, 5443 in all, are:
-= -- 538
-> -- 153
+            600 strings with 7760 characters,
+and the built_in function-call counts, 5394 in all, are:
+= -- 530
+> -- 162
 < -- 1
-+ -- 72
-- -- 46
-* -- 251
-:= -- 803
-add.period$ -- 80
-call.type$ -- 25
-change.case$ -- 95
++ -- 75
+- -- 50
+* -- 271
+:= -- 789
+add.period$ -- 75
+call.type$ -- 24
+change.case$ -- 96
 chr.to.int$ -- 0
-cite$ -- 40
-duplicate$ -- 213
-empty$ -- 583
-format.name$ -- 46
-if$ -- 1246
+cite$ -- 39
+duplicate$ -- 200
+empty$ -- 568
+format.name$ -- 50
+if$ -- 1228
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 10
-newline$ -- 131
-num.names$ -- 20
-pop$ -- 194
+int.to.str$ -- 24
+missing$ -- 7
+newline$ -- 126
+num.names$ -- 18
+pop$ -- 187
 preamble$ -- 1
 purify$ -- 73
 quote$ -- 0
-skip$ -- 160
+skip$ -- 155
 stack$ -- 0
-substring$ -- 183
-swap$ -- 31
+substring$ -- 205
+swap$ -- 30
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 94
 warning$ -- 15
-while$ -- 24
-width$ -- 27
-write$ -- 262
+while$ -- 23
+width$ -- 26
+write$ -- 251
 (There were 15 warnings)

@@ -1,21 +1,18 @@
-Signals can be observer all around us. 
-For example, measuring the time taken between a weight-driven
-pendulum clock's ticks produces a signal. It does not require 
-a great deal of effor to image how such a signal behaves.
-We would expect the clock's pendulum to swing back and forth,
-each time travelling a minutely shorter distance until the pendulum
-stops completely. Analysis of even a part of such a signal can help 
-us determine the pendulum's position far into future.
+Humans are not particularly good at dealing with large quantities of data, especially when it is expressed in a numeric value.
+We are visual creatures, as the common expression states \emph{I Won’t Believe It Until I See It}.
+This has lead to an explosion in visualization tools and methods.
+Depending on what the illustration is intented to represent, unique techniques are used.
+These techniques help us see the data from a unique perspective by emphasising certain aspects of data.
+For example in order to display possible logical relations between a colletion of data sets one might choose the venn diagram~\cite{venn-diagram}.
 
+A task at hand is the visualization of data randomness and regularities.
+The common method used for exactly this job is a recurrence plot.
+This data analysis tool evaluates a stream of data and produces and image.
+For an untrained eye the visualization might seem trivial, but after seing a few examples one does not require a great deal of effort to learn how to read the recurrence plot.
+The algorithm used to generate this image has its peculiarities but the paper seeks to clarify them.
 
-Now consider a more complex siganl: the rates of a stock market.
-People have been analyzing this data for decades, grasping to 
-predict its future state.
-For the scope of this paper, we defined the term signal processing as
-\textit{the science of analyzing time-varying processes} \cite{lyons2004understanding}.
-
-
-In this thesis we analyzed the non-triviality of digital sygnals.
-Certain signals can be classified as simple (relatively trivial),
-like the aforementioned clock's pendulum.
-A more complex (non-trivial) signal would be the rates of a stock exchange.
+On the other hand, for a long time visual tasks were performed exclusively by humans.
+The underlying principles for machine learning have been around for quite some time, but were limited by hardware.
+Rapid increase in affordable computational power coupled with open sourced software is enabling the widespread adoption of this technology.
+This is an attempt to apply the current advances in machine learning in order to tackle a task of classifying characteristics of a recurrence plot.
+For the model to be utilized, a web application infrastructure is build allowing one to explore the recurrence plot and its properties.
