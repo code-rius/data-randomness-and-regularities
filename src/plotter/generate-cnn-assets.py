@@ -18,11 +18,7 @@ def create_new_file(file1, file2_name, file2_dir):
         source_file = src_dir + '/' + file1
         dest_file = src_dir + '/' + file2_dir + file2_name
 
-        # print('Source file path:\t', source_file,
-            # '\nDestination file path:\t', dest_file)
-
         shutil.move(source_file, dest_file)
-        # print(os.listdir(src_dir + file2_dir))
     else:
         print("create_new_file: file not found")
 
@@ -38,7 +34,6 @@ def generate_and_save_graph(data_labels, data_values, file_name, dirname, title)
     ax.grid()
 
     plt.savefig(dirname + file_name)
-    # plt.show()
 
 
 def generate_data_with_trend(lower_bound, upper_bound, \
@@ -65,8 +60,8 @@ def generate_data_with_trend(lower_bound, upper_bound, \
 
 
 def generate_trend_assets(N):
-    rp_dir = 'jupyter/rp-data/trend/'
-    graph_dir = 'jupyter/rp-data/_graphs/'
+    rp_dir = 'jupyter/data/'
+    graph_dir = 'jupyter/data/_graphs/'
     lower_bound = 0
     upper_bound = 60
     batch_number = 33
@@ -94,17 +89,9 @@ def generate_trend_assets(N):
         exponent -= exponent_increment
 
 
-############################################
-# Generating trend data
-############################################
-# Generate trend data
-
-############################################
-# Generating periodic data
-############################################
 def generate_periodic_assets(N):
-    rp_dir = 'jupyter/rp-data/period/'
-    graph_dir = 'jupyter/rp-data/_graphs/'
+    rp_dir = 'jupyter/data/'
+    graph_dir = 'jupyter/data/_graphs/'
     freq = 2
     amp = 2
     time_start = 0
@@ -121,7 +108,7 @@ def generate_periodic_assets(N):
 
         t_freq = freq + round(random.uniform(0, 1.5),4)
         t_amp = amp + round(random.uniform(0, 1.5), 4)
-        t_time_start = time_start #+ round(random.uniform(-0.5, 0.5), 2)
+        t_time_start = time_start
         t_time_stop = time_stop + round(random.uniform(0, 7), 2)
         t_duty1 = duty1 + round(random.uniform(-0.15, 0.55), 3)
         t_duty2 = duty2 + round(random.uniform(-0.35, 0.35), 3)
@@ -161,8 +148,8 @@ def generate_periodic_assets(N):
 
 
 def generate_chaotic_assets(N):
-    rp_dir = 'jupyter/rp-data/chaos/'
-    graph_dir = 'jupyter/rp-data/_graphs/'
+    rp_dir = 'jupyter/data/'
+    graph_dir = 'jupyter/data/_graphs/'
 
     for i in range(N):
         data = []
