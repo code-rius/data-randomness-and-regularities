@@ -13,45 +13,48 @@ Warning--to sort, need author or key in mongoose
 Warning--to sort, need author or key in numpy
 Warning--to sort, need author or key in scipy
 Warning--to sort, need author or key in matplotlib
-You've used 16 entries,
+Warning--to sort, need author or key in tensorflow
+Warning--to sort, need author or key in keras
+Warning--to sort, need author or key in scikit-learn
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            561 strings with 6396 characters,
-and the built_in function-call counts, 3058 in all, are:
-= -- 310
-> -- 52
+            576 strings with 7003 characters,
+and the built_in function-call counts, 3814 in all, are:
+= -- 387
+> -- 68
 < -- 0
-+ -- 28
-- -- 12
-* -- 105
-:= -- 441
-add.period$ -- 53
-call.type$ -- 16
-change.case$ -- 51
++ -- 36
+- -- 16
+* -- 135
+:= -- 546
+add.period$ -- 65
+call.type$ -- 20
+change.case$ -- 65
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 127
-empty$ -- 363
-format.name$ -- 12
-if$ -- 720
+cite$ -- 33
+duplicate$ -- 158
+empty$ -- 449
+format.name$ -- 16
+if$ -- 897
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 6
-newline$ -- 86
-num.names$ -- 12
-pop$ -- 126
+int.to.str$ -- 20
+missing$ -- 7
+newline$ -- 106
+num.names$ -- 14
+pop$ -- 155
 preamble$ -- 1
-purify$ -- 38
+purify$ -- 48
 quote$ -- 0
-skip$ -- 94
+skip$ -- 120
 stack$ -- 0
-substring$ -- 80
-swap$ -- 16
+substring$ -- 100
+swap$ -- 20
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 58
-warning$ -- 10
-while$ -- 12
-width$ -- 18
-write$ -- 169
-(There were 10 warnings)
+type$ -- 74
+warning$ -- 13
+while$ -- 14
+width$ -- 22
+write$ -- 209
+(There were 13 warnings)

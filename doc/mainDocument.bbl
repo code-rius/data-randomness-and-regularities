@@ -10,11 +10,22 @@ Flask - python web application framework.
 \newblock \newline{}https://flask.palletsprojects.com/en/1.1.x/, 2021.
 \newblock [Online; accessed 2-Jan-2021].
 
+\bibitem{keras}
+Keras - an api designed for human beings, not machines.
+\newblock \newline{}https://github.com/keras-team/keras, 2021.
+\newblock [Online; accessed 4-Jan-2021].
+
 \bibitem{matplotlib}
 Matplotlib - a comprehensive library for creating static, animated, and
   interactive visualizations in python.
 \newblock \newline{}https://github.com/matplotlib/matplotlib, 2021.
 \newblock [Online; accessed 3-Jan-2021].
+
+\bibitem{scikit-learn}
+Matplotlib - a python module for machine learning built on top of scipy and is
+  distributed under the 3-clause bsd license.
+\newblock \newline{}https://github.com/scikit-learn/scikit-learn, 2021.
+\newblock [Online; accessed 4-Jan-2021].
 
 \bibitem{mongoose}
 Mongoose - a mongodb object modeling tool designed to work in an asynchronous
@@ -54,6 +65,11 @@ Scipy (pronounced "sigh pie") is open-source software for mathematics, science,
 \newblock \newline{}https://github.com/scipy/scipy, 2021.
 \newblock [Online; accessed 3-Jan-2021].
 
+\bibitem{tensorflow}
+Tensorflow - an end-to-end open source platform for machine learning.
+\newblock \newline{}https://github.com/tensorflow/, 2021.
+\newblock [Online; accessed 4-Jan-2021].
+
 \bibitem{react_home}
 Facebook Inc.
 \newblock React is a javascript library for building user interfaces.
@@ -91,5 +107,10 @@ R.~Priemer.
 \newblock {\em Introductory Signal Processing}.
 \newblock Advanced Series In Electrical And Computer Engineering. World
   Scientific Publishing Company, 1990.
+
+\bibitem{brusilovsky:simonyan2014very}
+Karen Simonyan and Andrew Zisserman.
+\newblock {Very deep convolutional networks for large-scale image recognition}.
+\newblock {\em arXiv preprint arXiv:1409.1556}, 2014.
 
 \end{thebibliography}
