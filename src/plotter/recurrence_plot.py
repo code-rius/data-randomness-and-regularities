@@ -7,10 +7,10 @@ from PIL import Image
 
 class RecurrencePlot:
 
-    def __init__(self, D: int, d: int, data: list, compareMode:int = 0, target: float = 17.5, deviation: float = 3, downSample: bool = False, downSampleTarget: int = 720):
-        self.downSampleTarget = downSampleTarget
-        self.compareMode = compareMode
-        self.downSample = downSample
+    def __init__(self, D: int, d: int, data: list, compare_mode:int = 0, target: float = 17.5, deviation: float = 3, down_sample: bool = False, down_sample_target: int = 720):
+        self.down_sample_target = down_sample_target
+        self.compare_mode = compare_mode
+        self.down_sample = down_sample
         self.target = target
         self.data = data
         self.D = D
@@ -22,9 +22,9 @@ class RecurrencePlot:
         self.calibrate_r()
 
     def calibrate_r(self):
-        if (self.compareMode == 0):
+        if (self.compare_mode == 0):
             r_last = (max(self.data) - min(self.data))*np.sqrt(self.D)
-        elif (self.compareMode == 1):
+        elif (self.compare_mode == 1):
             r_last = (max(self.data) - min(self.data))
 
         self.percentage = percentage_last = 100
@@ -63,7 +63,7 @@ class RecurrencePlot:
             sygnalStates.append(state)
 
         # Generate data similarities array
-        if (self.compareMode == 0):
+        if (self.compare_mode == 0):
             # Calculate using euclidian norm
             for i in range(0, self.M):
                 for j in range(i, self.M):
@@ -78,7 +78,7 @@ class RecurrencePlot:
                     if (vectorDistance <= self.r):
                         similarities.append([i, j])
 
-        elif (self.compareMode == 1):
+        elif (self.compare_mode == 1):
             # Calculate using the maximum value
             for i in range(0, self.M):
                 for j in range(i, self.M):
@@ -127,7 +127,7 @@ class RecurrencePlot:
         # the ratio.
         self.percentage = (len(self.similarities)-self.M)/((self.M)*(self.M)-self.M)*2*100
 
-    def do_downsample(self, data: list, target: int = 720) -> list:
+    def do_down_sample(self, data: list, target: int = 720) -> list:
         if(len(data) <= target):
             return data
         else:

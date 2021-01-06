@@ -100,6 +100,7 @@ Based on these factors, a decision was made to create a web based application th
 as little user knowledge to get started with the algorithm as possible.
 
 
+%=================================Architecture
 \subsection{Architecture}
 This project uses the microservices. 
 Microservices are small autonomous services deployed independently, with a single and clearly defined purpose \cite{krause2015microservices}. This design approach was chosen due to the flexibility and scalability associated with the architecture. %%%% %%Probably useless sentence
@@ -122,6 +123,7 @@ Figure~\ref{fig:architecture_diagram} illustrates the microservice architecture 
 \end{figure}
 
 
+%=================================Project structure
 \subsubsection{Project structure}
 The project is structured so that each microservice resides in an independent directory:
 \begin{itemize}
@@ -150,6 +152,7 @@ The NodeJS express\cite{express} server resides inside the \code{/server/} direc
 Meanwhile, \code{/plotter/} contains all of the Python source code. That includes the flask \cite{flask} web server, the recurrence plot module, jupyter notebooks for convolutional neural network model development and scripts for model training data generation.
 
 
+%=================================Project workflow
 \subsubsection{Project workflow}
 We will now cover an example workflow of the application as per figure~\ref{fig:architecture_diagram}.
 
@@ -159,9 +162,10 @@ A request with select data ID is sent to the back end microservice.
 The back end service fetches data from the database and forwards it to the plotting service.
 The plotting service generates an image, then runs the image through a convolutional neural network to get classification data.
 Finally, the plotting service send the image along with classification data back to the back end service, which in turn forwards it to the front end service.
-The front end service displayes the image and classification data.
+The front end service displays the image and classification data.
 
 
+%=================================Microservices
 \subsection{Microservices}
 The tools used for microservice development were largely open-sourced and relatively modern. 
 Front end and Back end services were written in javascript  
@@ -172,6 +176,7 @@ On the other hand python was the tool used to develop the plotting service. It i
 Both Python and Node JS have certain strengths and thus have appropriate community driven libraries and modules to reinforce their leverages in appropriate operations.
 
 
+%=================================Front end microservice
 \subsubsection{Front end microservice}
 The front end service is developed using React - A JavaScript library for building user interfaces \cite{react_home}.
 SASS is used for styling the apllication due to the intuitive syntax it provides \cite{sass}.
@@ -204,6 +209,7 @@ After handling the server response - the \code{<Loader />} component is replaced
 During any further plot requests, the \code{<Image />} is briefly replaced by the \code{<Loader />} component to indicate that a request is being processed.
 
 
+%=================================Back end microservice
 \subsubsection{Back end microservice}
 The backend microservice also utilizes libraries provided by the Node Package Manager. 
 The service runs on an Node JS express server \cite{express}.
@@ -217,8 +223,12 @@ The express server communicates with the database server by making use of an ope
 The service itself does not generate any plot data, but merely acts as an intermediary between the front end service, the MongoDB database and the plotting service.
 
 
+%=================================Plotter microservice
 \subsubsection{Plotter microservice}
-The plotter microservice handles requests to generate and classify recurrence plots.
+\label{sec:plotter_microservice}
+The plotter microservice handles requests to generate and classify recurrence plots. 
+The service utilizes numpy\cite{numpy}, scipy\cite{scipy} and matplotlib\cite{matplotlib} open sourced python libraries.
+
 The service consists of 3 main parts:
 \begin{enumerate}
   \item Flask - a python web framework
@@ -230,41 +240,172 @@ The service processes the input and generates an image using the recurrence plot
 Image is passed through the convolutional neural network to get the image classification.
 An HTTP response is then sent containing the classification data and the generated image as an attachment.
 
-The innerworkings of recurrence plot module and a convolutional neural network are covered in detail in sections to come.
 
-
+%=================================Recurrence plot module
 \subsection{Recurrence plot module}
+\label{sec:recurrence_plot_module}
 The recurrence plot module is a Python implementation of the algorithm used to generate a recurrence plot.
-The module utilizes the numpy\cite{numpy}, scipy\cite{scipy} and matplotlib\cite{matplotlib} open sourced libraries.
+The module creates a \code{RecurrencePlot} object.
+The object takes in several parameters as input allowing one to customize the following features of the generated plot:
+\begin{itemize}
+  \item D - signal dimension
+  \item d - signal delay
+  \item compare\_mode - evaluation metric: euclidean and maximum 
+  \item target - Prefered pixel percentage of the recurrence plot
+  \item deviation - allowed deviation for final pixel percentage
+\end{itemize}
+As output the module returns the name of the asset in the local storage.
+The object can also be manipulated to retrieve various other metrics about the recurrence plot.
 
 
+%=================================Data classification model
 \section{Data classification model}
 A recurrence plot reveals certain information about the singal.
 After some practice a human can identify whether a given signal exhibits signs of periodity and / or stationarity, has a trend or seems to be random in nature.
 The goal of this model is to determine some the aforementioned characteristics of a signal by analyzing the reucrrence plot generated by it.
 
 
-\subsection{Training data}
+%=================================Generating training data
+\subsection{Generating training data}
 It is common knowledge that one requires data to train a convolutional neural network.
 The accuracy of a data model heavily weighs on the quality of training data and labeling.
-After a brief search for publicly available, labeled and categorized data suitable for training a recurrence plot model, decision was made for this data to be generated synthetically.
+After a brief search for publicly available, labeled and categorized data suitable for training a recurrence plot model, a decision was made for this data to be generated synthetically.
 
 
+%=================================Training data methodologies
+\subsubsection{Training data methodologies}
+The source code for generating training assets if written is python programming language.
+Open sourced libraries utilized for the creation of assets are listed in section~\ref{sec:plotter_microservice}.
+All of the following signals and their graphs are generated by utilizing
+the aforementioned libraries and the recurrence plot module.
+For every signal a complementary graph image is generated to help visualise the data which resulted in the recurrence plot.
+Due to the module flexibility every chaotic and periodic asset had randomised values for D - Dimension and d - delay.
+In addition, most aspects of each graph had a randomised flaoting point number be added or subtracter.
+This aided in generating a more diverse set of training assets.
+The number of assets chosen was arbitraty - 1000 sygnals for each training label.
+That amounts to a total of 3000 recurrence plot images used for training the CNN.
+The source code for generating assets and associated graphs is inside the \code{/plotter/generate-cnn-assets.py} file.
+
+
+%=================================Choosing classification features
 \subsubsection{Choosing classification features}
 Before generating the data it is important to recognize what the convolutional neural network is expected to learn from it.
+The \emph{what can it learn?} aspect of a CNN is mostly limited by the labeled data we can provide.
+A choise was made to classify plot images into one of the three groups:
+\begin{itemize}
+  \item Plotted signal is chaotic
+  \item Plotted signal has a trend
+  \item Plotted signal has is periodic
+\end{itemize}
+We will explore the reasoning of this decision by exploring the limitations of generating labeled signals.
+
+
+%=================================Chaotic signal
+\subsubsection{Chaotic signal}
+A relatively simple signal to identify is a chaotic signal.
+Chaotic, means it has no distinguishable pattern - random.
+This signal can be generated rather easily - by calling a random number generator for each entry in the signal.
+It is also advantageous, that chaotic signal does not trigger any other feature attribute except for stationarity.
+A chaotic signal tends to have a high level of stationary meaning it is dispersed fairly evenly across the recurrence plot.
+Figure~\ref{fig:generated_chaotic} displays a signal (a) and the generated recurrence plot (b) from the training set.
+This signal is labeled as chaotic and is one of the signals used for training the convolutional neural network.
+
+
+\begin{figure}
+  \centering
+  \subfloat[\centering Chaotic signal]{{\includegraphics[height=5.5cm]{assets/chaos_graph.png} }}
+  \qquad
+  \subfloat[\centering Recurrence plot. Pixel target=17.5\%, D=2, d=1]{{\includegraphics[height=5cm]{assets/chaos_rp.png} }}
+  \caption{Chaotic signal and recurrence plot generated by it}
+  \label{fig:generated_chaotic}
+\end{figure}
+
+
+%=================================Periodic signal
+\subsubsection{Periodic signal}
+For a human, identifying a signal with a periodic characteristic is not too strenuous either.
+Unfortunately we cannot consider the periodicity of a signal without considering the stationarity of it.
+Stationarity is generally observed by the homogeneity of a signal.
+In layman terms - how evenly the pixels are spread across the recurrence plot.
+Looking back at figure~\ref{fig:generated_chaotic} we can see that a chaotic signal is highly stationary as the pixels are spread fairly evenly.
+Figure~\ref{fig:generated_periodic_sin} illustrates a signal (a) from the periodic training set and the recurrence plot (b) that is generated from it.
+We can see that this siganl forms a grid pattern.
+The pattern stretches across the whole image therefore this signal is also stationary.
+It would be difficult to generate periodic data that is not stationary, but the same applies to chaotic data.
+This is the reason why stationarity is not one of the attributes measured by the model.
+Determining the level of periodicity is beyond the scope of this particular neural netowrk.
+\begin{figure}
+  \centering
+  \subfloat[\centering Sine wave signal]{{\includegraphics[height=5.5cm]{assets/period_graph_sin.png} }}
+  \qquad
+  \subfloat[\centering Recurrence plot. Pixel target=17.5\%, D=3, d=2]{{\includegraphics[height=5cm]{assets/period_rp_sin.png} }}
+  \caption{Periodic sine wave form signal and recurrence plot generated by it}
+  \label{fig:generated_periodic_sin}
+\end{figure}
+
+A periodic signal wave can have difference forms.
+The signal in figure~\ref{fig:generated_periodic_sin} is generated from a sine wave.
+To provide the model with more diverse training data - two additional distinct wave functions were used to generate the training data.
+Figure~\ref{fig:generated_periodic_square} illustrates a signal with a square wave. See the signal wave (a) on the left and generated recurrence plot on the right (b).
+\begin{figure}
+  \centering
+  \subfloat[\centering Square wave signal]{{\includegraphics[height=5.5cm]{assets/period_graph_square.png} }}
+  \qquad
+  \subfloat[\centering Recurrence plot. Pixel target=17.5\%, D=4, d=2]{{\includegraphics[height=5cm]{assets/period_rp_square.png} }}
+  \caption{Periodic square wave form signal and recurrence plot generated by it}
+  \label{fig:generated_periodic_square}
+\end{figure}
+The final waveform to be used for periodic images is the sawtooth waveform.
+Figure~\ref{fig:generated_periodic_sawtooth} illustrates the wave signal (a) and the recurrence plot generated (b) using it.
+
+\begin{figure}
+  \centering
+  \subfloat[\centering Sawtooth wave signal]{{\includegraphics[height=5.5cm]{assets/period_graph_sawtooth.png} }}
+  \qquad
+  \subfloat[\centering Recurrence plot. Pixel target=17.5\%, D=4, d=2]{{\includegraphics[height=5cm]{assets/period_rp_sawtooth.png} }}
+  \caption{Periodic sawtooth wave form signal and recurrence plot generated by it}
+  \label{fig:generated_periodic_sawtooth}
+\end{figure}
+
+
+%=================================Signal with a trend
+\subsubsection{Signal with a trend}
+A trend signal is quite distinguishable by it's tendency to be less stationary than the previous two.
+Recurrence plot of a non synthetic trend signal appears to center aruond the diagonal simetry line and tends to have an increasing width towards either side of the image.
+Figure~\ref{fig:generated_trend} illustrates an example trend signal (a) and the recurrence plot generated using it (b).
+This is one of the labeled samples used in training the convolutional neural netowrk.
+
+These signals are generated by using a randomly generated data starting point. Then generating an integer within a given range to simulate increasing or decreasing data.
+Finally slightly increasing the average signal value by a flat value multiplied by an exponent.
+This allows synthetic trend data to either increase linearly or exponentially.
+Looking closely to figure~\ref{fig:generated_trend} image on the left we can see that the trend data exhibits an exponentially increasing in values.
+The exponent is picked to be small so that the synthetic signal appears more 
+natural.
+
+\begin{figure}
+  \centering
+  \subfloat[\centering Trend signal]{{\includegraphics[height=5.5cm]{assets/trend_graph.png} }}
+  \qquad
+  \subfloat[\centering Recurrence plot. Pixel target=17.5\%, D=4, d=2]{{\includegraphics[height=5cm]{assets/trend_rp.png} }}
+  \caption{Trend signal and recurrence plot generated by it}
+  \label{fig:generated_trend}
+\end{figure}
+
+\subsection{Data processing}
+
+
+% \begin{figure}[h]
+%   \centering
+%   {\includegraphics[height=8cm]{assets/architecture_diagram.png}}
+%   \caption{Microservice architecture structure}
+%   \label{fig:architecture_diagram}
+% \end{figure}
 
 % Identify what are the attributes 
 
 % An ideal training dataset would have a sizeable amount CNN
 % In order for a 
-
-A choise was made to classify plot images into one of the three groups:
-\begin{itemize}
-  \item Whether the data is stationary
-  \item Whether the data has a trend
-  \item Whether the data has is periodic
-\end{itemize}
-This decision was based purely on the ability to generate data that is labeled accordingly.
+% This decision was based purely on the ability to generate data that is labeled accordingly.
 
 
 % \subsection{Model limitations}
@@ -362,6 +503,7 @@ This decision was based purely on the ability to generate data that is labeled a
 % \end{lstlisting}
 
 %Conclusions section
+\newpage
 \sectionWithoutNumber{\keyWordConclusions}{conclu}
 \input{conclusions.tex}
 

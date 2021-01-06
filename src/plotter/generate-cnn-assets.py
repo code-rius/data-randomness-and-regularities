@@ -1,7 +1,5 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from scipy import signal as sg
 import numpy as np
 import csv
 import os
@@ -9,6 +7,7 @@ import shutil
 import random
 from recurrence_plot import RecurrencePlot as rp
 
+plt.rcParams.update({'font.size': 12})
 
 def create_new_file(file1, file2_name, file2_dir):
     src_dir = os.getcwd()
@@ -28,13 +27,14 @@ def create_new_file(file1, file2_name, file2_dir):
         print("create_new_file: file not found")
 
 
-def generate_and_save_graph(data_labels, data_values, file_name, dirname, title="Generated data"):
+def generate_and_save_graph(data_labels, data_values, file_name, dirname, title):
+    title = "Generated " + title + " signal"
     fig, ax = plt.subplots()  # Create a figure containing a single axes.
 
     ax.plot(data_labels, data_values)  # Plot data on the axes.
     ax.set_title(title)
-    ax.set_xlabel("Data item number")
-    ax.set_ylabel("Data item value")
+    ax.set_xlabel("Signal item number")
+    ax.set_ylabel("Siganl value")
     ax.grid()
 
     plt.savefig(dirname + file_name)
@@ -46,33 +46,33 @@ def generate_data_with_trend(lower_bound, upper_bound, \
 
     # Declare variables
     data = []
-    dataLabels = []
+    data_labels = []
     counter = 0
 
-    # Loop a total of 720 times
     for _ in range(batch_number):
         for _ in range(batch_size):
             counter += 1
-            newVal = random.randrange(lower_bound, upper_bound)
+            new_value = random.randrange(lower_bound, upper_bound)
 
-            data.append(newVal)
-            dataLabels.append(counter)
+            data.append(new_value)
+            data_labels.append(counter)
 
         rate_up = rate_up * exponent
         lower_bound = round(lower_bound + rate_up)
         upper_bound = round(upper_bound + rate_up)
 
-    return (dataLabels, data)
+    return (data_labels, data)
 
 
 def generate_trend_assets(N):
-    graph_dir = 'jupyter/rp-data/trend/'
+    rp_dir = 'jupyter/rp-data/trend/'
+    graph_dir = 'jupyter/rp-data/_graphs/'
     lower_bound = 0
     upper_bound = 60
     batch_number = 33
     batch_size = 22
     rate_up = 5
-    exponent = 1.01
+    exponent = 1.02
     exponent_increment = round((exponent - 1)/N*2, 10)
     print(exponent_increment)
 
@@ -84,12 +84,12 @@ def generate_trend_assets(N):
 
         graph_fileName = 'trend_graph_' + str(i) + '.png'
         generate_and_save_graph(
-            data[0], data[1], graph_fileName, graph_dir)
+            data[0], data[1], graph_fileName, graph_dir, "trend")
 
         dow=rp(4,2,data[1] , 1 , 17.5 ,3)
         dow.draw_diagram()
         create_new_file('plotpic.png', 'rp_graph_' +
-                        str(i) + '.png', graph_dir)
+                        str(i) + '.png', rp_dir)
 
         exponent -= exponent_increment
 
@@ -103,7 +103,8 @@ def generate_trend_assets(N):
 # Generating periodic data
 ############################################
 def generate_periodic_assets(N):
-    graph_dir = 'ml-data/periodic/'
+    rp_dir = 'jupyter/rp-data/period/'
+    graph_dir = 'jupyter/rp-data/_graphs/'
     freq = 2
     amp = 2
     time_start = 0
@@ -136,11 +137,11 @@ def generate_periodic_assets(N):
         signal3_fileName = 'periodic_graph_' + str(i*3+2) + '.png'
 
         generate_and_save_graph(range(0, size), signal1,
-                                signal1_fileName, graph_dir)
+                                signal1_fileName, rp_dir, "periodic")
         generate_and_save_graph(range(0, size), signal2,
-                                signal2_fileName, graph_dir)
+                                signal2_fileName, rp_dir, "periodic")
         generate_and_save_graph(range(0, size), signal3,
-                                signal3_fileName, graph_dir)
+                                signal3_fileName, rp_dir, "periodic")
 
         ### Generating RP 
 
@@ -160,7 +161,8 @@ def generate_periodic_assets(N):
 
 
 def generate_chaotic_assets(N):
-    graph_dir = 'ml-data/chaotic/'
+    rp_dir = 'jupyter/rp-data/chaos/'
+    graph_dir = 'jupyter/rp-data/_graphs/'
 
     for i in range(N):
         data = []
@@ -176,13 +178,13 @@ def generate_chaotic_assets(N):
         graph_fileName = 'chaos_graph_' + str(i) + '.png'
 
         generate_and_save_graph(range(0, size), data,
-                                graph_fileName, graph_dir)
+                                graph_fileName, graph_dir, "chaotic")
 
         dow1 = rp(D, d, data, 1, 17.5, 2.5)
         dow1.draw_diagram()
         create_new_file('plotpic.png', 'rp_graph_' +
-                        str(i) + '.png', graph_dir)
+                        str(i) + '.png', rp_dir)
 
 generate_trend_assets(1000)
-# generate_periodic_assets(334)
-# generate_chaotic_assets(1000)
+generate_periodic_assets(334) # This is multiplied by 3 as each iteration 3 graphs are created
+generate_chaotic_assets(1000)

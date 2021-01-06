@@ -6,7 +6,12 @@ __pycache__/
 .eslintcache
 mongodb/
 dogs-vs-cats/
-recurrence-plot/
-rp-data/
+recurrence-plot/*
+src/**/*graph*.png
+src/**/*chaotic.*.png
+src/**/*periodic.*.png
+src/**/*trend.*.png
+*.npz
+src/**/.ipynb_checkpoints
 train_labels.csv
 train_samples.csv
