@@ -104,7 +104,7 @@ Meanwhile the graph on the right (c) has a higher \code{r} value and displays a 
 Recurrence plot (c) has noticably more black pixels.
 From observations in figure~\ref{fig:theory_sin}, we can conclude that the value for \code{r} ir proportional to the amount of similarities found when generating a recurrence plot.
 
-\subsubsection{Recurrence plot parameters}
+\subsection{Recurrence plot parameters}
 Now that we know how a basic version of the algorithm behaves we can dive deeper into the recurrence plot algorithm.
 It is important to note that not all signal have such predictable patterns.
 Measuring the similarity of two values helps us understand where data \emph{values} are similar.
@@ -138,7 +138,8 @@ From the expression above we can extrapolate that the $M$ is calculated by using
 \]
 We can conclusively state for a given signal $Y$ of length $N$, the generated recurrence plot is always of size $M^2$.
 
-\subsubsection{Comparing signal states}
+\subsection{Comparing signal states}
+\label{sec:comparing-signal-states}
 Now that we have familiarize with recurrence plot parameters let us go back to out primitive implementation in listing~\ref{lst:rp-primitive}.
 We are no longer comparing values, but rather - vectors.
 
@@ -178,6 +179,70 @@ Only a miniscule differences can be observed in the generated plots.
 However, as capture indicates, the Maximum norm performed about 6 times faster than the Euclidean, taking 0.5 and 3 seconds to complete respectively.
 
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Performance improvements}
+One giant leap in performance was the utilization of the Maximum norm instead of the Euclidean norm as documented in section~\ref{sec:comparing-signal-states}.
+The recurrence plot algorithm can be further optimised by only calculating one half of the recurrence plot.
+Refering back to listing~\ref{lst:rp-primitive}, we could make simple code modification to the looping system as shown in listing~\ref{lst:rp-looping}.
+\begin{lstlisting}[caption={Improved looping system}\label{lst:rp-looping}]
+for i in range(len(data)):
+  for j in range(i, len(data)):
+    #Signal state comparison
+\end{lstlisting}
+Note that the second level loop now iterates an ever decreasing number of times.
+If plotted, the recurrence plot would only have one half if the image divided by the symetry line.
+This can be easy overcome by populating the similarities array with the same data, just switched positions of indices.
+This effectively reduces the processing time in half. 
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Calculating the pixel percentage}
+A key characteristic of a recurrence graph is the diagonal line of symetry spanning across the image.
+This line is always present because the algorithm iterates in a nested loop.
+Looking back at listing~\ref{lst:rp-primitive} we can identify that when the first level loop iterator \code{i} is equal to the second level loop iterator \code{j} - the algorithm compares a distance between the same sygnal states as \code{data[i]} and \code{data[j]} use the identical index.
+Regardless of the vector $D$ dimensionality and the norm used to find the distance - it always remains zero.
+As $r$ has to be a positive number, we can conclude that a distance of zero is always less than the threshold.
+Therefore in a given image of size $M$ the similarities array returned by a recurrence plot algorithm always includes similarities at positions $(i, j)$, when $i = j$.
+
+Consequently, calculating pixel percentage of a recurrence plot requires us to exclude the diagonal line.
+The total number of pixels in a recurrence plot is $M^2$.
+A diagonal line has one pixel in each row, therefore the line pixel count is $M$.
+
+Lets denote the number of pixels inside the graph as $p$ and the pixel percentage as $P$.
+Taking into account a graph utilizing performance improvements, the pixel percentage can be calculated with the following expression:
+\[
+  P = (p-M)/(M^2-M)*2*100
+\]
+Note that we subtract the diagonal line from both sides of the equation, then multiply everything by a factor of 2 to factor in that we are only dealing with half the plot data.
+Finally we multiply by 100 to get the ratio in percentages.
+
+
+\subsection{Calibrating the treshold parameter}
+\label{sec:calibrating-threshold}
+As previously mensioned, when generating a recurrence plot, a parameter $r$ determines a treshold for the maximum allowed distance between a pair of signal states.
+Looking back at figure~\ref{fig:theory_sin} we can see that a higher $r$ value produces a more densly populated recurrence plot.
+
+A recurrence plot with a low pixel percentage can be difficult to read as it lacks data.
+Similarly, a plot too densely populated with pixels can have the same effect.
+Usually a healthy percentage target is between 15 and 20 percent.
+The algorithm does not provide an easy way to determine $r$ value.
+A human can guess a treshold value, generate a plot, check the pixel percentage and adjust $r$.
+This is to be repeated until desired pixel percentage is reached.
+
+It is prefered to tackle such tasks programatically.
+Lets denote $t$ as the target pixel percentage and $a$ as the allowed pixel percentage deviation.
+We first define the minimum and maximum values for $r$.
+Assuming we use the Maximum norm, we can deduce that $r_{min}=0$ and $r_{max}=max(y)$, where $y$ is array of input data.
+A fair guess for $r$ could be calculated by multiplying subtracting the maximum and minimum treshold values and scaling by the pixel percentage target
+\[r=(r_{max}-r_{min})*t/100\]
+It is unlikely that the pixel percentage is estimated correctly, but it is a starting point.
+A full programatic implementation of the algorithm is provided in appendix~\ref{app:pixel_calibration}.
+Refering to it we can see that the current and previous value for $r$ and $P$ are stored.
+Each iteration the sum of $r$ and $r_{last}$ is compared to $P$ and $P_{last}$.
+This ratio is then scaled to the target pixel percentage $p$.
+This is algorithm is repeated until a given pixel percentage target is reached.
+Using this programatic solution can find $r$, where $P≈t$ in 2 to 3 iterations.
+% Ideally a recurrence graph would show just enough details to 
 
 
 
@@ -193,8 +258,6 @@ However, as capture indicates, the Maximum norm performed about 6 times faster t
 
 
 % At first glance it is difficult to grasp how this algorithm can help identify the non-triviality of a signal.
-
-% r=0.0016965516363233338 %pp= 0.29797642873026464 
 
 % This algorithm is a of complexity ${O(N^2)}$, where ${N}$ is the length of the array. 
 
@@ -280,10 +343,6 @@ However, as capture indicates, the Maximum norm performed about 6 times faster t
 % have no apparent patterns.
 % For example, measuring the time taken between a weight-driven
 % pendulum clock's ticks produces a relatively simple (trivial) signal.
-
-
-\newpage
-
 
 \section{Web application development}
 This project is aimed at creating a web application allowing one to interact with the recurrence plot algorithm in a user friendly manner.
@@ -459,6 +518,7 @@ The object takes in several parameters as input allowing one to customize the fo
 \end{itemize}
 As output the module returns the name of the asset in the local storage.
 The object can also be manipulated to retrieve various other metrics about the recurrence plot.
+The module implements all of the best practices described in sections~\ref{sec:comparing-signal-states} -~\ref{sec:calibrating-threshold}.
 
 
 %=================================Data classification model
@@ -584,7 +644,7 @@ Figure~\ref{fig:generated_periodic_sawtooth} illustrates the wave signal (a) and
 %=================================Signal with a trend
 \subsubsection{Signal with a trend}
 A trend signal is quite distinguishable by it's tendency to be less stationary than the previous two.
-Recurrence plot of a non synthetic trend signal appears to center aruond the diagonal simetry line and tends to have an increasing width towards either side of the image.
+Recurrence plot of a non synthetic trend signal appears to center aruond the diagonal symetry line and tends to have an increasing width towards either side of the image.
 Figure~\ref{fig:generated_trend} illustrates an example trend signal (a) and the recurrence plot generated using it (b).
 This is one of the labeled samples used in training the convolutional neural netowrk.
 
@@ -613,7 +673,7 @@ There are two obvious ways for tackling this problem.
 
 One way is for the signal to be passed as a two dimensional array of binary data.
 At the corresponding pixel location the array of binary data would containing 0 if a pixel is white and a 1 otherwise.
-The array data size could further be reduced if only one half of the simetrical image was taken.
+The array data size could further be reduced if only one half of the symetrical image was taken.
 
 Another way of dealing with this is by using the whole image as an input.
 An andantage of this approach is that the model would be less dependent on the recurrence plot implementation and would be easier to use by a third party.
@@ -689,7 +749,7 @@ Model was trained in 10 epochs, each taking about 27 seconds to train, running o
 
 After 7 our of 10 epochs the model seems to be performing at a 100\% accuracy.
 Testing the model with novel data yields the same results.
-Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of predicting the charactestics of recurrence plot data before unseen to the model.
+Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of predicting the charactestics of recurrence plot data before unseen to the model. Looking at the first column and first row of the matrix, we can identify that 50 out of 50 images were classified as periodic. The same apllies for trending and chaotic samples. This indicates that the model performs very well on this type of data.
 
 
 
@@ -800,11 +860,6 @@ Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of pr
 
 
 
-% \begin{lstlisting}[caption={Pagrindinio metodo žingsniai},label={abc}]
-% public static void main(String args[]){
-% }
-% \end{lstlisting}
-
 %Conclusions section
 \newpage
 \sectionWithoutNumber{\keyWordConclusions}{conclu}
@@ -818,19 +873,37 @@ Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of pr
 \referenceSources{literatureSources}
 
 
-
 %% this part is optional
 \newpage
 \begin{appendices}
-  Dokumentą sudaro du priedai: \ref{app:a} priede  ....
+  The paper contains appendicy \ref{app:pixel_calibration}. It displays a programatic solution to calibrating pixel percentage implemented in Python programming language.
   \newpage
-  \section{Pirmojo priedo pavadinimas}
-  \label{app:a}
-  Pirmojo priedo tekstas ...
+  \section{Callibrating recurrence plot threshold \code{r}}
+  \begin{lstlisting}[caption={Pixel percentage calibration}]
+def calibrate_r(input_data, pixel_percentage_target, allowerd_deviation):
+  # Initialize variables
+  r = min(input_data)
+  pixel_percentage = 0
+  r_last = max(input_data) - min(input_data)
+  pixel_percentage_last = 100
 
-  \newpage
-  \section{Antrojo priedo pavadinimas}
-  Antrojo priedo tekstas ...
+  # Loop until calibrated
+  while (abs(pixel_percentage-pixel_percentage_target) > allowed_deviation):
+    # Compare the sum of current and previous R
+    # to the sum of current and previous pixel percentages
+    # Then scale R value based on pixel percentage target
+
+    r = (r+r_last)/(pixel_percentage+pixel_percentage_last)*pixel_percentage_target
+    
+    # Calculate recurrences
+    calculate_recurrences()
+
+    # Update last pixel percentage and r
+    pixel_percentage_last = pixel_percentage
+    r_last = r
+  return r
+  \end{lstlisting}
+  \label{app:pixel_calibration}
 
 \end{appendices}
 
