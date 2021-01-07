@@ -174,5 +174,5 @@ def generate_chaotic_assets(N):
                         str(i) + '.png', rp_dir)
 
 # generate_trend_assets(1000)
-generate_periodic_assets(1) # This is multiplied by 3 as each iteration 3 graphs are created
+generate_periodic_assets(334) # This is multiplied by 3 as each iteration 3 graphs are created
 # generate_chaotic_assets(1000)

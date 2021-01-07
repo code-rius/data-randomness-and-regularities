@@ -21,6 +21,10 @@ const PlotData = mongoose.model('PlotData', {
     type: Number,
     default: 2
   },
+  pixelTarget: {
+    type: Number,
+    default: 17.5
+  },
   deviation: {
     type: Number,
     default: 1

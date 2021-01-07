@@ -65,9 +65,10 @@ def plot_image():
     body = request.json
     data_floats = [float(i) for i in body['data']]
 
-    M, N, compareMode = body['M'], body['N'], body['compareMode']
+    M, N, compareMode, target = body['M'], body['N'], body['compareMode'], body['pixelTarget']
 
-    rec_plot = rp(M, N, data_floats, compareMode)
+    print(target)
+    rec_plot = rp(M, N, data_floats, compareMode, target)
     rec_plot.draw_diagram(image_filename)
     response = make_response(
         send_file(image_filename, attachment_filename=image_filename, mimetype='image/png'))

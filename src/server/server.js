@@ -145,7 +145,7 @@ app.get('/plot_image/:id', (req, res) => {
     plotdata.M = (req.query.M === undefined) ? plotdata.M : req.query.M
     plotdata.N = (req.query.N === undefined) ? plotdata.N : req.query.N
     plotdata.compareMode = (req.query.compareMode === undefined) ? plotdata.compareMode : req.query.compareMode
-    plotdata.deviation = (req.query.deviation === undefined) ? plotdata.deviation : req.query.deviation
+    plotdata.pixelTarget = (req.query.pixelTarget === undefined) ? plotdata.pixelTarget : req.query.pixelTarget
     fetch(process.env.RECURRENCE_PLOT_IMAGE_ENDPOINT_URL, {
       method: 'post',
       body: JSON.stringify(plotdata),

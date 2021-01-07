@@ -10,7 +10,7 @@ const Selector = ({ updatePlot }) => {
   const [compareMode, setCompareMode] = useState('1')
   const [M, setM] = useState('3')
   const [N, setN] = useState('2')
-  const [deviation, setDeviation] = useState('1')
+  const [pixelTarget, setPixelTarget] = useState('17.5')
   const [chaotic, setChaotic] = useState('')
   const [periodic, setPeriodic] = useState('')
   const [trending, setTrending] = useState('')
@@ -29,11 +29,11 @@ const Selector = ({ updatePlot }) => {
     setN(event.target.value)
   }
 
-  const handleDeviation = (event) => {
+  const handlePixelTarget = (event) => {
     if (!event.target.value) {
-      setDeviation(3)
+      setPixelTarget(3)
     }
-    setDeviation(event.target.value)
+    setPixelTarget(event.target.value)
   }
 
   const updateClassifications = (classifications) => {
@@ -48,7 +48,7 @@ const Selector = ({ updatePlot }) => {
 
   const handleSubmit = async () => {
     updatePlot('')
-    const query = "?" + querystring.stringify({ M, N, compareMode, deviation })
+    const query = "?" + querystring.stringify({ M, N, compareMode, pixelTarget })
 
     console.log(process.env.REACT_APP_GET_PLOT_IMAGE_URL + selectedID + query)
     fetch(process.env.REACT_APP_GET_PLOT_IMAGE_URL + selectedID + query).then( res => {
@@ -125,12 +125,12 @@ const Selector = ({ updatePlot }) => {
           />
         </div>
         <div className='column'>
-          <h3>Deviation</h3>
+          <h3>Target</h3>
           
           <input 
             type='text' 
-            className='input--mini' placeholder='1'
-            onChange={handleDeviation}
+            className='input--mini' placeholder='17'
+            onChange={handlePixelTarget}
           />
         </div>
       </div>
@@ -139,7 +139,7 @@ const Selector = ({ updatePlot }) => {
           Plot!
         </button>
       </div>
-      <div className='field multi--data--classification'>
+      {periodic != '' && <div className='field multi--data--classification'>
         <div className='column'>
           <h3>Periodic</h3>
           <h3 className='percentage'>{periodic}</h3>
@@ -152,7 +152,7 @@ const Selector = ({ updatePlot }) => {
           <h3>Chaotic</h3>
           <h3 className='percentage'>{chaotic}</h3>
         </div>
-      </div>
+        </div>}
     </div>
   )
 }

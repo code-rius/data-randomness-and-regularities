@@ -22,7 +22,7 @@ with open(path + "/assets/DJI.csv") as csvfile:
         csvData.append(float(row[4]))
         if (len(csvData)>=720): break
 
-dow = rp(1, 1, csvData, 1, 17.5, 0)
+dow = rp(1, 1, amplitude, 1, 17.5, 0)
 
 dow.draw_diagram()
 print(dow.r)
@@ -35,3 +35,5 @@ ax.set_title(title)
 ax.grid()
 
 plt.savefig('plotgraph.png')
+# round_to_tenths = [round(num, 6) for num in amplitude]
+# print(round_to_tenths)
