@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {1.4}Comparing signal states}{10}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Performance improvements}{10}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Calculating the pixel percentage}{11}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Calibrating the treshold parameter}{11}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.7}Calibrating the threshold parameter}{11}{subsection.1.7}%
 \contentsline {section}{\numberline {2}Web application development}{12}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Analysis of analogous tools}{12}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Architecture}{12}{subsection.2.2}%
@@ -38,3 +38,4 @@
 \contentsline {section}{References}{24}{section*.18}%
 \contentsline {section}{Appendices}{26}{section*.20}%
 \contentsline {section}{\numberline {A}Calibrating recurrence plot threshold \texttt {r}}{27}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Capture of the project's front end application.}{28}{appendix.1.B}%

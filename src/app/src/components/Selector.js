@@ -8,25 +8,25 @@ const Selector = ({ updatePlot }) => {
   const [plotDatas, setPlotDatas] = useState([])
   const [selectedID, setSelectedID] = useState({_id:''})
   const [compareMode, setCompareMode] = useState('1')
-  const [M, setM] = useState('3')
-  const [N, setN] = useState('2')
+  const [D, setD] = useState('3')
+  const [d, setd] = useState('2')
   const [pixelTarget, setPixelTarget] = useState('17.5')
   const [chaotic, setChaotic] = useState('')
   const [periodic, setPeriodic] = useState('')
   const [trending, setTrending] = useState('')
 
-  const handleM = (event) => {
+  const handleD = (event) => {
     if (!event.target.value) {
-      setM(3)
+      setD(3)
     } 
-    setM(event.target.value)
+    setD(event.target.value)
   }
 
-  const handleN = (event) => {
+  const handled = (event) => {
     if (!event.target.value) {
-      setN(3)
+      setd(3)
     }
-    setN(event.target.value)
+    setd(event.target.value)
   }
 
   const handlePixelTarget = (event) => {
@@ -48,7 +48,7 @@ const Selector = ({ updatePlot }) => {
 
   const handleSubmit = async () => {
     updatePlot('')
-    const query = "?" + querystring.stringify({ M, N, compareMode, pixelTarget })
+    const query = "?" + querystring.stringify({ D, d, compareMode, pixelTarget })
 
     console.log(process.env.REACT_APP_GET_PLOT_IMAGE_URL + selectedID + query)
     fetch(process.env.REACT_APP_GET_PLOT_IMAGE_URL + selectedID + query).then( res => {
@@ -109,19 +109,19 @@ const Selector = ({ updatePlot }) => {
       </div>
       <div className='field multi--data'>
         <div className='column'>
-          <h3>M</h3>
+          <h3>D</h3>
           <input
             type='text' 
             className='input--mini' placeholder='3'
-            onChange={handleM}
+            onChange={handleD}
           />
         </div>
         <div className='column'>
-          <h3>N</h3>
+          <h3>d</h3>
           <input
             type='text'
             className='input--mini' placeholder='2'
-            onChange={handleN}
+            onChange={handled}
           />
         </div>
         <div className='column'>

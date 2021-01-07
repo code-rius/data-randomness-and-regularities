@@ -1,8 +1,11 @@
 During the research and development phases of this project, the following goals were achieved:
 \begin{itemize}
-    \item The recurrence plot was analysed to evaluate what can be determinen from the visualization. Several observable characteristics were distinguished. A local implementation of the recurrence plot was developed and utilized throughout the application.
+    \item The recurrence plot was analysed to evaluate what can be determined from the visualization. Several observable characteristics were distinguished. A local implementation of the recurrence plot was developed and utilized throughout the application.
     \item A convolutional neural network, capable of identifying the characteristics of a recurrence plot, was developed and trained. The trained data model performed with high accuracy.
     \item An web application for generating recurrence plots was developed. A microservice architecture was used develop the application providing a modern, scalable solution. The application utilizes the aforementioned CNN to provide information about the generated, that a novel user might not distinguish.
 \end{itemize}
 
-The application functionality can be yet improved. Microservice could be containerized to provide easier deployment. The front end part of the application could support full CRUD operations for managing of data in the database. So far this this can only be done by accessing the backend service via an exposed API.
+The application functionality can be yet improved. Microservice could be containerized to provide easier deployment. 
+In addition, the front end part of the application could support full CRUD operations for managing of data in the database. 
+So far this can only be done by accessing the back end service via an exposed API.
+Furthermore, the CNN data model could be improved by training it on a more diverse set of data.

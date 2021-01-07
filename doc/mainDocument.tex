@@ -65,7 +65,7 @@
 \section{Data randomness and regularities}
 This section covers what is the expected input and output of data analysis.
 It will explore a method for identifying data characteristics and its limitations.
-Finally it will dive deeper into innerworkings of the given tool used for this task.
+Finally, we will dive deeper into innerworkings of the given tool used for this task.
 
 
 %=================================Data randomness and regularities
@@ -73,17 +73,17 @@ Finally it will dive deeper into innerworkings of the given tool used for this t
 A signal is a function that conveys information about the behaviour of a system or attributes of some phenomenon \cite{priemer1990introductory}.
 For example, measuring the time taken between a weight-driven
 pendulum clock's ticks produces a signal.
-This hypthetical singal would consist of a series of numbers identifying how long each pendulum swing took.
+This hypothetical signal would consist of a series of numbers identifying how long each pendulum swing took.
 In this case such a signal could be expressed as a one dimensional stream of data.
 For the scope of this paper every singal we analyze will be a one dimensional series of numbers.
-When refering to singals we will use terms \textbf{signal} and \textbf{data} interchangeably.
+When referring to singals we will use terms \textbf{signal} and \textbf{data} interchangeably.
 
 \subsection{Recurrence plot}
 To tackle the problem of identifying randomness and regularities in signals a \textbf{recurrence plot} can be utilized.
-A recurrence plot is a an illustration that can help determine the non-triviality of a given data series.
+A recurrence plot is an illustration that can help determine the non-triviality of a given data series.
 It visualizates when a given signal repeats for each moment in a time series.
 
-Given a \code{data} array of deciman numbers, the very primitive python implementation of the algorithm would look similar to this:
+Given a \code{data} array of decimal numbers, the very primitive python implementation of the algorithm would look similar to this:
 \begin{lstlisting}[caption={Primitive recurrence plot algorithm}\label{lst:rp-primitive}]
   def generate_recurrence_plot(data:list, r:int):
     recurrences = []
@@ -98,8 +98,8 @@ Given a \code{data} array of deciman numbers, the very primitive python implemen
 The example above defines a method \code{generate\_recurrence\_plot} that takes in parameters \code{data} and \code{r}, of types \emph{list} and \emph{int} respectively.
 The method compares each element in \code{data} to every element including itself.
 If the difference of these elements is no larger than a given threshold \code{r} - they are considered similar and their index positions are added to the recurrences array.
-The method then returns an array of index pairs when data values were similar.
-These pairs can be represented as pixel possitions in an image and plotted to form a recurrence plot.
+The method then returns an array of index pairs indicating when data values were similar.
+These pairs can be represented as pixel positions in an image and plotted to form a recurrence plot.
 
 \begin{figure*}[ht!]
   \subfloat[\label{fig:theory_sin_data}]{
@@ -115,7 +115,7 @@ These pairs can be represented as pixel possitions in an image and plotted to fo
 In figure~\ref{fig:theory_sin} we can see a sine wave data on the left (a). 
 The recurrence plot in the middle (b) is generated with a small value for \code{r} and produces a pattern with cross signs.
 Meanwhile the graph on the right (c) has a higher \code{r} value and displays a grid pattern.
-Recurrence plot (c) has noticably more black pixels.
+Recurrence plot (c) has noticeably more black pixels.
 From observations in figure~\ref{fig:theory_sin}, we can conclude that the value for \code{r} ir proportional to the amount of similarities found when generating a recurrence plot.
 
 \subsection{Recurrence plot parameters}
@@ -127,14 +127,14 @@ A better way to approach detecting similarities is comparing signal \emph{states
 
 Signal state is a collection of signal values commonly represented as a vector.
 A linear signal's state can be represented as a pair of two consecutive signal values.
-The number of consecutive values that make up a signal state is arbitraty and can be increased to tripplets, quadruplets, $D$-plets.
+The number of consecutive values that make up a signal state is arbitraty and can be increased to triplets, quadruplets, $D$-plets.
 For example, recurrence plots generated in figure~\ref{fig:theory_sin} used $D$ a parameter of $1$, therefore it is also correct state that the algorithm in listing~\ref{lst:rp-primitive} was used to compare one dimensional vectors.
 For example, given a signal of length ${N}$, and a $D$ parameter, one can divide the signal sequence into a list of signal state vectors.
 \[
   y_0=(f_0,f_1,...,f_{D-1}) ,\quad y_1=(f_1,f_2,...,f_{D}) ,\quad ...,\quad y_{N-D}=
   (f_{N-(D-1)-1},f_{N-(D-0)-1},...,f_{N-1})
 \]
-It is also worth metioning that a signal state not necessarily contain sequential values.
+It is also worth metioning that a signal state may not necessarily contain sequential values.
 Signal values can also be have a delay step $d$.
 The delay step indicates that only every $d$-th element is to be used to compose a given signal state.
 This translates into the following series of elements, given a signal length of $N$, $D$ and $d$ parameters.
@@ -154,15 +154,15 @@ We can conclusively state for a given signal $Y$ of length $N$, the generated re
 
 \subsection{Comparing signal states}
 \label{sec:comparing-signal-states}
-Now that we have familiarize with recurrence plot parameters let us go back to out primitive implementation in listing~\ref{lst:rp-primitive}.
+Now that we have familiarized with recurrence plot parameters let us go back to our primitive implementation in listing~\ref{lst:rp-primitive}.
 We are no longer comparing values, but rather - vectors.
 
 A distance between two vectors $v_i$ and $v_j$ is denoted as $||v_i - v_j||$.
 We can assign this vector distance to a $D$ - dimensional point $p = (p_1, p_2, ..., p_D)$.
 
 The most common way of comparing vector length is by utilizing the \emph{Euclidean metric} also known as the $L_2$ \emph{norm}.
-$L_2$ norm calculates the distance between a vector in a $D$ - dimensional space and the start of the coordinate plane.
-This norm can be derrived by using the Pythagorean theorem:
+$L_2$ norm calculates the distance between a vector in a $D$ - dimensional space and the start of the coordinate plain.
+This norm can be derived by using the Pythagorean theorem:
 \[
   ||v|| = \sqrt{v_1^2 + v_2^2 + v_3^2 + ... + v_D^2}
 \]
@@ -197,30 +197,30 @@ However, as capture indicates, the Maximum norm performed about 6 times faster t
 \subsection{Performance improvements}
 One giant leap in performance was the utilization of the Maximum norm instead of the Euclidean norm as documented in section~\ref{sec:comparing-signal-states}.
 The recurrence plot algorithm can be further optimised by only calculating one half of the recurrence plot.
-Refering back to listing~\ref{lst:rp-primitive}, we could make simple code modification to the looping system as shown in listing~\ref{lst:rp-looping}.
+Referring back to listing~\ref{lst:rp-primitive}, we could make simple code modification to the looping system as shown in listing~\ref{lst:rp-looping}.
 \begin{lstlisting}[caption={Improved looping system}\label{lst:rp-looping}]
 for i in range(len(data)):
   for j in range(i, len(data)):
     #Signal state comparison
 \end{lstlisting}
 Note that the second level loop now iterates an ever decreasing number of times.
-If plotted, the recurrence plot would only have one half if the image divided by the symetry line.
+If plotted, the recurrence plot would only have one half if the image divided by the symmetry line.
 This can be easy overcome by populating the similarities array with the same data, just switched positions of indices.
 This effectively reduces the processing time in half. 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Calculating the pixel percentage}
-A key characteristic of a recurrence graph is the diagonal line of symetry spanning across the image.
+A key characteristic of a recurrence graph is the diagonal line of symmetry spanning across the image.
 This line is always present because the algorithm iterates in a nested loop.
-Looking back at listing~\ref{lst:rp-primitive} we can identify that when the first level loop iterator \code{i} is equal to the second level loop iterator \code{j} - the algorithm compares a distance between the same sygnal states as \code{data[i]} and \code{data[j]} use the identical index.
+Looking back at listing~\ref{lst:rp-primitive} we can identify that when the first level loop iterator \code{i} is equal to the second level loop iterator \code{j} - the algorithm compares a distance between the same signal states as \code{data[i]} and \code{data[j]} use the identical index.
 Regardless of the vector $D$ dimensionality and the norm used to find the distance - it always remains zero.
 As $r$ has to be a positive number, we can conclude that a distance of zero is always less than the threshold.
-Therefore in a given image of size $M$ the similarities array returned by a recurrence plot algorithm always includes similarities at positions $(i, j)$, when $i = j$.
+Therefore, in a given image of size $M$ the similarities array returned by a recurrence plot algorithm always includes similarities at positions $(i, j)$, when $i = j$.
 
 Consequently, calculating pixel percentage of a recurrence plot requires us to exclude the diagonal line.
 The total number of pixels in a recurrence plot is $M^2$.
-A diagonal line has one pixel in each row, therefore the line pixel count is $M$.
+A diagonal line has one pixel in each row, therefore, the line pixel count is $M$.
 
 Lets denote the number of pixels inside the graph as $p$ and the pixel percentage as $P$.
 Taking into account a graph utilizing performance improvements, the pixel percentage can be calculated with the following expression:
@@ -228,34 +228,34 @@ Taking into account a graph utilizing performance improvements, the pixel percen
   P = (p-M)/(M^2-M)*2*100
 \]
 Note that we subtract the diagonal line from both sides of the equation, then multiply everything by a factor of 2 to factor in that we are only dealing with half the plot data.
-Finally we multiply by 100 to get the ratio in percentages.
+Finally, we multiply by 100 to get the ratio in percentages.
 
 
-\subsection{Calibrating the treshold parameter}
+\subsection{Calibrating the threshold parameter}
 \label{sec:calibrating-threshold}
-As previously mensioned, when generating a recurrence plot, a parameter $r$ determines a treshold for the maximum allowed distance between a pair of signal states.
+As previously mentioned, when generating a recurrence plot, a parameter $r$ determines a threshold for the maximum allowed distance between a pair of signal states.
 Looking back at figure~\ref{fig:theory_sin} we can see that a higher $r$ value produces a more densly populated recurrence plot.
 
 A recurrence plot with a low pixel percentage can be difficult to read as it lacks data.
 Similarly, a plot too densely populated with pixels can have the same effect.
-Usually a healthy percentage target is between 15 and 20 percent.
+Usually, a healthy percentage target is between 15 and 20 percent.
 The algorithm does not provide an easy way to determine $r$ value.
-A human can guess a treshold value, generate a plot, check the pixel percentage and adjust $r$.
+A human can guess a threshold value, generate a plot, check the pixel percentage and adjust $r$.
 This is to be repeated until desired pixel percentage is reached.
 
-It is prefered to tackle such tasks programatically.
+It is preferred to tackle such tasks programmatically.
 Lets denote $t$ as the target pixel percentage and $a$ as the allowed pixel percentage deviation.
 We first define the minimum and maximum values for $r$.
 Assuming we use the Maximum norm, we can deduce that $r_{min}=0$ and $r_{max}=max(y)$, where $y$ is array of input data.
-A fair guess for $r$ could be calculated by multiplying subtracting the maximum and minimum treshold values and scaling by the pixel percentage target
+A fair guess for $r$ could be calculated by subtracting the maximum and minimum threshold values and scaling result by the pixel percentage target
 \[r=(r_{max}-r_{min})*t/100\]
 It is unlikely that the pixel percentage is estimated correctly, but it is a starting point.
-A full programatic implementation of the algorithm is provided in appendix~\ref{app:pixel_calibration}.
-Refering to it we can see that the current and previous value for $r$ and $P$ are stored.
-Each iteration the sum of $r$ and $r_{last}$ is compared to $P$ and $P_{last}$.
+A full programmatic implementation of the algorithm is provided in appendix~\ref{app:pixel_calibration}.
+Referring to it we can see that the current and previous value for $r$ and $P$ are stored.
+During each iteration, the sum of $r$ and $r_{last}$ is compared to $P$ and $P_{last}$.
 This ratio is then scaled to the target pixel percentage $p$.
 This is algorithm is repeated until a given pixel percentage target is reached.
-Using this programatic solution can find $r$, where $P≈t$ in 2 to 3 iterations.
+Using this programmatic solution we can find $r$, where $P≈t$ in 2 to 3 iterations.
 % Ideally a recurrence graph would show just enough details to 
 
 
@@ -322,7 +322,7 @@ Using this programatic solution can find $r$, where $P≈t$ in 2 to 3 iterations
 % \textit{the science of analyzing time-varying processes} \cite{lyons2004understanding}.
 
 
-% In this thesis we analyzed the non-triviality of digital sygnals.
+% In this thesis we analyzed the non-triviality of digital signals.
 % Certain signals can be classified as simple (relatively trivial),
 % like the aforementioned clock's pendulum.
 % A more complex (non-trivial) signal would be the rates of a stock exchange.
@@ -370,10 +370,10 @@ of generating a recurrence plot online \cite{recurrence_plot_tk}.
 There are multiple implementations of the recurrence plot in Python as well as other
 languages, but none offer the ability to classify data based on the generated image.
 
-It is noteworthy, that the aforementioned implementations require at least a minimal undertanding of software programming, a computing machine and specific software to compile and run the code.
+It is noteworthy, that the aforementioned implementations require at least a minimal understanding of software programming, a computing machine and specific software to compile and run the code.
 This is laborious and is not likely to attract new users to experiment with algorithm.
-Based on these factors, a decision was made to create a web based application that requires
-as little user knowledge to get started with the algorithm as possible.
+Considering these factors, a decision was made to create a web based application that requires
+as little user knowledge to get started with the recurrence plot algorithm as possible.
 
 
 %=================================Architecture
@@ -388,7 +388,7 @@ The project ecosystem consists of the following microservices:
   \item Python web server for plotting operations
 \end{enumerate}
 
-Communication between microservices is performed via HTTP requests. In general, a query with JSON body is sent to a service and a JSON response along side an image attachment is returned.
+Communication between microservices is performed via HTTP requests. In general, a query with JSON body is sent to a service and a JSON response, coupled with an image attachment is returned.
 Figure~\ref{fig:architecture_diagram} illustrates the microservice architecture of the project and data flow among services.
 
 \begin{figure}[h]
@@ -454,7 +454,7 @@ Both Python and Node JS have certain strengths and thus have appropriate communi
 
 %=================================Front end microservice
 \subsubsection{Front end microservice}
-The front end service is developed using React - A JavaScript library for building user interfaces \cite{react_home}.
+The front end service is developed using React - a JavaScript library for building user interfaces \cite{react_home}.
 SASS is used for styling the apllication due to the intuitive syntax it provides \cite{sass}.
 The microservice utilizes the Node Package Manager \cite{npm}.
 From the NPM registry, two open sourced libraries are used:
@@ -464,7 +464,7 @@ From the NPM registry, two open sourced libraries are used:
 \end{itemize}
 These libraries were used to facilitate communication via HTTP requests with the back end server.
 
-Following the best practices of React development, the app is broken down into reuseable components.
+Following the best practices of React development, the app is broken down into reusable components.
 Figure~\ref{fig:react_component_structure} indicates the application structure denoting components with the standard JSX component notation
 \code{<component />}. We will be using this notation to refeter to JSX components.
 \begin{figure}[h]
@@ -476,18 +476,18 @@ Figure~\ref{fig:react_component_structure} indicates the application structure d
 
 Figure~\ref{fig:react_component_structure} indicates that a root \code{<App />} component wraps the whole application.
 Initially, only the \code{<Header />}, \code{<Selector />} and \code{<Loader />} components are visible to the user.
-The \code{<Selector />} component sends an HTTP GET request to the backend service to retrieve a list of available plot data.
+The \code{<Selector />} component sends an HTTP GET request to the back end service to retrieve a list of available plot data.
 This list is displayed inside the \code{<Selector />} for the user to pick from.
 A user must select a data entry and may add optional plotting parameters.
 Submitting the \code{<Selector />} form sends an HTTP GET request to the back end service.
-The backend service returns a JSON with the location of the generated recurrence plot image and additional parameters.
+The back end service returns a JSON with the location of the generated recurrence plot image and additional parameters.
 After handling the server response - the \code{<Loader />} component is replaced by the \code{<Image />}.
 During any further plot requests, the \code{<Image />} is briefly replaced by the \code{<Loader />} component to indicate that a request is being processed.
 
 
 %=================================Back end microservice
 \subsubsection{Back end microservice}
-The backend microservice also utilizes libraries provided by the Node Package Manager.
+The back end microservice also utilizes libraries provided by the Node Package Manager.
 The service runs on an Node JS express server \cite{express}.
 The server handles all requests from the front end service.
 Server endpoints cover the following operations:
@@ -539,7 +539,7 @@ The module implements all of the best practices described in sections~\ref{sec:c
 \section{Data classification model}
 A recurrence plot reveals certain information about the singal.
 After some practice a human can identify whether a given signal exhibits signs of periodity and / or stationarity, has a trend or seems to be random in nature.
-The goal of this model is to determine some the aforementioned characteristics of a signal by analyzing the reucrrence plot generated by it.
+The goal of this model is to determine some the aforementioned characteristics of a signal by analyzing the recurrence plot generated by it.
 
 
 %=================================Generating training data
@@ -569,9 +569,9 @@ All of the following signals and their graphs are generated by utilizing
 the aforementioned libraries and the recurrence plot module.
 For every signal a complementary graph image is generated to help visualize the data which is depicted in a given recurrence plot.
 Due to the module flexibility every chaotic and periodic asset had randomised values for D - Dimension and d - delay.
-In addition, most aspects of each graph had a randomised flaoting point number be added or subtracter.
+In addition, most aspects of each graph had a randomised floating point number be added or subtracter.
 This aided in generating a more diverse set of training assets.
-The number of assets chosen was arbitraty - 1000 sygnals for each training label.
+The number of assets chosen was arbitrary - 1000 signals for each training label.
 That amounts to a total of 3000 recurrence plot images used for training the CNN.
 The source code for generating assets and associated graphs is inside the \code{/plotter/generate-cnn-assets.py} file.
 
@@ -584,7 +584,7 @@ A choice was made to classify plot images into one of the three groups:
 \begin{itemize}
   \item Plotted signal is chaotic
   \item Plotted signal has a trend
-  \item Plotted signal has is periodic
+  \item Plotted signal is periodic
 \end{itemize}
 We will explore the reasoning of this decision by exploring the limitations of generating labeled signals.
 
@@ -630,7 +630,7 @@ It would be difficult to generate periodic data that is not stationary, but the 
 This is the reason why stationarity is not one of the attributes measured by the model.
 Determining the level of periodicity is beyond the scope of this particular neural netowrk.
 
-A periodic signal wave can have difference forms.
+A periodic signal wave can have different forms.
 The signal in figure~\ref{fig:generated_periodic_sin} is generated from a sine wave.
 To provide the model with more diverse training data - two additional distinct wave functions were used to generate the training data.
 Figure~\ref{fig:generated_periodic_square} illustrates a signal with a square wave. See the signal wave (a) on the left and generated recurrence plot on the right (b).
@@ -658,12 +658,12 @@ Figure~\ref{fig:generated_periodic_sawtooth} illustrates the wave signal (a) and
 %=================================Signal with a trend
 \subsubsection{Signal with a trend}
 A trend signal is quite distinguishable by it's tendency to be less stationary than the previous two.
-Recurrence plot of a non synthetic trend signal appears to center aruond the diagonal symetry line and tends to have an increasing width towards either side of the image.
+Recurrence plot of a non synthetic trend signal, appears to center aruond the diagonal symmetry line and tends to have an increasing width towards either side of the image.
 Figure~\ref{fig:generated_trend} illustrates an example trend signal (a) and the recurrence plot generated using it (b).
 This is one of the labeled samples used in training the convolutional neural netowrk.
 
 These signals are generated by using a randomly generated data starting point. Then generating an integer within a given range to simulate increasing or decreasing data.
-Finally slightly increasing the average signal value by a flat value multiplied by an exponent.
+Finally, slightly increasing the average signal value by a flat value multiplied by an exponent.
 This allows synthetic trend data to either increase linearly or exponentially.
 Looking closely to figure~\ref{fig:generated_trend} image on the left we can see that the trend data exhibits an exponentially increasing in values.
 The exponent is picked to be small so that the synthetic signal appears more
@@ -687,13 +687,13 @@ There are two obvious ways for tackling this problem.
 
 One way is for the signal to be passed as a two dimensional array of binary data.
 At the corresponding pixel location the array of binary data would containing 0 if a pixel is white and a 1 otherwise.
-The array data size could further be reduced if only one half of the symetrical image was taken.
+The array data size could further be reduced if only one half of the symmetrical image was taken.
 
 Another way of dealing with this is by using the whole image as an input.
-An andantage of this approach is that the model would be less dependent on the recurrence plot implementation and would be easier to use by a third party.
+An advantage of this approach is that the model would be less dependent on the recurrence plot implementation and would be easier to use by a third party.
 A downside to this approach is that training this model would require more computing power. It was decided to use the whole image as an input.
 
-The complete pool of assets is divided into istributed into three groups:
+The complete pool of assets is distributed into three groups:
 \begin{itemize}
   \item Training data - used for the training of the model. This group contains 85\% of all training assets.
   \item Validation data - used to validate the model accuracy after each training epoch completes. This group contains 10\% of all training assets.
@@ -724,7 +724,7 @@ For example, we expect a CNN to recognize grid patterns in figure~\ref{fig:gener
 
 To achieve this goal the CNN is inspired by the famous vgg16 model~\cite{brusilovsky:simonyan2014very}.
 The model proposed earlier is excellent for spacial objects recognitions.
-Unfortunately it did not achieve desired results for our task.
+Unfortunately, it did not achieve desired results for our task.
 The CNN would perform well on the training samples, but poorly when faced with novel images.
 This indicates an overfitting problem.
 Overfitting is a fundamental issue in supervised machine learning which prevents a neural network from generalizing the models to perform well on training data, as well as unseen testing sets~\cite{overfitting}.
@@ -816,7 +816,7 @@ Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of pr
 % a falling object or
 
 % \begin{lstlisting}
-%   sygnalStates = []
+%   signalStates = []
 
 %   # Generate data pairs, tripplets, quadruplets... D - plets
 %   for i in range(0, self.M):
@@ -825,7 +825,7 @@ Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of pr
 %       for j in range(0, self.D):
 %           state.append(self.data[i+(j*self.d)])
 
-%       sygnalStates.append(state)
+%       signalStates.append(state)
 % \end{lstlisting}
 
 
@@ -890,7 +890,9 @@ Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of pr
 %% this part is optional
 \newpage
 \begin{appendices}
-  The paper contains appendicy \ref{app:pixel_calibration}. It displays a programatic solution to calibrating pixel percentage implemented in Python programming language.
+  The paper contains two appendicies. Appendix~\ref{app:pixel_calibration}.displays a programmatic solution to calibrating pixel percentage implemented in Python programming language.
+  \newline
+  Appendix~\ref{app:website} displayed a website capable of generating recurrence plots and categorizing their characteristics.
   \newpage
   \section{Calibrating recurrence plot threshold \code{r}}
   \begin{lstlisting}[caption={Pixel percentage calibration}]
@@ -919,6 +921,12 @@ def calibrate_r(input_data, pixel_percentage_target, allowerd_deviation):
   \end{lstlisting}
   \label{app:pixel_calibration}
 
+  \newpage
+  \section{Capture of the project's front end application.}
+  \begin{center}
+    \makebox[\textwidth]{\includegraphics[width=18cm]{assets/website.png}}
+  \end{center}
+  \label{app:website}
 \end{appendices}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.6)  7 JAN 2021 11:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.6)  7 JAN 2021 12:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -750,7 +750,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<jb_VU_zenklas.pdf, id=4, 501.875pt x 550.055pt>
+<jb_VU_zenklas.pdf, id=164, 501.875pt x 550.055pt>
 File: jb_VU_zenklas.pdf Graphic file (type pdf)
 <use jb_VU_zenklas.pdf>
 Package pdftex.def Info: jb_VU_zenklas.pdf  used on input line 26.
@@ -764,38 +764,29 @@ Overfull \hbox (17.42822pt too wide) in paragraph at lines 26--26
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/coderius/Documents/git/data-randomness-and-regularities/doc/jb_VU_zenklas.pdf>]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/coderius/Documents/git/data-randomness-and-regularities/doc/jb_VU_zenklas.pdf>] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.toc [2]
+LaTeX Font Info:    Trying to load font information for L7x+ucr on input line 40.
+ (/usr/share/texlive/texmf-dist/tex/latex/lithuanian/l7xucr.fd
+File: l7xucr.fd 2006/09/05 Fontinst v1.929 font definitions for L7x/ucr.
+))
 \tf@toc=\write4
 \openout4 = `mainDocument.toc'.
 
-[2]
-
-LaTeX Warning: Citation `microservices' on page 3 undefined on input line 35.
-
-
-LaTeX Warning: Citation `activation' on page 3 undefined on input line 39.
-
-
-LaTeX Warning: Citation `max-pooling' on page 3 undefined on input line 41.
-
-[3] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/abstract.tex) [4] (/home/coderius/Documents/git/data-randomness-and-regularities/dc/abstractEN.tex) [6] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/introduction.tex (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+ [3] [4] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/abstract.tex) [5] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/abstractEN.tex) [6] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/introduction.tex (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )) [7]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 87.
-<assets/theory_graph_sin.png, id=262, 462.528pt x 462.528pt>
+<assets/theory_graph_sin.png, id=267, 462.528pt x 462.528pt>
 File: assets/theory_graph_sin.png Graphic file (type png)
 <use assets/theory_graph_sin.png>
 Package pdftex.def Info: assets/theory_graph_sin.png  used on input line 106.
 (pdftex.def)             Requested size: 140.84258pt x 140.84145pt.
-<assets/theory_rp_sin_sm.png, id=264, 405.515pt x 405.515pt>
+<assets/theory_rp_sin_sm.png, id=269, 405.515pt x 405.515pt>
 File: assets/theory_rp_sin_sm.png Graphic file (type png)
 <use assets/theory_rp_sin_sm.png>
 Package pdftex.def Info: assets/theory_rp_sin_sm.png  used on input line 109.
 (pdftex.def)             Requested size: 140.84258pt x 140.84334pt.
-<assets/theory_rp_sin_lg.png, id=265, 405.515pt x 405.515pt>
+<assets/theory_rp_sin_lg.png, id=270, 405.515pt x 405.515pt>
 File: assets/theory_rp_sin_lg.png Graphic file (type png)
 <use assets/theory_rp_sin_lg.png>
 Package pdftex.def Info: assets/theory_rp_sin_lg.png  used on input line 112.
@@ -806,17 +797,17 @@ Overfull \hbox (9.17249pt too wide) detected at line 136
  []
 
 [9 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/theory_graph_sin.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/theory_rp_sin_sm.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/theory_rp_sin_lg.png>]
-<assets/DJI2015-2020_scaled.png, id=304, 783.4068pt x 783.4068pt>
+<assets/DJI2015-2020_scaled.png, id=309, 783.4068pt x 783.4068pt>
 File: assets/DJI2015-2020_scaled.png Graphic file (type png)
 <use assets/DJI2015-2020_scaled.png>
 Package pdftex.def Info: assets/DJI2015-2020_scaled.png  used on input line 180.
 (pdftex.def)             Requested size: 140.84258pt x 140.83978pt.
-<assets/theory_rp_euclidean.png, id=305, 786.2976pt x 786.2976pt>
+<assets/theory_rp_euclidean.png, id=310, 786.2976pt x 786.2976pt>
 File: assets/theory_rp_euclidean.png Graphic file (type png)
 <use assets/theory_rp_euclidean.png>
 Package pdftex.def Info: assets/theory_rp_euclidean.png  used on input line 183.
 (pdftex.def)             Requested size: 140.84258pt x 140.84358pt.
-<assets/theory_rp_maximum.png, id=306, 1102.1175pt x 1102.1175pt>
+<assets/theory_rp_maximum.png, id=311, 1102.1175pt x 1102.1175pt>
 File: assets/theory_rp_maximum.png Graphic file (type png)
 <use assets/theory_rp_maximum.png>
 Package pdftex.def Info: assets/theory_rp_maximum.png  used on input line 186.
@@ -824,7 +815,7 @@ Package pdftex.def Info: assets/theory_rp_maximum.png  used on input line 186.
  [10 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/DJI2015-2020_scaled.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/theory_rp_euclidean.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/theory_rp_maximum.png>] [11] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-34.def
 File: uni-34.def 2013/05/13 UCS: Unicode data U+2200..U+22FF
 ) [12]
-<assets/architecture_diagram.png, id=354, 946.53625pt x 505.89pt>
+<assets/architecture_diagram.png, id=359, 946.53625pt x 505.89pt>
 File: assets/architecture_diagram.png Graphic file (type png)
 <use assets/architecture_diagram.png>
 Package pdftex.def Info: assets/architecture_diagram.png  used on input line 396.
@@ -838,7 +829,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [13 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/architecture_diagram.png>]
-<assets/react_component_structure.png, id=375, 637.38126pt x 306.14375pt>
+<assets/react_component_structure.png, id=380, 637.38126pt x 306.14375pt>
 File: assets/react_component_structure.png Graphic file (type png)
 <use assets/react_component_structure.png>
 Package pdftex.def Info: assets/react_component_structure.png  used on input line 472.
@@ -848,66 +839,66 @@ Package pdftex.def Info: assets/react_component_structure.png  used on input lin
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [14] [15 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/react_component_structure.png>] [16]
-<assets/chaos_graph.png, id=419, 462.528pt x 346.896pt>
+<assets/chaos_graph.png, id=424, 462.528pt x 346.896pt>
 File: assets/chaos_graph.png Graphic file (type png)
 <use assets/chaos_graph.png>
 Package pdftex.def Info: assets/chaos_graph.png  used on input line 596.
 (pdftex.def)             Requested size: 208.65086pt x 156.49014pt.
-<assets/chaos_rp.png, id=420, 722.7pt x 722.7pt>
+<assets/chaos_rp.png, id=425, 722.7pt x 722.7pt>
 File: assets/chaos_rp.png Graphic file (type png)
 <use assets/chaos_rp.png>
 Package pdftex.def Info: assets/chaos_rp.png  used on input line 598.
 (pdftex.def)             Requested size: 142.26576pt x 142.26378pt.
-<assets/period_graph_sin.png, id=422, 462.528pt x 346.896pt>
+<assets/period_graph_sin.png, id=427, 462.528pt x 346.896pt>
 File: assets/period_graph_sin.png Graphic file (type png)
 <use assets/period_graph_sin.png>
 Package pdftex.def Info: assets/period_graph_sin.png  used on input line 615.
 (pdftex.def)             Requested size: 208.65086pt x 156.49014pt.
-<assets/period_rp_sin.png, id=423, 722.7pt x 722.7pt>
+<assets/period_rp_sin.png, id=428, 722.7pt x 722.7pt>
 File: assets/period_rp_sin.png Graphic file (type png)
 <use assets/period_rp_sin.png>
 Package pdftex.def Info: assets/period_rp_sin.png  used on input line 617.
 (pdftex.def)             Requested size: 142.26576pt x 142.26378pt.
  [17 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/chaos_graph.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/chaos_rp.png (PNG copy)>]
-<assets/period_graph_square.png, id=436, 462.528pt x 346.896pt>
+<assets/period_graph_square.png, id=441, 462.528pt x 346.896pt>
 File: assets/period_graph_square.png Graphic file (type png)
 <use assets/period_graph_square.png>
 Package pdftex.def Info: assets/period_graph_square.png  used on input line 639.
 (pdftex.def)             Requested size: 208.65086pt x 156.49014pt.
-<assets/period_rp_square.png, id=437, 722.7pt x 722.7pt>
+<assets/period_rp_square.png, id=442, 722.7pt x 722.7pt>
 File: assets/period_rp_square.png Graphic file (type png)
 <use assets/period_rp_square.png>
 Package pdftex.def Info: assets/period_rp_square.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26576pt x 142.26378pt.
-<assets/period_graph_sawtooth.png, id=439, 462.528pt x 346.896pt>
+<assets/period_graph_sawtooth.png, id=444, 462.528pt x 346.896pt>
 File: assets/period_graph_sawtooth.png Graphic file (type png)
 <use assets/period_graph_sawtooth.png>
 Package pdftex.def Info: assets/period_graph_sawtooth.png  used on input line 650.
 (pdftex.def)             Requested size: 208.65086pt x 156.49014pt.
-<assets/period_rp_sawtooth.png, id=440, 722.7pt x 722.7pt>
+<assets/period_rp_sawtooth.png, id=445, 722.7pt x 722.7pt>
 File: assets/period_rp_sawtooth.png Graphic file (type png)
 <use assets/period_rp_sawtooth.png>
 Package pdftex.def Info: assets/period_rp_sawtooth.png  used on input line 652.
 (pdftex.def)             Requested size: 142.26576pt x 142.26378pt.
  [18 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_graph_sin.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_rp_sin.png (PNG copy)> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_graph_square.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_rp_square.png (PNG copy)>]
-<assets/trend_graph.png, id=457, 462.528pt x 346.896pt>
+<assets/trend_graph.png, id=462, 462.528pt x 346.896pt>
 File: assets/trend_graph.png Graphic file (type png)
 <use assets/trend_graph.png>
 Package pdftex.def Info: assets/trend_graph.png  used on input line 674.
 (pdftex.def)             Requested size: 208.65086pt x 156.49014pt.
-<assets/trend_rp.png, id=458, 722.7pt x 722.7pt>
+<assets/trend_rp.png, id=463, 722.7pt x 722.7pt>
 File: assets/trend_rp.png Graphic file (type png)
 <use assets/trend_rp.png>
 Package pdftex.def Info: assets/trend_rp.png  used on input line 676.
 (pdftex.def)             Requested size: 142.26576pt x 142.26378pt.
  [19 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_graph_sawtooth.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_rp_sawtooth.png (PNG copy)> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/trend_graph.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/trend_rp.png (PNG copy)>]
-<assets/cnn_layers.png, id=472, 1363.0925pt x 681.54625pt>
+<assets/cnn_layers.png, id=477, 1363.0925pt x 681.54625pt>
 File: assets/cnn_layers.png Graphic file (type png)
 <use assets/cnn_layers.png>
 Package pdftex.def Info: assets/cnn_layers.png  used on input line 711.
 (pdftex.def)             Requested size: 398.34418pt x 199.16928pt.
  [20 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/cnn_layers.png>]
-<assets/confusion_matrix.png, id=492, 433.62pt x 289.08pt>
+<assets/confusion_matrix.png, id=497, 433.62pt x 289.08pt>
 File: assets/confusion_matrix.png Graphic file (type png)
 <use assets/confusion_matrix.png>
 Package pdftex.def Info: assets/confusion_matrix.png  used on input line 754.
@@ -921,155 +912,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--146
 \L7x/utm/m/n/12 https://dlabs.ai/blog/performance-comparison-javascript-vs-python-for-machine-learning/,
  []
 
-) [25] [26]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 925.
- [27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 925.
+) [25] [26] [27]
+<assets/website.png, id=560, 288.3573pt x 176.8206pt>
+File: assets/website.png Graphic file (type png)
+<use assets/website.png>
+Package pdftex.def Info: assets/website.png  used on input line 927.
+(pdftex.def)             Requested size: 512.1496pt x 314.09749pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 933.
+ [28 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/website.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 933.
  (/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 925.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 925.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 933.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 933.
 Package rerunfilecheck Info: File `mainDocument.out' has not changed.
-(rerunfilecheck)             Checksum: D6E5C95B87FC73B83D558BB3B9C2A5B9;6528.
+(rerunfilecheck)             Checksum: 26563A166CA8898409B77300065EFA76;6833.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 925.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 933.
  ) 
 Here is how much of TeX's memory you used:
- 23455 strings out of 481239
- 381302 string characters out of 5920377
- 730812 words of memory out of 5000000
- 38127 multiletter control sequences out of 15000+600000
+ 23465 strings out of 481239
+ 381468 string characters out of 5920377
+ 730884 words of memory out of 5000000
+ 38134 multiletter control sequences out of 15000+600000
  576742 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,11n,87p,1111b,1226s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,11n,87p,1111b,1227s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lithuanian/latin7x.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf (27 pages, 1276700 bytes).
+Output written on /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf (28 pages, 1402295 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
- 544 compressed objects within 6 object streams
- 168 named destinations out of 1000 (max. 500000)
- 13730 words of extra memory for PDF output out of 14400 (max. 10000000)
-
-NG copy)>]
-
-LaTeX Warning: Reference `fig:generated_trend' on page 18 undefined on input line 668.
-
-<assets/trend_graph.png, id=201, 462.528pt x 346.896pt>
-File: assets/trend_graph.png Graphic file (type png)
-<use assets/trend_graph.png>
-Package pdftex.def Info: assets/trend_graph.png  used on input line 674.
-(pdftex.def)             Requested size: 208.65086pt x 156.49014pt.
-<assets/trend_rp.png, id=202, 722.7pt x 722.7pt>
-File: assets/trend_rp.png Graphic file (type png)
-<use assets/trend_rp.png>
-Package pdftex.def Info: assets/trend_rp.png  used on input line 676.
-(pdftex.def)             Requested size: 142.26576pt x 142.26378pt.
-[18 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_graph_sawtooth.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/period_rp_sawtooth.png (PNG copy)> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/trend_graph.png> </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/trend_rp.png (PNG copy)>]
-
-LaTeX Warning: Citation `brusilovsky:simonyan2014very' on page 19 undefined on input line 702.
-
-<assets/cnn_layers.png, id=217, 1363.0925pt x 681.54625pt>
-File: assets/cnn_layers.png Graphic file (type png)
-<use assets/cnn_layers.png>
-Package pdftex.def Info: assets/cnn_layers.png  used on input line 711.
-(pdftex.def)             Requested size: 398.34418pt x 199.16928pt.
-
-LaTeX Warning: Citation `recent_advances_in_cnn' on page 19 undefined on input line 719.
-
-
-LaTeX Warning: Citation `understanding_cnn' on page 19 undefined on input line 721.
-
-
-LaTeX Warning: Reference `fig:generated_periodic_sin' on page 19 undefined on input line 723.
-
-
-LaTeX Warning: Citation `brusilovsky:simonyan2014very' on page 19 undefined on input line 725.
-
-
-LaTeX Warning: Citation `overfitting' on page 19 undefined on input line 730.
-
-[19 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/cnn_layers.png>]
-
-LaTeX Warning: Citation `dropout' on page 20 undefined on input line 734.
-
-
-LaTeX Warning: Reference `fig:cnn_layers' on page 20 undefined on input line 736.
-
-
-LaTeX Warning: Citation `sequential' on page 20 undefined on input line 742.
-
-
-LaTeX Warning: Reference `fig:cnn_layers' on page 20 undefined on input line 743.
-
-
-LaTeX Warning: Reference `fig:cnn_layers' on page 20 undefined on input line 745.
-
-<assets/confusion_matrix.png, id=226, 433.62pt x 289.08pt>
-File: assets/confusion_matrix.png Graphic file (type png)
-<use assets/confusion_matrix.png>
-Package pdftex.def Info: assets/confusion_matrix.png  used on input line 754.
-(pdftex.def)             Requested size: 298.75482pt x 199.16928pt.
-
-LaTeX Warning: Reference `sec:hardware' on page 20 undefined on input line 762.
-
-
-LaTeX Warning: Reference `fig:confusion_matrix' on page 20 undefined on input line 766.
-
-[20 </home/coderius/Documents/git/data-randomness-and-regularities/doc/assets/confusion_matrix.png>] [21] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/conclusions.tex) [22] (/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.bbl [23
-
-] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
-File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-)
-Underfull \hbox (badness 10000) in paragraph at lines 140--146
-\L7x/utm/m/n/12 https://dlabs.ai/blog/performance-comparison-javascript-vs-python-for-machine-learning/,
- []
-
-) [24]
-
-LaTeX Warning: Reference `app:pixel_calibration' on page 25 undefined on input line 893.
-
-[25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 925.
- [26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 925.
- (/home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 925.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 925.
-
-
-Package rerunfilecheck Warning: File `mainDocument.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `mainDocument.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  3B9AEAA812AED898F8EE7668AA967629;6259.
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 925.
- ) 
-Here is how much of TeX's memory you used:
- 23410 strings out of 481239
- 380445 string characters out of 5920377
- 727603 words of memory out of 5000000
- 38085 multiletter control sequences out of 15000+600000
- 575200 words of font info for 104 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 53i,11n,87p,1111b,1222s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lithuanian/latin7x.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/coderius/Documents/git/data-randomness-and-regularities/doc/mainDocument.pdf (26 pages, 1269813 bytes).
-PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 312 compressed objects within 4 object streams
- 167 named destinations out of 1000 (max. 500000)
- 13418 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 646 PDF objects out of 1000 (max. 8388607)
+ 554 compressed objects within 6 object streams
+ 170 named destinations out of 1000 (max. 500000)
+ 13743 words of extra memory for PDF output out of 14400 (max. 10000000)
 
