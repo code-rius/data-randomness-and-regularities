@@ -136,26 +136,38 @@ app.get('/plot_image/:id', (req, res) => {
       return res.status(404).send()
     }
 
+    let classifications = {
+      periodic: 0,
+      trend: 0,
+      chaotic: 0
+    }
     // Assigning Query Parameters if any
     plotdata.M = (req.query.M === undefined) ? plotdata.M : req.query.M
     plotdata.N = (req.query.N === undefined) ? plotdata.N : req.query.N
     plotdata.compareMode = (req.query.compareMode === undefined) ? plotdata.compareMode : req.query.compareMode
     plotdata.deviation = (req.query.deviation === undefined) ? plotdata.deviation : req.query.deviation
-
     fetch(process.env.RECURRENCE_PLOT_IMAGE_ENDPOINT_URL, {
       method: 'post',
       body: JSON.stringify(plotdata),
       headers: { 'Content-Type': 'application/json' }
     }).then(resp => {
+      try {
+        classifications.periodic = resp.headers.get('X-periodic')
+        classifications.trend = resp.headers.get('X-trend')
+        classifications.chaotic = resp.headers.get('X-chaotic')
+      } catch (e) {
+        console.log(e)
+      }
       return resp.buffer()
     }).then(buff => {
       fs.writeFile('./public/' + process.env.PLOT_IMAGE_NAME, buff, () =>{
         res.type('application/json');
         res.status(200)
-        .send( {'fileUrl' : process.env.PLOT_IMAGE_NAME} )
+          .send({ 'fileUrl': process.env.PLOT_IMAGE_NAME, classifications: classifications} )
       })
     }).catch(e => {
-      res.status(500).send()
+      console.log(e)
+      res.status(500).send('Bad request')
     })
   }).catch(e => {
     res.status(500).send(e)

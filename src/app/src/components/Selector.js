@@ -4,13 +4,16 @@ import './Selector.scss'
 const fetch = require('node-fetch')
 const querystring = require('querystring');
 
-const Selector = ({ updatePlot}) => {
+const Selector = ({ updatePlot }) => {
   const [plotDatas, setPlotDatas] = useState([])
   const [selectedID, setSelectedID] = useState({_id:''})
   const [compareMode, setCompareMode] = useState('1')
   const [M, setM] = useState('3')
   const [N, setN] = useState('2')
   const [deviation, setDeviation] = useState('1')
+  const [chaotic, setChaotic] = useState('')
+  const [periodic, setPeriodic] = useState('')
+  const [trending, setTrending] = useState('')
 
   const handleM = (event) => {
     if (!event.target.value) {
@@ -33,6 +36,16 @@ const Selector = ({ updatePlot}) => {
     setDeviation(event.target.value)
   }
 
+  const updateClassifications = (classifications) => {
+    setChaotic(numberToPercentage(classifications.chaotic))
+    setPeriodic(numberToPercentage(classifications.periodic))
+    setTrending(numberToPercentage(classifications.trend))
+  }
+
+  const numberToPercentage = (inputNumber) => {
+    return String(Math.round(inputNumber*10000)/100)+ '%'
+  }
+
   const handleSubmit = async () => {
     updatePlot('')
     const query = "?" + querystring.stringify({ M, N, compareMode, deviation })
@@ -44,6 +57,8 @@ const Selector = ({ updatePlot}) => {
       if (json.fileUrl){
         const url = process.env.REACT_APP_GET_PLOT_BASE_URL + json.fileUrl + '?' + Date.now()
         updatePlot(url)
+        updateClassifications(json.classifications)
+        console.log(json)
       } else {
         console.log('No plot data image received.')
       }
@@ -123,6 +138,20 @@ const Selector = ({ updatePlot}) => {
         <button className='button-submit' onClick={handleSubmit}>
           Plot!
         </button>
+      </div>
+      <div className='field multi--data--classification'>
+        <div className='column'>
+          <h3>Periodic</h3>
+          <h3 className='percentage'>{periodic}</h3>
+        </div>
+        <div className='column'>
+          <h3>Trending</h3>
+          <h3 className='percentage'>{trending}</h3>
+        </div>
+        <div className='column'>
+          <h3>Chaotic</h3>
+          <h3 className='percentage'>{chaotic}</h3>
+        </div>
       </div>
     </div>
   )

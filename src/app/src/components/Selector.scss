@@ -51,4 +51,21 @@
     }
 
   }
+
+  .multi--data--classification {
+    display:grid;
+    grid-gap: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+    .column {
+      text-align: center;
+      grid-template-rows: 1fr 1fr;
+
+      .percentage {
+        color: black;
+      }
+    }
+
+  }
 }
