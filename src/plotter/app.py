@@ -1,12 +1,18 @@
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import numpy as np
-from recurrence_plot import RecurrencePlot as rp
 import csv
 import os
-import json
+import shutil
+import random
+from scipy import signal as sg
+from recurrence_plot import RecurrencePlot as rp
 csvData=[]
 
-time = np.arange(0, 180 , 0.3)
-amplitude = np.round(np.sin(time), 5)
+plt.rcParams.update({'font.size': 16})
+
+time = np.arange(0, 20, 0.05)
+amplitude = np.round(np.sin(time), 10)
 path = os.path.dirname(os.path.realpath(__file__))
 
 with open(path + "/assets/DJI.csv") as csvfile:
@@ -16,6 +22,16 @@ with open(path + "/assets/DJI.csv") as csvfile:
         csvData.append(float(row[4]))
         if (len(csvData)>=720): break
 
-dow = rp(3 , 2, csvData, 1)
+dow = rp(1, 1, csvData, 1, 17.5, 0)
 
 dow.draw_diagram()
+print(dow.r)
+
+title = "Generated sine signal"
+fig, ax = plt.subplots()  # Create a figure containing a single axes.
+
+ax.plot(list(range(len(csvData))), csvData)  # Plot data on the axes.
+ax.set_title(title)
+ax.grid()
+
+plt.savefig('plotgraph.png')

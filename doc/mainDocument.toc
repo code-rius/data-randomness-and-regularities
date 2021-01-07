@@ -1,36 +1,38 @@
 \babel@toc {english}{}
-\contentsline {section}{\nameref {sec:keywords}}{3}{section*.2}%
-\contentsline {section}{Abstract}{4}{section*.3}%
-\contentsline {section}{Santrauka}{5}{section*.4}%
-\contentsline {section}{\nameref {sec:intro}}{6}{section*.5}%
-\contentsline {section}{\numberline {1}Data randomness and regularities}{7}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Problem task}{7}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Web application development}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Analysis of analogous tools}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Architecture}{8}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Project structure}{8}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Project workflow}{9}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Microservices}{9}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Front end microservice}{10}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Back end microservice}{11}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Plotter microservice}{11}{subsubsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.4}Recurrence plot module}{11}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Data classification model}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Tools and libraries}{12}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Hardware specifications}{12}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Generating training data}{12}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Training data methodologies}{12}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Choosing classification features}{12}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Chaotic signal}{13}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Periodic signal}{13}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Signal with a trend}{15}{subsubsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.3}Data preprocessing}{15}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Convolutional neural network}{16}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}CNN layers structure}{17}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Training and testing the CNN}{17}{subsubsection.3.4.2}%
-\contentsline {section}{\nameref {sec:conclu}}{18}{section*.15}%
-\contentsline {section}{\nameref {sec:future}}{19}{section*.16}%
-\contentsline {section}{References}{20}{section*.17}%
-\contentsline {section}{Appendices}{22}{section*.19}%
-\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{23}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{24}{appendix.1.B}%
+\contentsline {section}{\nameref {sec:keywords}}{4}{section*.2}%
+\contentsline {section}{Abstract}{5}{section*.3}%
+\contentsline {section}{Santrauka}{6}{section*.4}%
+\contentsline {section}{\nameref {sec:intro}}{7}{section*.5}%
+\contentsline {section}{\numberline {1}Data randomness and regularities}{8}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Signal data}{8}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Recurrence plot}{8}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Recurrence plot parameters}{9}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Comparing signal states}{10}{subsubsection.1.2.2}%
+\contentsline {section}{\numberline {2}Web application development}{11}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Analysis of analogous tools}{11}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Architecture}{11}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Project structure}{11}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Project workflow}{12}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Microservices}{12}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Front end microservice}{13}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Back end microservice}{14}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Plotter microservice}{14}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Recurrence plot module}{14}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Data classification model}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Tools and libraries}{15}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Hardware specifications}{15}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Generating training data}{15}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Training data methodologies}{15}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Choosing classification features}{15}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Chaotic signal}{16}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Periodic signal}{16}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Signal with a trend}{18}{subsubsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.3}Data preprocessing}{18}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Convolutional neural network}{19}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}CNN layers structure}{20}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Training and testing the CNN}{20}{subsubsection.3.4.2}%
+\contentsline {section}{\nameref {sec:conclu}}{21}{section*.17}%
+\contentsline {section}{References}{22}{section*.18}%
+\contentsline {section}{Appendices}{24}{section*.20}%
+\contentsline {section}{\numberline {A}Pirmojo priedo pavadinimas}{25}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Antrojo priedo pavadinimas}{26}{appendix.1.B}%

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plot
 import numpy as np
 import timeit
 from scipy import signal
-from PIL import Image
+from PIL import Image, ImageOps
 
 
 class RecurrencePlot:

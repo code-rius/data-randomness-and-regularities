@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{yahoo-finance}
+Yahoo finance - dow jones industrial average historical data.
+\newblock \newline{}https://finance.yahoo.com/quote/%5EDJI/history?p=%5EDJI,
+  2020.
+\newblock [Online; accessed 14-Nov-2021].
+
 \bibitem{express}
 Expressjs - nodejs web application frameowrk.
 \newblock \newline{}https://github.com/expressjs/expressjs.com, 2021.
@@ -124,6 +130,12 @@ Norbert Marwan.
 \newblock Recurrence plots and cross recurrence plots.
 \newblock \newline{}http://recurrence-plot.tk/online/index.php.
 \newblock [Online; accessed 2-Jan-2021].
+
+\bibitem{priemer1990introductory}
+R.~Priemer.
+\newblock {\em Introductory Signal Processing}.
+\newblock Advanced Series In Electrical And Computer Engineering. World
+  Scientific Publishing Company, 1990.
 
 \bibitem{brusilovsky:simonyan2014very}
 Karen Simonyan and Andrew Zisserman.
