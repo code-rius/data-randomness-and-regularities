@@ -29,7 +29,21 @@
 
 
 %keywords and notations if needed
-\sectionWithoutNumber{Keywords}{keywords}{Pateikiamas terminų sąrašas (jei reikia)}
+\sectionWithoutNumber{Term dictionary}{Term dictionary}{
+  \textbf{CNN} - A subset of Neural Networks that include convolutional layers.
+  \newline
+  \textbf{Microservices} - is a distinctive and organizational approach to software development where the focus is on building single-function modules with well-defined interface and operations. Small, self-contained teams own these modules~\cite{microservices}.
+  \newline
+  \textbf{Data model} - in the context of machine learning - the final "thing" that results from training a neural network model. It is a collection of layers, and trained weights and biases.
+  \newline
+  \textbf{Activation function} - in the context of machine learning a function which outputs a small value for small inputs, and a larger value en input exceeding a given threshold~\cite{activation}.
+  \newline
+  \textbf{Max pooling} - in the context of machine learning, a function to progressively decrease the spatial size of the representation to reduce the amount of parameters and computation in the network~\cite{max-pooling}.
+  \newline
+  \textbf{JSX} - a syntax extension to JavaScript most commonly used in ReactJs applications.
+  \newline
+  \textbf{JSON} - a JavaScript Object Notation. A popular data-interexchange format.
+}
 
 %both abstracts
 \bothabstracts{\input{abstract}}%tex-file of abstract in original language
@@ -749,7 +763,7 @@ Model was trained in 10 epochs, each taking about 27 seconds to train, running o
 
 After 7 our of 10 epochs the model seems to be performing at a 100\% accuracy.
 Testing the model with novel data yields the same results.
-Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of predicting the charactestics of recurrence plot data before unseen to the model. Looking at the first column and first row of the matrix, we can identify that 50 out of 50 images were classified as periodic. The same apllies for trending and chaotic samples. This indicates that the model performs very well on this type of data.
+Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of predicting the charactestics of recurrence plot data before unseen to the model. Looking at the first column and first row of the matrix, we can identify that 50 out of 50 images were classified as periodic. The same apllies for trending and chaotic samples. This indicates that the model performs very well on this type of data. Such a high accuracy may be an idication of overfitting.
 
 
 
@@ -878,7 +892,7 @@ Figure~\ref{fig:confusion_matrix} confusion matrix illustrates the results of pr
 \begin{appendices}
   The paper contains appendicy \ref{app:pixel_calibration}. It displays a programatic solution to calibrating pixel percentage implemented in Python programming language.
   \newpage
-  \section{Callibrating recurrence plot threshold \code{r}}
+  \section{Calibrating recurrence plot threshold \code{r}}
   \begin{lstlisting}[caption={Pixel percentage calibration}]
 def calibrate_r(input_data, pixel_percentage_target, allowerd_deviation):
   # Initialize variables

@@ -3,6 +3,9 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: mainDocument.aux
 The style file: plain.bst
 Database file #1: literatureSources.bib
+Warning--to sort, need author or key in microservices
+Warning--to sort, need author or key in activation
+Warning--to sort, need author or key in max-pooling
 Warning--to sort, need author or key in yahoo-finance
 Warning--to sort, need author or key in express
 Warning--to sort, need author or key in flask
@@ -19,45 +22,45 @@ Warning--to sort, need author or key in keras
 Warning--to sort, need author or key in scikit-learn
 Warning--to sort, need author or key in dropout
 Warning--to sort, need author or key in sequential
-You've used 26 entries,
+You've used 29 entries,
             2118 wiz_defined-function locations,
-            610 strings with 8085 characters,
-and the built_in function-call counts, 5793 in all, are:
-= -- 571
-> -- 170
+            622 strings with 8569 characters,
+and the built_in function-call counts, 6309 in all, are:
+= -- 625
+> -- 173
 < -- 1
-+ -- 79
++ -- 82
 - -- 52
-* -- 286
-:= -- 850
-add.period$ -- 82
-call.type$ -- 26
-change.case$ -- 102
+* -- 304
+:= -- 910
+add.period$ -- 91
+call.type$ -- 29
+change.case$ -- 111
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 219
-empty$ -- 613
+cite$ -- 48
+duplicate$ -- 240
+empty$ -- 682
 format.name$ -- 52
-if$ -- 1321
+if$ -- 1450
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 29
 missing$ -- 9
-newline$ -- 136
+newline$ -- 151
 num.names$ -- 20
-pop$ -- 201
+pop$ -- 225
 preamble$ -- 1
-purify$ -- 78
+purify$ -- 84
 quote$ -- 0
-skip$ -- 167
+skip$ -- 185
 stack$ -- 0
-substring$ -- 215
-swap$ -- 32
+substring$ -- 230
+swap$ -- 35
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
-warning$ -- 16
+type$ -- 112
+warning$ -- 19
 while$ -- 25
-width$ -- 28
-write$ -- 272
-(There were 16 warnings)
+width$ -- 31
+write$ -- 302
+(There were 19 warnings)

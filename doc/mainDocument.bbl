@@ -1,5 +1,24 @@
 \begin{thebibliography}{10}
 
+\bibitem{max-pooling}
+Convolutional neural networks (cnns / convnets).
+\newblock \newline{}https://cs231n.github.io/convolutional-networks/, 2020.
+\newblock [Online; accessed 2-Jan-20201].
+
+\bibitem{microservices}
+What is an activation function?
+\newblock
+  \newline{}https://deepai.org/machine-learning-glossary-and-terms/activation-function,
+  2020.
+\newblock [Online; accessed 18-Dec-2020].
+
+\bibitem{activation}
+What is microservices? a complete guide of microservices architecture.
+\newblock
+  \newline{}https://www.cloudmanagementinsider.com/what-is-microservices/,
+  2020.
+\newblock [Online; accessed 14-Dec-2020].
+
 \bibitem{yahoo-finance}
 Yahoo finance - dow jones industrial average historical data.
 \newblock \newline{}https://finance.yahoo.com/quote/%5EDJI/history?p=%5EDJI,

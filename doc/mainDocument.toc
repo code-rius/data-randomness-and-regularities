@@ -1,5 +1,5 @@
 \babel@toc {english}{}
-\contentsline {section}{\nameref {sec:keywords}}{4}{section*.2}%
+\contentsline {section}{\nameref {sec:Term dictionary}}{4}{section*.2}%
 \contentsline {section}{Abstract}{5}{section*.3}%
 \contentsline {section}{Santrauka}{6}{section*.4}%
 \contentsline {section}{\nameref {sec:intro}}{7}{section*.5}%
@@ -37,4 +37,4 @@
 \contentsline {section}{\nameref {sec:conclu}}{23}{section*.17}%
 \contentsline {section}{References}{24}{section*.18}%
 \contentsline {section}{Appendices}{26}{section*.20}%
-\contentsline {section}{\numberline {A}Callibrating recurrence plot threshold \texttt {r}}{27}{appendix.1.A}%
+\contentsline {section}{\numberline {A}Calibrating recurrence plot threshold \texttt {r}}{27}{appendix.1.A}%
