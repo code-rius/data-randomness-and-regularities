@@ -2,7 +2,7 @@ import flask, os
 import numpy as np
 import tensorflow as tf
 
-from flask import request, send_file, jsonify
+from flask import request, send_file, make_response, jsonify
 from recurrence_plot import RecurrencePlot as rp
 
 from keras.models import Sequential, load_model
@@ -11,6 +11,7 @@ from PIL import Image
 
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
+image_filename = 'recurrence_plot_image.png'
 
 path = os.path.dirname(os.path.realpath(__file__))
 def enable_gpu():
@@ -40,22 +41,7 @@ get_model()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    im = Image.open('plotpic.png')
-
-    processed_image = preprocess_image(im, target_size=(224, 224))
-    prediction = model.predict(processed_image).tolist()
-
-    print(prediction)
-
-    response = {
-        'prediction':{
-            'periodic': prediction[0][0],
-            'trend':prediction[0][1],
-            'chaotic': prediction[0][2]
-        }
-    }
-
-    return jsonify(response)
+    return jsonify('Hello world!')
 
 
 
@@ -82,9 +68,21 @@ def plot_image():
     M, N, compareMode = body['M'], body['N'], body['compareMode']
 
     rec_plot = rp(M, N, data_floats, compareMode)
-    image = rec_plot.draw_diagram()
+    rec_plot.draw_diagram(image_filename)
+    response = make_response(
+        send_file(image_filename, attachment_filename=image_filename, mimetype='image/png'))
 
-    return send_file(image, attachment_filename=image, mimetype='image/png')
+    im = Image.open(image_filename)
+
+    processed_image = preprocess_image(im, target_size=(224, 224))
+    prediction = model.predict(processed_image).tolist()
+    print(prediction)
+    
+    response.headers['X-periodic'] = np.round(prediction[0][0], 5)
+    response.headers['X-trend'] = np.round(prediction[0][1], 5)
+    response.headers['X-chaotic'] = np.round(prediction[0][2], 5)
+
+    return response
 
 
 app.run(port=5000)

@@ -93,7 +93,7 @@ class RecurrencePlot:
         self.similarities = similarities
         self.get_pixel_percentage()
 
-    def draw_diagram(self):
+    def draw_diagram(self, filename = "plotpic.png"):
         drawArray = self.similarities
 
         # Fill in the missing data triangle
@@ -109,9 +109,9 @@ class RecurrencePlot:
             pixels[i[0], self.M-i[1]-1] = (0, 0, 0)
 
         # Save the image
-        img.save('plotpic.png')
+        img.save(filename)
         
-        return 'plotpic.png'
+        return filename
 
     def get_pixel_percentage(self):
         # We must first remove a single row of of data from both sides (self.M)
